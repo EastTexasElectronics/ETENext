@@ -7,14 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.blue,
-        secondary: colors.blue,
+        primary: colors.blue, // You might want to specify a shade here, like colors.blue[500]
+        secondary: colors.amber, // Changed to amber for an actual secondary color; adjust as needed
       },
       fontFamily: {
         sans: ['var(--font-custom)', ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
-  darkMode: 'class',
+  // Combined the plugins into a single array
+  plugins: [require('@tailwindcss/typography'), require("daisyui")],
+  darkMode: 'class', // Ensures dark mode is enabled and can be toggled
 };
