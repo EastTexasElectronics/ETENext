@@ -16,9 +16,7 @@ module.exports = {
     },
   },
 
-  plugins: [require('@tailwindcss/typography'), require('daisyui')],
-  daisyui: {
-    themes: ['light', 'dark', 'cupcake'],
-  },
-  darkMode: 'class', // Ensures dark mode is enabled and can be toggled
+  plugins: [require('@tailwindcss/typography')],
+
+  darkMode: 'class',
 };
