@@ -1,5 +1,5 @@
 import React from 'react';
-import SignInForm from '../../src/components/widgets/SignInForm';
+// import SignInForm from '../../src/components/widgets/SignInForm';
 
 export default function AuthRoute() {
   return (
@@ -7,7 +7,7 @@ export default function AuthRoute() {
       <div className="card-normal w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Sign In</h2>
-          <SignInForm />
+          {/* <SignInForm /> */}
         </div>
       </div>
     </div>
