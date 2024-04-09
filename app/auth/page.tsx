@@ -1,28 +1,15 @@
-import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
-import { authOptions } from '../utils/auth';
 import React from 'react';
+import SignInForm from '../../src/components/widgets/SignInForm';
 
-
-export default async function AuthRoute() {
-  const session = await getServerSession(authOptions);
-  if (session) {
-    return redirect('/');
-  }
-
-  interface CardProps {
-    title: string;
-    children: React.ReactNode;
-  }
-
-  const Card: React.FC<CardProps> = ({ title, children }) => {
-    return (
-      <div className="card w-96 bg-base-100 shadow-xl">
+export default function AuthRoute() {
+  return (
+    <div className="flex h-screen items-center justify-center p-4">
+      <div className="card-normal w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title">{title}</h2>
-          {children}
+          <h2 className="card-title">Sign In</h2>
+          <SignInForm />
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 }
