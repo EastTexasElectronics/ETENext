@@ -22,7 +22,7 @@ const SignInForm: React.FC = () => {
               <span>Microsoft</span>
             </button>
             <button className="flex w-1/2 items-center justify-center gap-2 rounded-md py-1 font-bold">
-              <IconBrandGoogle size={24} />
+              <IconBrandGoogle size={24}/>
               <span>Google</span>
             </button>
             <button className="flex w-1/2 items-center justify-center gap-2 rounded-md py-1 font-bold">
