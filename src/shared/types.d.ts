@@ -99,6 +99,7 @@ type FormProps = {
   btn: Button;
   btnPosition?: 'center' | 'right' | 'left';
   containerClass?: string;
+  preferredContact?: PreferredContactMethod;
 };
 
 type Image = {
@@ -112,7 +113,7 @@ type Item = {
   description?: string | Array<string>;
   href?: string;
   form?: SmallForm;
-  icon?: Icon;
+  icon?: Icon | string;
   callToAction?: CallToActionType;
 };
 

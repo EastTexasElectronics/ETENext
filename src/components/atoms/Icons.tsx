@@ -7,7 +7,6 @@ type IconType = {
   [key: string]: ComponentType<SVGProps<SVGSVGElement>> | string; // string type for SVG paths
 };
 
-// Updated dynamic imports with ComponentType
 const dynamicIcons: IconType = {
   twitter: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandTwitter)),
   github: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandGithub)),
@@ -63,6 +62,7 @@ const dynamicIcons: IconType = {
   rocket: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconRocket)),
   calendarEvent: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconCalendarEvent)),
   chevronsRight: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconChevronsRight)),
+  urgent: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconUrgent)),
   microsoftColor,
   googleColor,
 };

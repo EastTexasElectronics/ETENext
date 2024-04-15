@@ -1,7 +1,13 @@
+import Image from 'next/image';
+
 const Logo = () => (
-  <span className="ml-2 self-center whitespace-nowrap text-2xl font-bold text-gray-900 dark:text-white md:text-xl">
-    East Texas Electronics
-  </span>
+  <Image
+    src="\Logo_1_Blue_White.svg"
+    alt="East Texas Electronics, LLC. Logo"
+    width={450}
+    height={0}
+    className="inline-block ml-2"
+  />
 );
 
 export default Logo;

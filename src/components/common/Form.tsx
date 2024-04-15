@@ -9,6 +9,7 @@ const Form = ({
   description,
   inputs,
   radioBtns,
+  preferredContact,
   textarea,
   checkboxes,
   btn,
@@ -17,6 +18,7 @@ const Form = ({
 }: FormProps) => {
   const [inputValues, setInputValues] = useState([]);
   const [radioBtnValue, setRadioBtnValue] = useState('');
+  const [preferredContactValue, setPreferredContactValue] = useState('');
   const [textareaValues, setTextareaValues] = useState('');
   const [checkedState, setCheckedState] = useState<boolean[]>(new Array(checkboxes && checkboxes.length).fill(false));
 
@@ -33,6 +35,11 @@ const Form = ({
   // Update checked radio buttons
   const changeRadioBtnsHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRadioBtnValue(event.target.value);
+  };
+
+  // Update checked radio buttons
+  const changePreferredContactHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPreferredContactValue(event.target.value);
   };
 
   // Update the textarea value
@@ -101,6 +108,31 @@ const Form = ({
             </div>
           </div>
         )}
+        {/* preferredContact buttons */}
+        {preferredContact && (
+          <div className="mx-0 mb-1 sm:mb-3">
+            <span className="pb-1 text-xs uppercase tracking-wider">{preferredContact?.label}</span>
+            <div className="flex flex-wrap">
+              {preferredContact.radios.map(({ label }, index) => (
+                <div key={`radio-btn-${index}`} className="mr-4 items-baseline">
+                  <input
+                    id={label}
+                    type="radio"
+                    name={label}
+                    value={`value${index}`}
+                    checked={preferredContactValue === `value${index}`}
+                    onChange={changePreferredContactHandler}
+                    className="cursor-pointer"
+                  />
+                  <label htmlFor={label} className="ml-2">
+                    {label}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Textarea */}
         {textarea && (
           <div className={`mx-0 mb-1 sm:mb-4`}>
