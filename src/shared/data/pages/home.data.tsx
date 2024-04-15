@@ -29,14 +29,7 @@ import {
   TeamProps,
   TestimonialsProps,
 } from '../../types';
-import heroImg from '~/assets/images/Need-Support-Banner.webp';
-import nextJsLogo from '~/assets/images/nextjs-logo.png';
-import reactLogo from '~/assets/images/react-logo.png';
-import tailwindCssLogo from '~/assets/images/tailwind-css-logo.png';
-import typescriptLogo from '~/assets/images/typescript-logo.png';
-import cameraFrontImg from '~/assets/images/camera-front.jpg';
-import cameraBackImg from '~/assets/images/camera-back.jpg';
-import gasImg from '~/assets/images/gas.jpg';
+
 
 // Hero data on Home page *******************
 export const heroHome: HeroProps = {
@@ -62,39 +55,39 @@ export const heroHome: HeroProps = {
     text: 'Learn More',
     href: '/about',
   },
-  image: {
-    src: heroImg,
-    alt: 'Support Banner',
-  },
+  // image: {
+  //   src: heroImg,
+  //   alt: 'Support Banner',
+  // },
 };
 
 // SocialProof data on Home page *******************
-export const socialProofHome: SocialProofProps = {
-  id: 'socialProof-on-home',
-  hasBackground: false,
-  images: [
-    {
-      link: 'https://nextjs.org/',
-      src: nextJsLogo,
-      alt: 'NextJs Logo',
-    },
-    {
-      link: 'https://react.dev/',
-      src: reactLogo,
-      alt: 'React Logo',
-    },
-    {
-      link: 'https://tailwindcss.com/',
-      src: tailwindCssLogo,
-      alt: 'Tailwind CSS Logo',
-    },
-    {
-      link: 'https://www.typescriptlang.org/',
-      src: typescriptLogo,
-      alt: 'Typescript Logo',
-    },
-  ],
-};
+// export const socialProofHome: SocialProofProps = {
+//   id: 'socialProof-on-home',
+//   hasBackground: false,
+//   images: [
+//     {
+//       link: 'https://nextjs.org/',
+//       src: nextJsLogo,
+//       alt: 'NextJs Logo',
+//     },
+//     {
+//       link: 'https://react.dev/',
+//       src: reactLogo,
+//       alt: 'React Logo',
+//     },
+//     {
+//       link: 'https://tailwindcss.com/',
+//       src: tailwindCssLogo,
+//       alt: 'Tailwind CSS Logo',
+//     },
+//     {
+//       link: 'https://www.typescriptlang.org/',
+//       src: typescriptLogo,
+//       alt: 'Typescript Logo',
+//     },
+//   ],
+// };
 
 // Features data on Home page *******************
 export const featuresHome: FeaturesProps = {
@@ -203,10 +196,10 @@ export const contentHomeOne: ContentProps = {
         'At sed possim oporteat probatus, justo graece ne nec, minim commodo legimus ut vix. Ut eos iudico quando soleat, nam modus.',
     },
   ],
-  image: {
-    src: cameraFrontImg,
-    alt: 'Colorful Image',
-  },
+  // image: {
+  //   src: cameraFrontImg,
+  //   alt: 'Colorful Image',
+  // },
   isReversed: false,
   isAfterContent: false,
 };
@@ -237,10 +230,10 @@ export const contentHomeTwo: ContentProps = {
       title: 'Nulla omittam sadipscing mel ne',
     },
   ],
-  image: {
-    src: cameraBackImg,
-    alt: 'Colorful Image',
-  },
+  // image: {
+  //   src: cameraBackImg,
+  //   alt: 'Colorful Image',
+  // },
   isReversed: true,
   isAfterContent: true,
 };
@@ -251,10 +244,10 @@ export const stepsHome: StepsProps = {
   hasBackground: false,
   isReversed: false,
   isImageDisplayed: true,
-  image: {
-    src: gasImg,
-    alt: 'Steps image',
-  },
+  // image: {
+  //   src: gasImg,
+  //   alt: 'Steps image',
+  // },
   header: {
     title: 'Sed ac magna sit amet risus tristique interdum.',
   },
