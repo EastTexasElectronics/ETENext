@@ -62,10 +62,10 @@ export const heroHome: HeroProps = {
     text: 'Learn More',
     href: '/about',
   },
-  // image: {
-  //   src: heroImg,
-  //   alt: 'Support Banner',
-  // },
+  image: {
+    src: heroImg,
+    alt: 'Support Banner',
+  },
 };
 
 // SocialProof data on Home page *******************
