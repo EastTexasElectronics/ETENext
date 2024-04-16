@@ -1,21 +1,22 @@
+import { ComponentType, ReactElement, ReactNode, SVGProps } from 'react';
 import { StaticImageData } from 'next/image';
-import { ReactElement } from 'react';
 
 type Widget = {
   id?: string;
-  /** Does it have a background? */
   hasBackground?: boolean;
 };
 
 type WrapperTagProps = Widget & {
-  children: React.ReactNode;
+  children: ReactNode;
   containerClass?: string;
 };
 
 type BackgroundProps = {
-  children?: React.ReactNode;
+  children?: ReactNode;
   hasBackground?: boolean;
 };
+
+type Icon = React.ComponentType<React.ComponentProps<'svg'>>;
 
 type Header = {
   title?: string | ReactElement;
@@ -30,8 +31,6 @@ type HeadlineProps = {
   titleClass?: string;
   subtitleClass?: string;
 };
-
-type Icon = React.ComponentType<React.ComponentProps<'svg'>>;
 
 type CallToActionType = {
   text?: string;
@@ -99,7 +98,6 @@ type FormProps = {
   btn: Button;
   btnPosition?: 'center' | 'right' | 'left';
   containerClass?: string;
-  preferredContact?: PreferredContactMethod;
 };
 
 type Image = {
@@ -176,10 +174,11 @@ type Testimonial = {
 };
 
 type Link = {
-  label?: string;
+  label: string;
   href?: string;
-  ariaLabel?: string;
   icon?: Icon;
+  links?: Array<Link>; // This is the new recursive reference for nested links.
+  ariaLabel?: string;
 };
 
 type Price = {
@@ -200,10 +199,6 @@ type Column = {
   callToAction?: CallToActionType;
 };
 
-type MenuLink = Link & {
-  links?: Array<Link>;
-};
-
 type Links = {
   title?: string;
   links?: Array<Link>;
@@ -216,7 +211,7 @@ type Tab = {
 };
 
 type Dropdown = {
-  options: Tab[];
+  options: Array<Tab>;
   activeTab: number;
   onActiveTabSelected: Function;
   iconUp?: ReactElement;
@@ -224,7 +219,7 @@ type Dropdown = {
 };
 
 type ToggleMenuProps = {
-  handleToggleMenuOnClick: MouseEventHandler<HTMLButtonElement>;
+  handleToggleMenuOnClick: Function;
   isToggleMenuOpen: boolean;
 };
 
@@ -233,7 +228,6 @@ type WindowSize = {
   height: number;
 };
 
-// WIDGETS
 type HeroProps = {
   title?: string | ReactElement;
   subtitle?: string | ReactElement;
@@ -265,12 +259,17 @@ type CallToActionProps = Widget & {
   items?: Array<Item>;
 };
 
+type NewsletterProps = Widget & {
+  title: string;
+  subtitle: string;
+  callToAction?: CallToActionType;
+  items?: Array<Item>;
+};
+
 type FeaturesProps = Widget & {
   header?: Header;
   items?: Array<Item>;
-  /** How many columns should it have? */
   columns?: 1 | 2 | 3;
-  /** Do you want the image to be displayed? */
   isImageDisplayed?: boolean;
   image?: Image;
   isBeforeContent?: boolean;
@@ -289,10 +288,8 @@ type ContentProps = Widget & {
 type StepsProps = Widget & {
   header?: Header;
   items: Array<Item>;
-  /** Do you want the image to be displayed? */
   isImageDisplayed?: boolean;
   image?: Image;
-  /** Do you want to reverse the widget? */
   isReversed?: boolean;
 };
 
@@ -352,9 +349,8 @@ type FooterProps = {
 };
 
 type HeaderProps = {
-  links?: Array<MenuLink>;
+  links?: Array<Link>;
   actions?: Array<CallToActionType>;
-  // actions?: Array<ActionLink>;
   isSticky?: boolean;
   showToggleTheme?: boolean;
   showRssFeed?: boolean;

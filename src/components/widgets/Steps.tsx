@@ -55,3 +55,41 @@ const Steps = ({
 );
 
 export default Steps;
+
+// Steps data on Home page
+// export const stepsHome: StepsProps = {
+//   id: 'steps-on-home',
+//   hasBackground: false,
+//   isReversed: false,
+//   isImageDisplayed: true,
+//   // image: {
+//   //   src: gasImg,
+//   //   alt: 'Steps image',
+//   // },
+//   header: {
+//     title: 'Sed ac magna sit amet risus tristique interdum.',
+//   },
+//   items: [
+//     {
+//       title: 'Step 1',
+//       description:
+//         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla. Praesent placerat enim ut ex tincidunt vehicula. Fusce sit amet dui tellus.',
+//       icon: IconArrowDown,
+//     },
+//     {
+//       title: 'Step 2',
+//       description:
+//         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla.',
+//       icon: IconArrowDown,
+//     },
+//     {
+//       title: 'Step 3',
+//       description:
+//         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed porttitor est nibh at nulla.',
+//       icon: IconArrowDown,
+//     },
+//     {
+//       title: 'Ready!',
+//     },
+//   ],
+// };

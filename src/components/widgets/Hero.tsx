@@ -1,46 +1,34 @@
-import Image from 'next/image';
 import { HeroProps } from '~/shared/types';
 import CTA from '../common/CTA';
 
-const Hero = ({ title, subtitle, tagline, callToAction, callToAction2, image }: HeroProps) => {
+const Hero = ({ title, subtitle, tagline, callToAction, callToAction2 }: HeroProps) => {
   return (
-    <section id="heroOne">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="py-12 md:py-20">
+    <section id="heroOne" className="bg-opacity-90 transition-all duration-500 ease-in-out">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="py-12 md:py-20 lg:py-28">
           <div className="mx-auto max-w-4xl pb-10 text-center md:pb-16">
             {tagline && (
-              <p className="text-base font-semibold uppercase tracking-wide text-primary-600 dark:text-primary-200">
+              <p className="text-sm md:text-base font-semibold uppercase tracking-wide text-primary-600 dark:text-primary-200 animate-pulse">
                 {tagline}
               </p>
             )}
             {title && (
-              <h1 className="leading-tighter font-heading mb-6 text-4xl font-bold tracking-tighter md:text-5xl lg:text-6xl">
+              <h1 className="mt-2 mb-4 text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter font-heading leading-none md:leading-tight lg:leading-tighter text-gray-900 dark:text-white shadow-sm transition-all duration-300 ease-in-out">
                 {title}
               </h1>
             )}
             <div className="mx-auto max-w-3xl">
-              {subtitle && <p className="mb-6 text-xl font-normal text-gray-600 dark:text-slate-400">{subtitle}</p>}
-              <div className="flex max-w-none flex-col flex-nowrap gap-4 px-4 sm:flex-row sm:justify-center">
-                {callToAction && <CTA callToAction={callToAction} linkClass="btn btn-primary" />}
-                {callToAction2 && <CTA callToAction={callToAction2} linkClass="btn" />}
+              {subtitle && (
+                <p className="mb-6 text-lg md:text-xl font-light text-gray-600 dark:text-slate-400 transition-opacity duration-500">
+                  {subtitle}
+                </p>
+              )}
+              <div className="flex flex-col gap-4 px-4 sm:flex-row sm:justify-center">
+                {callToAction && <CTA callToAction={callToAction} linkClass="btn btn-primary shadow-lg transform hover:scale-105 transition-transform duration-300" />}
+                {callToAction2 && <CTA callToAction={callToAction2} linkClass="btn btn-secondary shadow transform hover:scale-105 transition-transform duration-300" />}
               </div>
             </div>
           </div>
-          {image && (
-            <div className="relative m-auto max-w-5xl">
-              <Image
-                className="mx-auto h-auto w-full rounded-md bg-gray-400 dark:bg-slate-700"
-                src={image.src}
-                alt={image.alt}
-                width={1024}
-                height={607}
-                sizes="(max-width: 64rem) 100vw, 1024px"
-                loading="eager"
-                placeholder="blur"
-                priority
-              />
-            </div>
-          )}
         </div>
       </div>
     </section>

@@ -1,18 +1,19 @@
-
-
 import dynamic from 'next/dynamic';
 import { ComponentType, SVGProps } from 'react';
 import microsoftColor from '~/assets/iconSVG/microsoft.svg';
 import googleColor from '~/assets/iconSVG/google.svg';
+import repairIcon from '~/assets/iconSVG/repairIcon.svg';
+import techSupportIcon from '~/assets/iconSVG/techSupportIcon.svg';
+import webDevIcon from '~/assets/iconSVG/webDevIcon.svg';
 
 // String type for SVG paths
 type IconType = {
   [key: string]: ComponentType<SVGProps<SVGSVGElement>> | string;
 };
 
-// Importing icons dynamically
+
+// Dynamic imports for icons
 const dynamicIcons: IconType = {
-  // Dynamic imports for icons
   twitter: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandTwitter)),
   github: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandGithub)),
   windows: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandWindows)),
@@ -68,9 +69,14 @@ const dynamicIcons: IconType = {
   calendarEvent: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconCalendarEvent)),
   chevronsRight: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconChevronsRight)),
   urgent: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconUrgent)),
+  heartHandShake: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconHeartHandshake)),
+  codeCircle2: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconCodeCircle2)),
+  cpu: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconCpu)),
   // Static icons
   microsoftColor,
   googleColor,
+  repairIcon,
+  techSupportIcon,
+  webDevIcon,
 };
-
 export default dynamicIcons;

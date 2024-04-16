@@ -17,9 +17,7 @@ import {
   TestimonialsProps,
 } from '~/shared/types';
 
-import heroImg from '~/assets/images/hero.jpg';
-import cameraFrontImg from '~/assets/images/camera-front.jpg';
-import cameraBackImg from '~/assets/images/camera-back.jpg';
+import heroImg from '~/assets/images/Support_Hero.png';
 
 // Hero data on Services page *******************
 export const heroServices: HeroProps = {
@@ -101,10 +99,10 @@ export const contentServicesOne: ContentProps = {
         'At sed possim oporteat probatus, justo graece ne nec, minim commodo legimus ut vix. Ut eos iudico quando soleat, nam modus.',
     },
   ],
-  image: {
-    src: cameraFrontImg,
-    alt: 'Colorful Image',
-  },
+  // image: {
+  //   src: cameraFrontImg,
+  //   alt: 'Colorful Image',
+  // },
   isReversed: true,
   isAfterContent: false,
 };
@@ -135,10 +133,10 @@ export const contentServicesTwo: ContentProps = {
       title: 'Nulla omittam sadipscing mel ne',
     },
   ],
-  image: {
-    src: cameraBackImg,
-    alt: 'Colorful Image',
-  },
+  // image: {
+  //   src: cameraBackImg,
+  //   alt: 'Colorful Image',
+  // },
   isReversed: false,
   isAfterContent: true,
 };

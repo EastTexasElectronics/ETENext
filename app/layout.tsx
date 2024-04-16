@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { SITE } from '~/config.js';
 
+import Loading from '../app/loading';
 import Providers from '~/components/atoms/Providers';
 import Header from '~/components/widgets/Header';
 // import Announcement from '~/components/widgets/Announcement';
@@ -10,12 +12,14 @@ import Footer from '~/components/widgets/Footer';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 
+// Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
 
+// Layout props
 export interface LayoutProps {
   children: React.ReactNode;
 }
-
+// Metadata for the site
 export const metadata: Metadata = {
   category: 'technology',
   assets: ['https://EastTexasElectronics.com/Public_Assets'],
@@ -53,7 +57,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}>
+    // TODO This line is causing a warning in the console
+    <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}> 
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -61,7 +66,9 @@ export default function RootLayout({ children }: LayoutProps) {
       <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300">
         <Providers>
           <Header />
+          <Suspense fallback={<Loading />}>
           <main>{children}</main>
+          </Suspense>
           <Footer />
         </Providers>
       </body>

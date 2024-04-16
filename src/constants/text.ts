@@ -1,23 +1,3 @@
-// This file contains common text strings used throughout the application.
-
-// Usage:
-// This file exports an object named `Texts` that contains all the text strings used in the application.
-// You can import this object in any component where you need to use these strings.
-
-// Example:
-// import Texts from './constantTexts';
-// function Welcome() {
-//   return <h1>{Texts.WELCOME_MESSAGE}</h1>;
-// }
-
-// Modifying Text Strings:
-// To change the text of any string, simply modify the value corresponding to its key.
-// For example, to change the welcome message, find `WELCOME_MESSAGE` key and update its value.
-
-// Adding New Text Strings:
-// To add new text strings, append them to the `Texts` object with a unique key and its text value.
-// Ensure the key is descriptive enough to be easily identifiable where it is used.
-
 const Texts = {
   GENERAL_INQUIRIES: 'General Inquiries',
   SERVICE_INQUIRIES: 'Service Inquiries',
