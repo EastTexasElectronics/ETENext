@@ -17,7 +17,7 @@ import {
   TestimonialsProps,
 } from '~/shared/types';
 
-import heroImg from '~/assets/images/Support_Hero.png';
+// import heroImg from '~/assets/images/Support_Hero.png';
 
 // Hero data on Services page *******************
 export const heroServices: HeroProps = {
@@ -29,10 +29,10 @@ export const heroServices: HeroProps = {
     href: 'https://github.com/onwidget/tailnext',
     targetBlank: true,
   },
-  image: {
-    src: heroImg,
-    alt: 'Hero TailNext',
-  },
+  // image: {
+  //   src: heroImg,
+  //   alt: 'Hero TailNext',
+  // },
 };
 
 // Feature2 data on Services page *******************

@@ -1,8 +1,8 @@
-import URLs from '~/components/common/ConstantURLS';
+import URLs from '../../../constants/urls'
 import dynamicIcons from '~/components/atoms/Icons';
 import { FeaturesProps, HeroProps } from '~/shared/types';
 // TODO UPDATE IMAGE
-import hero2Img from '~/assets/images/hero2.jpg';
+// import hero2Img from '~/assets/images/hero2.jpg';
 
 // Hero
 export const hero2About: HeroProps = {
@@ -18,10 +18,10 @@ export const hero2About: HeroProps = {
     text: 'Contact us',
     href: URLs.CONTACT_US,
   },
-  image: {
-    src: hero2Img,
-    alt: 'Hero TailNext',
-  },
+  // image: {
+  //   src: hero2Img,
+  //   alt: 'Hero TailNext',
+  // },
 };
 
 // Defining Values items using a consistent structure and using dynamic icons

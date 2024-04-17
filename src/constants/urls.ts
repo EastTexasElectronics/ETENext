@@ -41,6 +41,7 @@ const URLs = {
     PINTEREST: 'https://www.pinterest.com/',
     SNAPCHAT: 'https://www.snapchat.com/',
     TIKTOK: 'https://www.tiktok.com/',
+    LINKEDIN_JOBS: 'https://www.linkedin.com/',
 
     // Store Links
     AMAZON: 'https://www.amazon.com/',
