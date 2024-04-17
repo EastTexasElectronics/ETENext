@@ -62,6 +62,9 @@ const URLs = {
     NEWSLETTER_SIGNUP: '/newsletter-signup',
     DOWNLOAD_APP: '/download-app',
     CUSTOMER_REVIEWS: '/customer-reviews',
+
+    // Images
+    BLUE_WHITE_LOGO: 'https://imagedelivery.net/AeoYzlkbZrI9BgyLTuPWOw/ee73c571-1ae3-4f9a-ae0f-168657597a00/public',
 };
 
 export default URLs;
