@@ -1,18 +1,15 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-
 import { SITE } from '~/config.js';
-
 import Loading from '../app/loading';
 import Providers from '~/components/atoms/Providers';
 import Header from '~/components/widgets/Header';
-// import Announcement from '~/components/widgets/Announcement';
 import Footer from '~/components/widgets/Footer';
-
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
+// import Announcement from '~/components/widgets/Announcement';
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });

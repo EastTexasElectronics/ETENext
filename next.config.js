@@ -8,6 +8,15 @@ module.exports = {
   // Enable React strict mode for better development practices.
   reactStrictMode: true,
 
+  // Enable webpack 5 for faster build times and smaller bundles.
+  images: {
+    loader: 'custom',
+    loaderFile: '/src/shared/data/loaderFile.js',
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 600,
+  },
+
   // Enable trailing slashes for all generated routes.
   trailingSlash: SITE.trailingSlash,
 
