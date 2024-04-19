@@ -11,6 +11,7 @@ import Footer from '~/components/widgets/Footer';
 
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
@@ -27,9 +28,18 @@ export const metadata: Metadata = {
   applicationName: 'East Texas Electronics Support',
   referrer: 'origin-when-cross-origin',
   keywords: [
-    'IT Support', 'Computer Repair', 'Network Support', 'Web Design', 
-    'SEO', 'Digital Marketing', 'East Texas', 'Tyler', 'Longview', 
-    'Marshall', 'Henderson', 'Kilgore'
+    'IT Support',
+    'Computer Repair',
+    'Network Support',
+    'Web Design',
+    'SEO',
+    'Digital Marketing',
+    'East Texas',
+    'Tyler',
+    'Longview',
+    'Marshall',
+    'Henderson',
+    'Kilgore',
   ],
   authors: [{ name: 'Robert Havelaar', url: 'https://www.linkedin.com/in/robert-havelaar/' }],
   creator: 'Robert Havelaar',
@@ -38,7 +48,9 @@ export const metadata: Metadata = {
     template: `${SITE?.name ? `%s — ${SITE.name}` : 'East Texas Electronics'}`,
     default: SITE?.title || 'East Texas Electronics',
   },
-  description: SITE?.description || 'East Texas Electronics provides IT Support, Computer Repair, Network Support, Web Design, SEO, and Digital Marketing services to East Texas.',
+  description:
+    SITE?.description ||
+    'East Texas Electronics provides IT Support, Computer Repair, Network Support, Web Design, SEO, and Digital Marketing services to East Texas.',
   robots: {
     index: false,
     follow: true,
@@ -54,11 +66,10 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({ children }: LayoutProps) {
   return (
     // TODO This line is causing a warning in the console
-    <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}> 
+    <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,10 +78,11 @@ export default function RootLayout({ children }: LayoutProps) {
         <Providers>
           <Header />
           <Suspense fallback={<Loading />}>
-          <main>{children}</main>
+            <main>{children}</main>
           </Suspense>
           <Footer />
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   );
