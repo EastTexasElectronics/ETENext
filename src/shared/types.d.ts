@@ -98,6 +98,7 @@ type FormProps = {
   btn: Button;
   btnPosition?: 'center' | 'right' | 'left';
   containerClass?: string;
+  preferredContact?: RadioBtn;
 };
 
 type Image = {
