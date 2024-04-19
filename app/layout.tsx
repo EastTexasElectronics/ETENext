@@ -12,6 +12,7 @@ import Footer from '~/components/widgets/Footer';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: LayoutProps) {
           </Suspense>
           <Footer />
           <SpeedInsights />
+          <Analytics />
         </Providers>
       </body>
     </html>
