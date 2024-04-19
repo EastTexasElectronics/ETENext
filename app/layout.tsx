@@ -81,8 +81,8 @@ export default function RootLayout({ children }: LayoutProps) {
             <main>{children}</main>
           </Suspense>
           <Footer />
+          <SpeedInsights />
         </Providers>
-        <SpeedInsights />
       </body>
     </html>
   );
