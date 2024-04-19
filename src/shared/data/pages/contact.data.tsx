@@ -6,7 +6,7 @@ const FORM_INPUTS = [
   { type: 'text', label: 'Last name', name: 'lastName', autocomplete: 'on', placeholder: 'Doe' },
   { type: 'email', label: 'Email address', name: 'email', autocomplete: 'on', placeholder: 'example@gmail.com' },
   { type: 'text', label: 'Company name', name: 'companyName', autocomplete: 'on', placeholder: 'Acme Inc.' },
-  { type: 'text', label: 'Phone number', name: 'phone', autocomplete: 'on', placeholder: '(123) 456-7890' }
+  { type: 'text', label: 'Phone number', name: 'phone', autocomplete: 'on', placeholder: '(123) 456-7890' },
 ];
 
 const RADIO_BUTTONS = {
@@ -29,8 +29,16 @@ export const contact2Contact: ContactProps = {
   },
   items: [
     { title: 'Servicing Areas Around:', description: ['Longview - Hallsville - Marshall'], icon: dynamicIcons.mapPin },
-    { title: 'Contact Information:', description: ['Mobile: (903) 471-1575', 'Mail: contact@easttexaselectronics.com'], icon: dynamicIcons.phoneCall },
-    { title: 'Standard Working Hours:', description: ['Monday - Friday: 09:00am - 5:00pm', 'Saturday & Sunday: CLOSED'], icon: dynamicIcons.clock },
+    {
+      title: 'Contact Information:',
+      description: ['Mobile: (903) 471-1575', 'Mail: contact@easttexaselectronics.com'],
+      icon: dynamicIcons.phoneCall,
+    },
+    {
+      title: 'Standard Working Hours:',
+      description: ['Monday - Friday: 09:00am - 5:00pm', 'Saturday & Sunday: CLOSED'],
+      icon: dynamicIcons.clock,
+    },
     { title: '24/7 Emergency Service:', description: ['Available for Contract Clients'], icon: dynamicIcons.urgent },
   ],
   form: {
