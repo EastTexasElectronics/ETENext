@@ -37,6 +37,7 @@ type CallToActionType = {
   href: string;
   icon?: Icon;
   targetBlank?: boolean;
+  ariaLabel?: string;
 };
 
 type LinkOrButton = {

@@ -25,13 +25,15 @@ export const heroHome: HeroProps = {
   ),
   callToAction: {
     text: 'Book an Appointment',
-    href: '/appointment',
+    href: 'https://easttexaselectronics.setmore.com/beta',
     icon: IconCalendarEvent,
     targetBlank: true,
+    ariaLabel: 'Book an Appointment',
   },
   callToAction2: {
     text: 'Learn More',
     href: '/about',
+    ariaLabel: 'Book an Appointment',
   },
 };
 
