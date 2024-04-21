@@ -8,7 +8,7 @@ import Features from '~/components/widgets/Features3';
 import { featuresHome } from '~/shared/data/pages/home.data';
 import Newsletter from '~/components/widgets/NewsletterCTA';
 import { NewsletterHome } from '~/shared/data/pages/home.data';
-import BookingButton from '~/components/atoms/bookingButton';
+import BookingButton from '~/components/atoms/BookingButton';
 
 export const metadata: Metadata = {
   title: SITE.title,

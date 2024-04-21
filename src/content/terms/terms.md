@@ -23,6 +23,28 @@ For these Terms and Conditions:
 - **Website** refers to East Texas Electronics, accessible from [https://www.easttexaselectronics.com](https://www.easttexaselectronics.com).
 - **You** refers to the individual accessing the Service, or the entity on behalf of which that individual is accessing the Service.
 
+## Booking Policy
+
+To ensure efficient service and to respect the time of both our clients and technicians, please review our booking policy below:
+
+### Scheduling Appointments
+
+- We offer both On-Site and Remote services.
+- On-Site appointments will involve our technicians driving to your location, while Remote services will be conducted via Google Meet.
+
+### Cancellation and Rescheduling
+
+- If you need to cancel or reschedule your appointment, please notify us at least 2 hours in advance.
+- For cancellations or rescheduling made less than 2 hours from the appointment time, a fee of $25 will be charged to cover operational costs.
+- In instances where our technician arrives on time and you are not available, a no-show fee of $50 will apply.
+
+### Our Commitment to Timeliness
+
+- We strive to be punctual for all appointments.
+- However, if we are more than an hour late or if we need to reschedule or cancel within 2 hours of your appointment time, we will provide a 10% discount on our labor charges as compensation.
+
+This policy helps us maintain a high standard of service and ensures that our operations run smoothly. Thank you for your understanding and cooperation.
+
 ## Acknowledgment
 
 By accessing or using the Service, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you disagree with any part of the terms, you must not use the Service.

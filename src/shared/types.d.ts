@@ -269,12 +269,6 @@ type CallToActionProps = Widget & {
   subtitle: string;
   callToAction?: CallToActionType;
   items?: Array<Item>;
-  text: string;
-  icon?: ComponentType;
-  onClick: () => void;
-  containerClass?: string;
-  buttonClass?: string;
-  ariaLabel?: string;
 };
 
 type NewsletterProps = Widget & {
