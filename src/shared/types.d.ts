@@ -1,6 +1,15 @@
 import { ComponentType, ReactElement, ReactNode, SVGProps } from 'react';
 import { StaticImageData } from 'next/image';
 
+type BookingButtonType = {
+  text: string;
+  icon?: ComponentType;
+  onClick: () => void;
+  containerClass?: string;
+  buttonClass?: string;
+  ariaLabel?: string;
+};
+
 type Widget = {
   id?: string;
   hasBackground?: boolean;
@@ -38,6 +47,7 @@ type CallToActionType = {
   icon?: Icon;
   targetBlank?: boolean;
   ariaLabel?: string;
+  modalOpen?: () => void;
 };
 
 type LinkOrButton = {
@@ -259,6 +269,12 @@ type CallToActionProps = Widget & {
   subtitle: string;
   callToAction?: CallToActionType;
   items?: Array<Item>;
+  text: string;
+  icon?: ComponentType;
+  onClick: () => void;
+  containerClass?: string;
+  buttonClass?: string;
+  ariaLabel?: string;
 };
 
 type NewsletterProps = Widget & {

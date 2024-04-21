@@ -30,6 +30,7 @@ const URLs = {
     SHOP: '/shop',
     PORTFOLIO: '/portfolio',
     TESTIMONIALS: '/testimonials',
+    SITE_MAP: '/site-map',
 
     // Social Profiles
     FACEBOOK: 'https://www.facebook.com/',
@@ -63,6 +64,7 @@ const URLs = {
     NEWSLETTER_SIGNUP: '/newsletter-signup',
     DOWNLOAD_APP: '/download-app',
     CUSTOMER_REVIEWS: '/customer-reviews',
+    APPOINTMENTS: 'https://easttexaselectronics.setmore.com/appt',
 
     // Images
     BLUE_WHITE_LOGO: 'https://imagedelivery.net/AeoYzlkbZrI9BgyLTuPWOw/ee73c571-1ae3-4f9a-ae0f-168657597a00/public',

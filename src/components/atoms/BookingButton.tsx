@@ -1,7 +1,8 @@
-// src/components/atoms/BookingButton.tsx
-
+"use client";
 import React, { useState } from 'react';
-import Modal from '../widgets/BookingModal'; // Adjust the import path as necessary
+import Modal from '../widgets/BookingModal';
+import URLs from '~/constants/urls'
+
 
 const BookingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,18 +14,17 @@ const BookingButton = () => {
       <button
         onClick={toggleModal}
         aria-label="Book an appointment"
-        // Updated classes with Tailwind utility classes only
-        className="fixed right-2 top-1/4 z-50 bg-black text-white text-lg font-bold p-2 shadow-lg cursor-pointer"
+        className="fixed right-0 top-1/2 z-50 bg-primary-600 text-white font-bold py-2 px-4 transform -translate-y-1/2 shadow-lg cursor-pointer"
       >
         {/* Apply arbitrary value for writing-mode */}
-        <span className="[writing-mode:vertical-lr]">
+        <span className="[writing-mode:vertical-lr] bg-primary-600 ">
           Book Now
         </span>
       </button>
       {isOpen && (
         <Modal onClose={toggleModal}>
           <iframe
-            src="https://booking.setmore.com/scheduleappointment/ac3c543d-72b2-488b-a433-d45be62a3a03"
+            src= {URLs.APPOINTMENTS}
             title="Setmore Booking Page"
             className="w-full h-full border-none"
           ></iframe>

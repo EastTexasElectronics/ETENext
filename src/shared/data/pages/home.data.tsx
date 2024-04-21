@@ -7,6 +7,7 @@ import {
   IconCpu,
 } from '@tabler/icons-react';
 import { NewsletterProps, FeaturesProps, HeroProps } from '../../types';
+import Modal from '../../../components/widgets/BookingModal';
 
 
 // Hero data on Home page
