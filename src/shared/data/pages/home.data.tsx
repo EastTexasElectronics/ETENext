@@ -1,14 +1,6 @@
 // TODO I can not get dynamic icons to work with the Icon component. I will use the Tabler Icons for now. I kept getting an error stating I can not
-import {
-  IconMail,
-  IconCalendarEvent,
-  IconHeartHandshake,
-  IconCodeCircle2,
-  IconCpu,
-} from '@tabler/icons-react';
+import { IconMail, IconCalendarEvent, IconHeartHandshake, IconCodeCircle2, IconCpu } from '@tabler/icons-react';
 import { NewsletterProps, FeaturesProps, HeroProps } from '../../types';
-import Modal from '../../../components/widgets/BookingModal';
-
 
 // Hero data on Home page
 export const heroHome: HeroProps = {
@@ -26,7 +18,7 @@ export const heroHome: HeroProps = {
   ),
   callToAction: {
     text: 'Book an Appointment',
-    href: 'https://easttexaselectronics.setmore.com/beta',
+    href: '/appointment',
     icon: IconCalendarEvent,
     targetBlank: true,
     ariaLabel: 'Book an Appointment',
@@ -67,7 +59,7 @@ export const featuresHome: FeaturesProps = {
     {
       title: 'Web Development',
       description:
-      'We create beautiful websites that are easy to use and look great on any device. Our team of experts can help you build the perfect website for your business.',
+        'We create beautiful websites that are easy to use and look great on any device. Our team of experts can help you build the perfect website for your business.',
       icon: IconCodeCircle2,
       callToAction: {
         text: 'Discover now',
@@ -106,7 +98,8 @@ export const NewsletterHome: NewsletterProps = {
     },
     {
       title: 'Subscribe',
-      description: 'Sign up for our newsletter to get the latest news and updates on our services. We promise not to spam you!',
+      description:
+        'Sign up for our newsletter to get the latest news and updates on our services. We promise not to spam you!',
       form: {
         icon: IconMail,
         input: {
@@ -123,4 +116,3 @@ export const NewsletterHome: NewsletterProps = {
     },
   ],
 };
-

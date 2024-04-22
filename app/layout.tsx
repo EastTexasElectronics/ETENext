@@ -9,6 +9,8 @@ import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
+import BookingButton from '~/components/atoms/BookingButton';
+
 // import Announcement from '~/components/widgets/Announcement';
 
 // Custom font
@@ -78,6 +80,7 @@ export default function RootLayout({ children }: LayoutProps) {
           <Suspense fallback={<Loading />}>
             <main>{children}</main>
           </Suspense>
+          <BookingButton />
           <Footer />
           <SpeedInsights />
           <Analytics />
