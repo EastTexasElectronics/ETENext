@@ -1,4 +1,4 @@
-import { ComponentType, ReactElement, ReactNode, SVGProps } from 'react';
+import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
 
 type BookingButtonType = {
@@ -231,7 +231,7 @@ type Dropdown = {
 };
 
 type ToggleMenuProps = {
-  handleToggleMenuOnClick: Function;
+  handleToggleMenuOnClick: MouseEventHandler<HTMLButtonElement>;
   isToggleMenuOpen: boolean;
 };
 
