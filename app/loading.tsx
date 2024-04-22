@@ -1,6 +1,3 @@
-// Code for loading spinner. This component is used to show a loading spinner when the data is being fetched from the server.
-// Placed in the app root so that it can be used across all pages while they are loading.
-// Can also be used for components that take a long time to load.
 const Loading = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
