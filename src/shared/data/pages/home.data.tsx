@@ -1,6 +1,7 @@
 // TODO I can not get dynamic icons to work with the Icon component. I will use the Tabler Icons for now. I kept getting an error stating I can not
 import { IconMail, IconCalendarEvent, IconHeartHandshake, IconCodeCircle2, IconCpu } from '@tabler/icons-react';
 import { NewsletterProps, FeaturesProps, HeroProps } from '../../types';
+import heroImg from '~/assets/images/hero.png';
 
 // Hero data on Home page
 export const heroHome: HeroProps = {
@@ -27,6 +28,10 @@ export const heroHome: HeroProps = {
     text: 'Learn More',
     href: '/about',
     ariaLabel: 'Book an Appointment',
+  },
+  image: {
+    src: heroImg,
+    alt: 'Hero TailNext',
   },
 };
 
