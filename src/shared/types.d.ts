@@ -127,6 +127,21 @@ type Item = {
   callToAction?: CallToActionType;
 };
 
+declare module '*.jpg' {
+  const content: string;
+  export default content;
+}
+
+declare module '*.jpeg' {
+  const content: string;
+  export default content;
+}
+
+declare module '*.png' {
+  const content: string;
+  export default content;
+}
+
 type ItemGrid = {
   id?: string;
   items?: Array<Item>;

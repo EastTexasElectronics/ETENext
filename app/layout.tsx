@@ -52,12 +52,12 @@ export const metadata: Metadata = {
     SITE?.description ||
     'East Texas Electronics provides IT Support, Computer Repair, Network Support, Web Design, SEO, and Digital Marketing services to East Texas.',
   robots: {
-    index: false,
+    index: true,
     follow: true,
     nocache: true,
     googleBot: {
       index: true,
-      follow: false,
+      follow: true,
       noimageindex: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',

@@ -1,10 +1,17 @@
-import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, TestimonialsProps } from '~/shared/types';
+import {
+  CallToActionProps,
+  FAQsProps,
+  FeaturesProps,
+  HeroProps,
+  TestimonialsProps,
+  ContentProps,
+} from '~/shared/types';
 import URLs from '~/constants/urls';
 import servicesHero from '~/assets/images/aboutHero.webp';
 import dynamicIcons from '~/components/atoms/Icons';
 
 // Hero data on Services page
-export const heroServices: HeroProps = {
+export const heroRepair: HeroProps = {
   title: 'What We Offer',
   subtitle:
     'From Hardware to Software, we have you covered. Our services are designed to help you build your dream infrastructure with ease.',
@@ -19,7 +26,7 @@ export const heroServices: HeroProps = {
 };
 
 // Features data on Services page
-export const features2Services: FeaturesProps = {
+export const features2Repair: FeaturesProps = {
   columns: 3,
   header: {
     title: 'Our Services',
@@ -38,7 +45,6 @@ export const features2Services: FeaturesProps = {
         'From custom software to off-the-shelf solutions, we have the expertise to help you build the perfect software for your business.',
       icon: dynamicIcons.code,
       callToAction: { text: 'Learn More', href: URLs.SOFTWARE },
-
     },
     {
       title: 'IT Solutions',
@@ -46,7 +52,6 @@ export const features2Services: FeaturesProps = {
         'Let us help you build the perfect IT infrastructure for your business. From networking to security, we have you covered.',
       icon: dynamicIcons.heartHandshake,
       callToAction: { text: 'Learn More', href: URLs.IT },
-
     },
     {
       title: 'Web Development',
@@ -54,7 +59,6 @@ export const features2Services: FeaturesProps = {
         'We provide the best web development services for your business. From e-commerce to custom websites, we have you covered.',
       icon: dynamicIcons.appWindow,
       callToAction: { text: 'Learn More', href: URLs.WEB_DEVELOPMENT },
-
     },
     {
       title: 'Tech Consulting',
@@ -62,7 +66,6 @@ export const features2Services: FeaturesProps = {
         "Don't know where to start? Let us help you build the perfect tech strategy for your business. From planning to execution, we have you covered.",
       icon: dynamicIcons.hipChat,
       callToAction: { text: 'Learn More', href: URLs.CONSULTATIONS },
-
     },
     {
       title: 'Electronics Recycling',
@@ -75,7 +78,7 @@ export const features2Services: FeaturesProps = {
 };
 
 // Testimonials data on Services page
-export const testimonialsServices: TestimonialsProps = {
+export const testimonialsRepair: TestimonialsProps = {
   hasBackground: true,
   isTestimonialUp: true,
   header: {
@@ -113,7 +116,7 @@ export const testimonialsServices: TestimonialsProps = {
 };
 
 // FAQs data on Services page
-export const faqsServices: FAQsProps = {
+export const faqsRepair: FAQsProps = {
   hasBackground: true,
   columns: 1,
   header: {
@@ -127,7 +130,6 @@ export const faqsServices: FAQsProps = {
       description:
         'We repair a wide range of electronics, including computers, smartphones, tablets, circuit boards and much more. If you have a question about a specific device, feel free to contact us.',
       icon: dynamicIcons.helpHexagon,
-      
     },
     {
       title: 'What are your rates?',
@@ -151,7 +153,7 @@ export const faqsServices: FAQsProps = {
 };
 
 // Call to Action data on Services page
-export const callToActionServices: CallToActionProps = {
+export const callToActionRepair: CallToActionProps = {
   hasBackground: false,
   title: 'Still Have Questions?',
   subtitle:
@@ -160,4 +162,113 @@ export const callToActionServices: CallToActionProps = {
     text: 'Contact Us',
     href: URLs.CONTACT,
   },
+};
+
+// Content data on Services page *******************
+export const contentRepairOne: ContentProps = {
+  id: 'contentOne-on-services-one',
+  hasBackground: false,
+  content:
+    'Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod tacimates.',
+  items: [
+    {
+      title: 'Per ei quaeque sensibus',
+      description:
+        'Ex usu illum iudico molestie. Pro ne agam facete mediocritatem, ridens labore facete mea ei. Pro id apeirian dignissim.',
+    },
+    {
+      title: 'Cu imperdiet posidonium sed',
+      description:
+        'Amet utinam aliquando ut mea, malis admodum ocurreret nec et, elit tibique cu nec. Nec ex maluisset inciderint, ex quis.',
+    },
+    {
+      title: 'Nulla omittam sadipscing mel ne',
+      description:
+        'At sed possim oporteat probatus, justo graece ne nec, minim commodo legimus ut vix. Ut eos iudico quando soleat, nam modus.',
+    },
+  ],
+  // image: {
+  //   src: cameraFrontImg,
+  //   alt: 'Colorful Image',
+  // },
+  isReversed: true,
+  isAfterContent: false,
+};
+
+// Content data on Services page *******************
+export const contentRepairTwo: ContentProps = {
+  id: 'contentOne-on-services-two',
+  hasBackground: false,
+  content:
+    'Per odio fabellas consulatu cu. Utroque detracto mel ea, quo te latine theophrastus. Ea his tale nib dissentias, mei exerci tamquam euripidis cu.',
+  items: [
+    {
+      title: 'Per ei quaeque sensibus',
+    },
+    {
+      title: 'Cu imperdiet posidonium sed',
+    },
+    {
+      title: 'Nulla omittam sadipscing mel ne',
+    },
+    {
+      title: 'Per ei quaeque sensibus',
+    },
+    {
+      title: 'Cu imperdiet posidonium sed',
+    },
+    {
+      title: 'Nulla omittam sadipscing mel ne',
+    },
+  ],
+  // image: {
+  //   src: cameraBackImg,
+  //   alt: 'Colorful Image',
+  // },
+  isReversed: false,
+  isAfterContent: true,
+};
+
+// Feature4 data on Services page *******************
+export const features4Repair: FeaturesProps = {
+  id: 'featuresFour-on-services',
+  hasBackground: true,
+  columns: 2,
+  header: {
+    title: 'Main Features',
+    subtitle:
+      'Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos etiam regione ut, persius eripuit quo id. Sit te euismod tacimates.',
+  },
+  isImageDisplayed: true,
+  image: {
+    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80',
+    alt: 'Hero TailNext',
+  },
+  items: [
+    {
+      title: 'Next.Js + Tailwind CSS Integration',
+      description: 'Nullam non sodales massa. Ut justo neque, elementum et vehicula vel, pellentesque non orci.',
+    },
+    {
+      title: 'Ready-to-use Components',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    },
+    {
+      title: 'Best Practices',
+      description: 'Morbi sit amet arcu vitae metus molestie auctor sit amet in risus. Sed vel lacinia purus.',
+    },
+    {
+      title: 'Excellent Page Speed',
+      description: 'Phasellus id cursus urna. Nullam feugiat tellus sed euismod venenatis.',
+    },
+    {
+      title: 'Search Engine Optimization (SEO)',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla.',
+    },
+    {
+      title: 'Open to new ideas and contributions',
+      description: 'Maecenas urna augue, commodo vitae lectus euismod, tempor aliquam arcu.',
+    },
+  ],
 };

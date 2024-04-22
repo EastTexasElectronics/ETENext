@@ -11,9 +11,9 @@ const Hero = ({ title, subtitle, tagline, callToAction, callToAction2, image }: 
             className="h-full w-full object-cover"
             src={image.src}
             alt={image.alt}
-            width={1024}
-            height={607}
-            sizes="(max-width: 64rem) 100vw, 1024px"
+            width={1920}
+            height={1080}
+            sizes="100vw"
             loading="eager"
             priority
             placeholder="blur"
@@ -28,15 +28,11 @@ const Hero = ({ title, subtitle, tagline, callToAction, callToAction2, image }: 
             </p>
           )}
           {title && (
-            <h1 className="mb-6 text-4xl font-bold leading-tighter tracking-tighter text-white md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 text-4xl font-bold leading-tighter tracking-tighter text-black dark:text-white md:text-5xl lg:text-6xl">
               {title}
             </h1>
           )}
-          {subtitle && (
-            <p className="mb-6 text-xl font-normal text-gray-300">
-              {subtitle}
-            </p>
-          )}
+          {subtitle && <p className="mb-6 text-xl font-normal text-gray-300">{subtitle}</p>}
           <div className="flex flex-col gap-4 px-4 sm:flex-row sm:justify-center">
             {callToAction && <CTA callToAction={callToAction} linkClass="btn btn-primary" />}
             {callToAction2 && <CTA callToAction={callToAction2} linkClass="btn" />}

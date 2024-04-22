@@ -69,7 +69,7 @@ export const features2Contact: FeaturesProps = {
   columns: 3,
   header: {
     title: 'Support Center',
-    subtitle: 'Looking for something in particular?',
+    subtitle: 'How would you like to get in touch?',
   },
   items: [
     {
@@ -79,7 +79,7 @@ export const features2Contact: FeaturesProps = {
       callToAction: { text: 'Go to FAQ page', href: '/faqs' },
     },
     {
-      title: 'Chat with us',
+      title: 'Chat with Us (Coming Soon)',
       description: 'Experience instant support with our expertly trained Chat Bot',
       icon: dynamicIcons.messages,
       callToAction: { text: 'Chat Now', href: '/' },

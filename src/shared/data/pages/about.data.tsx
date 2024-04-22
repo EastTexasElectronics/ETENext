@@ -1,27 +1,26 @@
-import URLs from '../../../constants/urls'
+import URLs from '~/constants/urls';
 import dynamicIcons from '~/components/atoms/Icons';
 import { FeaturesProps, HeroProps } from '~/shared/types';
 // TODO UPDATE IMAGE
-// import hero2Img from '~/assets/images/hero2.jpg';
+import aboutHero from '~/assets/images/aboutHero.webp';
 
 // Hero
 export const hero2About: HeroProps = {
-  title: 'Great companies are made by great people',
-  subtitle: 'We are a team of professionals who are dedicated to providing the best services to our clients.',
-  tagline: 'About Us Demo Page',
+  title: 'Crafting Excellence in East Texas',
+  subtitle: 'Our skilled team of electronics experts delivers top-tier solutions and service.',
+  tagline: 'Dedicated to Quality, Committed to You',
   callToAction: {
     text: 'View jobs',
-    href: URLs.LINKEDIN_JOBS,
-    targetBlank: true,
+    href: URLs.CAREERS,
   },
   callToAction2: {
     text: 'Contact us',
-    href: URLs.CONTACT_US,
+    href: URLs.CONTACT,
   },
-  // image: {
-  //   src: hero2Img,
-  //   alt: 'Hero TailNext',
-  // },
+  image: {
+    src: aboutHero,
+    alt: 'About Us Hero Image',
+  },
 };
 
 // Defining Values items using a consistent structure and using dynamic icons
