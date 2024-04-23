@@ -5,8 +5,8 @@ import repairQuality from '~/assets/images/repairQuality.png';
 import dataPrivacy from '~/assets/images/dataPrivacy.png';
 import dynamicIcons from '~/components/atoms/Icons';
 
-// Hero data on Services page
-export const heroRepair: HeroProps = {
+// Hero data on IT page
+export const heroIT: HeroProps = {
   title: 'Premier Electronic Repair Services',
   subtitle: 'Expert repair solutions for all electronic equipment. Ensuring optimal performance with every fix.',
   callToAction: {
@@ -19,8 +19,8 @@ export const heroRepair: HeroProps = {
   },
 };
 
-// Features data on Services page
-export const features2Repair: FeaturesProps = {
+// Features data on IT page
+export const features2IT: FeaturesProps = {
   columns: 3,
   header: {
     title: 'Our Specialized Services',
@@ -63,8 +63,8 @@ export const features2Repair: FeaturesProps = {
   ],
 };
 
-// Content data on Repair page for Data Privacy
-export const contentRepairOne: ContentProps = {
+// Content data on IT page for Data Privacy
+export const contentITOne: ContentProps = {
   id: 'contentOne-on-repair-one',
   hasBackground: true,
   content: 'Your Data Privacy & Security Guaranteed',
@@ -93,8 +93,8 @@ export const contentRepairOne: ContentProps = {
   isAfterContent: false,
 };
 
-// Content data on Repair page for Quality Standards
-export const contentRepairTwo: ContentProps = {
+// Content data on IT page for Quality Standards
+export const contentITTwo: ContentProps = {
   id: 'contentOne-on-repair-two',
   hasBackground: false,
   content: 'Expect Excellence in Every Repair',
@@ -114,8 +114,8 @@ export const contentRepairTwo: ContentProps = {
   isAfterContent: true,
 };
 
-// FAQs data on Repair page
-export const faqsRepair: FAQsProps = {
+// FAQs data on IT page
+export const faqsIT: FAQsProps = {
   hasBackground: true,
   columns: 1,
   header: {
@@ -151,7 +151,7 @@ export const faqsRepair: FAQsProps = {
 };
 
 // Call to Action data on Repair page
-export const callToActionRepair: CallToActionProps = {
+export const callToActionIT: CallToActionProps = {
   hasBackground: false,
   title: 'Ready for a Repair?',
   subtitle: 'Book an appointment today and experience premier electronic repair services.',

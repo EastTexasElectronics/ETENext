@@ -12,11 +12,13 @@ const URLs = {
   TESTIMONIALS: '/testimonials',
   SITE_MAP: '/site-map',
   REPAIRS: '/services/repairs',
-  IT: '/services/it',
+  DATA_RECOVERY: '/services/data-recovery',
+  IT: '/services/it-support',
   WEB_DEVELOPMENT: '/services/web-development',
   SOFTWARE: '/services/software',
   CONSULTATIONS: '/services/consultations',
   RECYCLING: '/services/recycling',
+  CPORTAL: '/customer-portal',
 
   // Social Profiles
   FACEBOOK: 'https://www.facebook.com/',
@@ -38,12 +40,12 @@ const URLs = {
   TARGET: 'https://www.target.com/',
   PINTERESTSHOP: 'https://www.pinterest.com/shop',
   ETSY: 'https://www.etsy.com/',
-
+  ETE: 'https://www.easttexaselectrioncs.com/',
   // Legal Links
-  PRIVACY_POLICY_COMPANY: '/privacy-policy',
-  TERMS_AND_CONDITIONS_COMPANY: '/terms-and-conditions',
-  RETURN_POLICY_COMPANY: '/return-policy',
-  SHIPPING_INFO_COMPANY: '/shipping-info',
+  PRIVACY: '/privacy-policy',
+  TERMS: '/terms-and-conditions',
+  RETURN_POLICY: '/return-policy',
+  SHIPPING_INFO: '/shipping-info',
 
   // Other Links
   HELP_CENTER: '/help-center',
@@ -55,7 +57,6 @@ const URLs = {
   TESTIMONIAL1: '/https://maps.app.goo.gl/ewmffLTNcu8k4Rjc9',
   TESTIMONIAL2: 'https://maps.app.goo.gl/xx6zm8bseFaq1J936',
   TESTIMONIAL3: 'https://maps.app.goo.gl/aPuH52L3vybG2YUz9',
-
 };
 
 export default URLs;

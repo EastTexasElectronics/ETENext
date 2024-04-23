@@ -4,21 +4,20 @@ import {
   IconBrandInstagram,
   IconBrandTwitter,
   IconChevronDown,
-  IconUser,
-  IconRss,
 } from '@tabler/icons-react';
 import { AnnouncementProps, FooterProps, HeaderProps } from '../types';
+import URLs from '~/constants/urls';
 
 // Announcement data
 export const announcementData: AnnouncementProps = {
   title: 'NEW',
   callToAction: {
-    text: 'This template is made with Next.js 14 using the new App Router »',
-    href: 'https://nextjs.org/blog/next-14',
+    text: 'Welcome to our new website! Learn more about the changes here.',
+    href: '/demo-post-1/',
   },
   callToAction2: {
-    text: 'Follow @onWidget on Twitter',
-    href: 'https://twitter.com/intent/user?screen_name=onwidget',
+    text: 'Follow us on Twitter',
+    href: URLs.TWITTER,
   },
 };
 
@@ -30,54 +29,49 @@ export const headerData: HeaderProps = {
       icon: IconChevronDown,
       links: [
         {
-          label: 'Tech Support',
-          href: '/it-services',
+          label: 'IT Support',
+          href: URLs.IT,
         },
-        
         {
           label: 'Electronics Repair',
-          href: '/repair-services',
-        },
-        {
-          label: 'Data Recovery',
-          href: '/data-recovery-services',
-        },
-        {
-          label: 'Network Solutions',
-          href: '/networking-services',
-        },
-        {
-          label: 'Data Storage',
-          href: '/faqs',
+          href: URLs.REPAIRS,
         },
         {
           label: 'Web & App Development',
-          href: '/web-development',
+          href: URLs.WEB_DEVELOPMENT,
+        },
+        {
+          label: 'Software Development',
+          href: URLs.SOFTWARE,
         },
         {
           label: 'Electronics Recycling',
-          href: '/recycling-services',
+          href: URLs.RECYCLING,
         },
+        {
+          label: 'Data Recovery',
+          href: URLs.DATA_RECOVERY,
+        }
       ],
     },
     {
       label: 'Blog',
-      href: '/blog',
+      href: URLs.BLOG,
     },
     {
       label: 'Contact',
-      href: '/contact',
+      href: URLs.CONTACT,
     },
     {
       label: 'Visit Our Shop',
-      href: 'https://easttexaselectronics.com',
+      href: URLs.ETE,
       
     },
   ],
   actions: [
     {
       text: 'Customer Portal',
-      href: '/customer-portal',
+      href: URLs.CPORTAL,
       targetBlank: false,
     },
   ],
@@ -93,11 +87,11 @@ export const footerData: FooterProps = {
   links: [
     {
       label: 'Terms & Conditions',
-      href: '/terms',
+      href: URLs.TERMS,
     },
     {
       label: 'Privacy Policy',
-      href: '/privacy',
+      href: URLs.PRIVACY,
     },
   ],
   columns: [
@@ -106,27 +100,24 @@ export const footerData: FooterProps = {
       links: [
         {
           label: 'Tech Support',
-          href: '/it-services',
+          href: URLs.IT,
         },
         {
           label: 'Electronics Repair',
-          href: '/repair-services',
+          href: URLs.REPAIRS,
         },
-
-
         {
           label: 'Data Storage',
-          href: '/faqs',
+          href: URLs.FAQ_PAGE,
         },
         {
           label: 'Web & App Development',
-          href: '/web-development',
+          href: URLs.WEB_DEVELOPMENT,
         },
-
       ],
     },
     {
-      title: 'Upcoming ',
+      title: 'Upcoming',
       links: [
         {
           label: 'Employee Portal',
@@ -147,15 +138,15 @@ export const footerData: FooterProps = {
       links: [
         {
           label: 'Contact Us',
-          href: '/',
+          href: URLs.CONTACT,
         },
         {
           label: 'Book an Appointment',
-          href: '/',
+          href: URLs.APPOINTMENT,
         },
         {
           label: 'Request a Consultation',
-          href: '/',
+          href: URLs.CONSULTATIONS,
         },
       ],
     },
@@ -164,33 +155,32 @@ export const footerData: FooterProps = {
       links: [
         {
           label: 'About',
-          href: '/',
+          href: URLs.ABOUT,
         },
         {
           label: 'Blog',
-          href: '/blog',
+          href: URLs.BLOG,
         },
         {
           label: 'Careers',
-          href: '/',
+          href: URLs.CAREERS,
         },
         {
           label: 'Online Store',
-          href: 'https://easttexaselectronics.com',
+          href: URLs.SHOP,
         },
       ],
     },
   ],
   socials: [
-    { label: 'Twitter', icon: IconBrandTwitter, href: '#' },
-    { label: 'Instagram', icon: IconBrandInstagram, href: '#' },
-    { label: 'Facebook', icon: IconBrandFacebook, href: '#' },
-    // { label: 'RSS', icon: IconRss, href: '#' },
-    { label: 'Github', icon: IconBrandGithub, href: 'https://github.com/easttexaselectronics' },
+    { label: 'Twitter', icon: IconBrandTwitter, href: URLs.TWITTER },
+    { label: 'Instagram', icon: IconBrandInstagram, href: URLs.INSTAGRAM },
+    { label: 'Facebook', icon: IconBrandFacebook, href: URLs.FACEBOOK },
+    { label: 'Github', icon: IconBrandGithub, href: URLs.GITHUB },
   ],
   footNote: (
     <div className="mr-4 text-sm dark:text-slate-400">
-      <a className="text-blue-600 hover:underline dark:text-gray-200" href="https://www.easttexaselectronics.com">
+      <a className="text-blue-600 hover:underline dark:text-gray-200" href={URLs.ETE}>
         {' '}
         East Texas Electronics, LLC.
       </a>{' '}
