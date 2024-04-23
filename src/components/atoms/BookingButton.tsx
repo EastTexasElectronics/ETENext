@@ -19,7 +19,7 @@ const BookingButton: React.FC = () => {
       <button
         onClick={toggleModal} // Event handler for click event to toggle modal visibility
         aria-label="Book an appointment" // Accessibility label for screen readers
-        className="fixed right-0 top-1/2 z-50 bg-primary-600 hover:bg-primary-500 text-white font-bold pt-1.5 pb-1 pl-0.5 transform -translate-y-1/2 shadow-lg cursor-pointer rounded-tl-lg rounded-bl-lg text-xs transition duration-300 ease-in-out hover:scale-105"
+        className="fixed right-0 top-1/2 z-50 p-2 bg-primary-600 hover:bg-primary-500 text-white font-bold pt-1.5 pb-1 pl-0.5 transform -translate-y-1/2 shadow-lg cursor-pointer rounded-tl-lg rounded-bl-lg text-xs transition duration-300 ease-in-out hover:scale-105"
       >
         {/* Span element for button text, with custom styling */}
         <span className="[writing-mode:vertical-lr] bg-primary-600">Book Appointment</span>

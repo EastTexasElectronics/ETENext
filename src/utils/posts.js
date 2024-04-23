@@ -45,16 +45,13 @@ export const findPostBySlug = async (slug) => {
     const { data: frontmatter, content } = matter(readFile);
     return {
       slug,
-      title: frontmatter.title || "Default Title",
-      description: frontmatter.description || "Default Excerpt",
-      image: frontmatter.image || "/path/to/default/image.jpg",
+      ...frontmatter,
       content,
     };
   } catch (e) {}
 
   return null;
 };
-
 
 /** */
 export const findPostsByIds = async (ids) => {
