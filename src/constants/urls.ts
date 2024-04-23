@@ -14,10 +14,10 @@ const URLs = {
   REPAIRS: '/services/repairs',
   DATA_RECOVERY: '/services/data-recovery',
   IT: '/services/it-support',
-  WEB_DEVELOPMENT: '/services/web-development',
-  SOFTWARE: '/services/software',
+  WEB_DEVELOPMENT: '/services/software-website-app-development',
+  SOFTWARE: '/services/software-website-app-development#software-development',
   CONSULTATIONS: '/services/consultations',
-  RECYCLING: '/services/recycling',
+  RECYCLING: '/services/e-waste-recycling',
   CPORTAL: '/customer-portal',
 
   // Social Profiles

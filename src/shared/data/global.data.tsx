@@ -54,12 +54,17 @@ export const headerData: HeaderProps = {
         }
       ],
     },
+    // TODO - Add blog link when ready
     {
       label: 'Blog',
       href: URLs.BLOG,
     },
     {
       label: 'Contact',
+      href: URLs.CONTACT,
+    },
+    {
+      label: 'HR Portal',
       href: URLs.CONTACT,
     },
     {
