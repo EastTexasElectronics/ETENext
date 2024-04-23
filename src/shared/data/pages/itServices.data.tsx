@@ -1,21 +1,21 @@
 import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, ContentProps } from '~/shared/types';
 import URLs from '~/constants/urls';
-import repairHero from '~/assets/images/aboutHero.webp';
-import repairQuality from '~/assets/images/repairQuality.png';
-import dataPrivacy from '~/assets/images/dataPrivacy.png';
+import itSupportHero from '~/assets/images/itSupportHero.png';
+import itSupportQuality from '~/assets/images/itSupportHero.png';  // Update this image if needed
+import dataSecurity from '~/assets/images/itSupportHero.png';  // Update this image if needed
 import dynamicIcons from '~/components/atoms/Icons';
 
 // Hero data on IT page
 export const heroIT: HeroProps = {
-  title: 'Premier Electronic Repair Services',
-  subtitle: 'Expert repair solutions for all electronic equipment. Ensuring optimal performance with every fix.',
+  title: 'Comprehensive IT Support Services',
+  subtitle: 'Expert IT solutions that ensure your business stays connected and secure.',
   callToAction: {
-    text: 'Schedule Your Repair',
-    href: URLs.APPOINTMENT,
+    text: 'Discover Our Services',
+    href: URLs.IT,
   },
   image: {
-    src: repairHero,
-    alt: 'Repair Services Image',
+    src: itSupportHero,
+    alt: 'IT Support Hero Image - Colorful Circuits and Technology Components',
   },
 };
 
@@ -23,71 +23,64 @@ export const heroIT: HeroProps = {
 export const features2IT: FeaturesProps = {
   columns: 3,
   header: {
-    title: 'Our Specialized Services',
+    title: 'What We Provide',
   },
   items: [
     {
-      title: 'Computers & Laptops',
-      description:
-        'Comprehensive repair services for all computer and laptop issues, from hardware malfunctions to software glitches.',
-      icon: dynamicIcons.cpu,
+      title: 'Technical Support',
+      description: 'Round-the-clock technical support for all your hardware and software issues.',
+      icon: dynamicIcons.help,
     },
     {
-      title: 'Mobile Devices',
-      description:
-        'Expert repairs for smartphones and tablets, specializing in screen replacements, battery issues, and more.',
+      title: 'Network Solutions',
+      description: 'Robust network management services to keep your operations smooth and secure.',
+      icon: dynamicIcons.network,
+    },
+    {
+      title: 'Software Services',
+      description: 'Custom software solutions tailored to meet the unique needs of your business.',
       icon: dynamicIcons.code,
     },
     {
-      title: 'Servers & Workstations',
-      description:
-        'Rapid recovery solutions for servers and workstations to minimize downtime and maintain business continuity.',
-      icon: dynamicIcons.heartHandshake,
+      title: 'Security & Compliance',
+      description: 'Advanced security measures to protect your data and ensure compliance with regulations.',
+      icon: dynamicIcons.shieldLock,
     },
     {
-      title: 'Precision Soldering',
-      description: 'High-quality soldering for electronic components requiring detailed and meticulous attention.',
-      icon: dynamicIcons.appWindow,
+      title: 'Cloud Services',
+      description: 'Scalable cloud services to enhance your data accessibility and disaster recovery strategies.',
+      icon: dynamicIcons.cloudUpload,
     },
     {
-      title: 'All Electronic Devices',
-      description:
-        'A one-stop-shop for all electronic device repairs, handling everything from common gadgets to unique and rare equipment.',
-      icon: dynamicIcons.hipChat,
-    },
-    {
-      title: 'Circuit Board Repair',
-      description: 'Specialized circuit board repairs, focusing on delivering durable and reliable fixes.',
-      icon: dynamicIcons.recycle,
+      title: 'IT Consultations',
+      description: 'Expert IT consulting to help you navigate the complex world of technology effectively.',
+      icon: dynamicIcons.userSearch,
     },
   ],
 };
 
 // Content data on IT page for Data Privacy
 export const contentITOne: ContentProps = {
-  id: 'contentOne-on-repair-one',
+  id: 'contentOne-on-it-one',
   hasBackground: true,
-  content: 'Your Data Privacy & Security Guaranteed',
+  content: 'Data Security & Privacy Commitment',
   items: [
     {
-      title: 'No Data Retention',
-      description:
-        'We ensure any data necessary for repairs is securely deleted post-service. Your privacy is paramount.',
+      title: 'Secure Data Practices',
+      description: 'Strict data handling protocols to ensure maximum security and confidentiality.',
     },
     {
-      title: 'Minimal Data Access',
-      description:
-        'Access to data is strictly limited to what is necessary for repairs. We respect your digital privacy at all times.',
+      title: 'Regular Compliance Audits',
+      description: 'Ensuring compliance with the latest industry standards and regulations.',
     },
     {
-      title: 'NDA Provision',
-      description:
-        'Available NDAs for sensitive information, ensuring your data remains confidential and protected under all circumstances.',
+      title: 'Customizable Security Solutions',
+      description: 'Security solutions tailored to your specific business needs and challenges.',
     },
   ],
   image: {
-    src: dataPrivacy,
-    alt: 'Privacy Assurance Image',
+    src: dataSecurity,
+    alt: 'Data Security Image',
   },
   isReversed: true,
   isAfterContent: false,
@@ -95,20 +88,20 @@ export const contentITOne: ContentProps = {
 
 // Content data on IT page for Quality Standards
 export const contentITTwo: ContentProps = {
-  id: 'contentOne-on-repair-two',
+  id: 'contentOne-on-it-two',
   hasBackground: false,
-  content: 'Expect Excellence in Every Repair',
+  content: 'Commitment to Service Excellence',
   items: [
-    { title: 'Guaranteed Labor for 1 Year' },
-    { title: 'High-Quality Parts & Materials' },
-    { title: 'Efficient Turnaround Times' },
-    { title: 'Competitive Pricing' },
-    { title: 'Professional & Experienced Technicians' },
-    { title: 'Dedication to Innovation and Quality' },
+    { title: '24/7 Support Availability' },
+    { title: 'Guaranteed Response Times' },
+    { title: 'Experienced Professionals' },
+    { title: 'Proactive Monitoring' },
+    { title: 'Transparent Reporting' },
+    { title: 'Continuous Improvement Practices' },
   ],
   image: {
-    src: repairQuality,
-    alt: 'Quality Repair Standards Image',
+    src: itSupportQuality,
+    alt: 'IT Service Excellence Standards Image',
   },
   isReversed: false,
   isAfterContent: true,
@@ -119,44 +112,40 @@ export const faqsIT: FAQsProps = {
   hasBackground: true,
   columns: 1,
   header: {
-    title: 'Frequently Asked Questions',
-    subtitle: 'Quick answers to your common repair queries. For more detailed inquiries, feel free to reach out.',
+    title: 'Frequently Asked IT Questions',
+    subtitle: 'Answers to common queries about our IT services. For more info, please contact us.',
   },
   items: [
     {
-      title: 'What can you repair?',
-      description:
-        'We handle repairs across a broad spectrum of electronics, from everyday gadgets to specialized industrial equipment.',
-      icon: dynamicIcons.helpHexagon,
+      title: 'What IT services do you offer?',
+      description: 'We provide a wide range of IT services from technical support to complete IT infrastructure management.',
+      icon: dynamicIcons.infoCircle,
     },
     {
-      title: 'What will it cost?',
-      description:
-        'Our pricing is competitive and transparent. Contact us for detailed quotes tailored to your specific repair needs.',
-      icon: dynamicIcons.helpHexagon,
+      title: 'How can you improve our IT security?',
+      description: 'We implement cutting-edge security measures tailored to your specific business needs.',
+      icon: dynamicIcons.security,
     },
     {
-      title: 'Do you provide warranties?',
-      description:
-        'Every repair comes with a one-year warranty on labor. We also manage warranty claims for parts used in repairs.',
-      icon: dynamicIcons.helpHexagon,
+      title: 'What support do you offer for networks?',
+      description: 'From initial setup to ongoing management, our network services ensure reliable and secure connectivity.',
+      icon: dynamicIcons.networkCheck,
     },
     {
-      title: 'Cost of a custom website?',
-      description:
-        'Custom website costs vary based on complexity and specific requirements. Get in touch for a comprehensive quote.',
-      icon: dynamicIcons.helpHexagon,
+      title: 'Do you offer cloud storage solutions?',
+      description: 'Yes, we provide secure and scalable cloud storage solutions for businesses of all sizes.',
+      icon: dynamicIcons.cloud,
     },
   ],
 };
 
-// Call to Action data on Repair page
+// Call to Action data on IT page
 export const callToActionIT: CallToActionProps = {
   hasBackground: false,
-  title: 'Ready for a Repair?',
-  subtitle: 'Book an appointment today and experience premier electronic repair services.',
+  title: 'Get Started with Our IT Services',
+  subtitle: 'Contact us today to learn how we can help your business thrive.',
   callToAction: {
-    text: 'Schedule a Service',
-    href: URLs.APPOINTMENT,
+    text: 'Contact Our Team',
+    href: URLs.CONTACT,
   },
 };
