@@ -5,11 +5,10 @@ import { IconRss } from '@tabler/icons-react';
 import ToggleDarkMode from '~/components/atoms/ToggleDarkMode';
 import Link from 'next/link';
 import Logo from '~/components/atoms/Logo';
-import ToggleMenu from '../../atoms/ToggleMenu';
+import ToggleMenu from '~/components/atoms/ToggleMenu';
 import { headerData } from '~/shared/data/global.data';
-import CTA from '../../common/CTA';
+import CTA from '~/components/common/CTA';
 import { CallToActionType } from '~/shared/types';
-import Image from 'next/image';
 
 const Header = () => {
   const { links, actions, isSticky, showToggleTheme, showRssFeed, position } = headerData;
