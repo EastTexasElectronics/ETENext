@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
-import CallToAction from '~/components/widgets/CallToAction';
-import FAQs from '~/components/widgets/FAQs';
-import Features2 from '~/components/widgets/Features2';
-import Hero from '~/components/widgets/Hero2';
-import Testimonials from '~/components/widgets/Testimonials';
+import CallToAction from '~/components/widgets/callToAction/CallToAction';
+import FAQs from '~/components/widgets/faq/FAQs';
+import Features2 from '~/components/widgets/features/Features2';
+import Hero from '~/components/widgets/heros/Hero2';
+import Testimonials from '~/components/widgets/testamonials/Testimonials';
 import {
   callToActionServices,
   faqsServices,

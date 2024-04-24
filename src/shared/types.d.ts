@@ -1,6 +1,32 @@
-import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
+// React specific imports for type definitions
+import { ComponentType, ReactElement, ReactNode } from 'react';
 import { StaticImageData } from 'next/image';
 
+/**
+ * Represents properties for company details, supporting dynamic properties via index signature.
+ */
+type CompanyDetailsProps = {
+  name: string;
+  website: string;
+  websiteDashboard: string;
+  domainDashboard: string;
+  businessNumber: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+  mainContactName: string;
+  mainContactPhone: string;
+  mainContactEmail: string;
+  secondaryContactName: string;
+  secondaryContactPhone: string;
+  secondaryContactEmail: string;
+  [key: string]: string; // Allows string indexing
+};
+
+/**
+ * Defines properties for a button component with optional icon and accessibility features.
+ */
 type BookingButtonType = {
   text: string;
   icon?: ComponentType;
@@ -10,23 +36,38 @@ type BookingButtonType = {
   ariaLabel?: string;
 };
 
+/**
+ * Base interface for components that may optionally have a background.
+ */
 type Widget = {
   id?: string;
   hasBackground?: boolean;
 };
 
+/**
+ * Props for components that act as containers for other elements, supporting optional classes.
+ */
 type WrapperTagProps = Widget & {
   children: ReactNode;
   containerClass?: string;
 };
 
+/**
+ * Props for components that may or may not contain children and a background.
+ */
 type BackgroundProps = {
   children?: ReactNode;
   hasBackground?: boolean;
 };
 
+/**
+ * Type definition for SVG icons in React components.
+ */
 type Icon = React.ComponentType<React.ComponentProps<'svg'>>;
 
+/**
+ * Represents header information with optional alignment.
+ */
 type Header = {
   title?: string | ReactElement;
   subtitle?: string | ReactElement;
@@ -34,6 +75,9 @@ type Header = {
   position?: 'center' | 'right' | 'left';
 };
 
+/**
+ * Props for a headline component with optional custom class names for styling.
+ */
 type HeadlineProps = {
   header: Header;
   containerClass?: string;
@@ -41,6 +85,9 @@ type HeadlineProps = {
   subtitleClass?: string;
 };
 
+/**
+ * Type for call to action components with optional modal trigger and accessibility features.
+ */
 type CallToActionType = {
   text?: string;
   href: string;
@@ -50,6 +97,9 @@ type CallToActionType = {
   modalOpen?: () => void;
 };
 
+/**
+ * Defines link or button elements with optional styling and icon properties.
+ */
 type LinkOrButton = {
   callToAction?: CallToActionType;
   containerClass?: string;
@@ -57,11 +107,17 @@ type LinkOrButton = {
   iconClass?: string;
 };
 
+/**
+ * Represents a basic button component in forms.
+ */
 type Button = {
   title: string;
   type: 'button' | 'submit' | 'reset';
 };
 
+/**
+ * Defines properties for input fields with support for HTML5 autocomplete.
+ */
 type Input = {
   type: string;
   label?: string;
@@ -71,6 +127,9 @@ type Input = {
   placeholder?: string;
 };
 
+/**
+ * Props for textarea elements with optional labels.
+ */
 type Textarea = {
   cols?: number;
   rows?: number;
@@ -79,26 +138,41 @@ type Textarea = {
   placeholder?: string;
 };
 
+/**
+ * Represents a checkbox element with label and value.
+ */
 type Checkbox = {
   label: string;
   value: string;
 };
 
+/**
+ * Defines a radio button with a label.
+ */
 type Radio = {
   label: string;
 };
 
+/**
+ * Container for a group of radio buttons with optional label.
+ */
 type RadioBtn = {
   label?: string;
   radios: Array<Radio>;
 };
 
+/**
+ * Represents a small form element that may include an icon.
+ */
 type SmallForm = {
   icon?: Icon;
   input: Input;
   btn: Button;
 };
 
+/**
+ * Defines form properties including input fields, radio buttons, checkboxes, and buttons.
+ */
 type FormProps = {
   title?: string;
   description?: string;
@@ -112,12 +186,18 @@ type FormProps = {
   preferredContact?: RadioBtn;
 };
 
+/**
+ * Type definition for image elements, supporting both static and dynamic images.
+ */
 type Image = {
   link?: string;
   src: string | StaticImageData;
   alt: string;
 };
 
+/**
+ * Generic item definition that can represent various types of content and actions.
+ */
 type Item = {
   title?: string | boolean | number;
   description?: string | Array<string>;
@@ -127,6 +207,9 @@ type Item = {
   callToAction?: CallToActionType;
 };
 
+/**
+ * File type declarations for static image assets.
+ */
 declare module '*.jpg' {
   const content: string;
   export default content;
@@ -141,245 +224,3 @@ declare module '*.png' {
   const content: string;
   export default content;
 }
-
-type ItemGrid = {
-  id?: string;
-  items?: Array<Item>;
-  columns?: number;
-  defaultColumns?: number;
-  defaultIcon?: Icon;
-  containerClass?: string;
-  panelClass?: string;
-  iconClass?: string;
-  titleClass?: string;
-  descriptionClass?: string;
-  actionClass?: string;
-};
-
-type Timeline = {
-  id?: string;
-  items?: Array<Item>;
-  defaultIcon?: Icon;
-  containerClass?: string;
-  panelClass?: string;
-  iconClass?: string;
-  titleClass?: string;
-  descriptionClass?: string;
-};
-
-type Team = {
-  name: string;
-  occupation: string;
-  image: Image;
-  items?: Array<Item>;
-  containerClass?: string;
-  imageClass?: string;
-  panelClass?: string;
-  nameClass?: string;
-  occupationClass?: string;
-  itemsClass?: string;
-};
-
-type Testimonial = {
-  testimonial?: string;
-  startSlice?: number;
-  endSlice?: number;
-  isTestimonialUp?: boolean;
-  hasDividerLine?: boolean;
-  name?: string;
-  job?: string;
-  image?: Image;
-  href?: string;
-  containerClass?: string;
-  panelClass?: string;
-  imageClass?: string;
-  dataClass?: string;
-  nameJobClass?: string;
-  nameClass?: string;
-  jobClass?: string;
-  testimonialClass?: string;
-};
-
-type Link = {
-  label: string;
-  href?: string;
-  icon?: Icon;
-  links?: Array<Link>; // This is the new recursive reference for nested links.
-  ariaLabel?: string;
-};
-
-type Price = {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  price?: number;
-  period?: string;
-  items?: Array<Item>;
-  callToAction?: CallToActionType;
-  hasRibbon?: boolean;
-  ribbonTitle?: string;
-};
-
-type Column = {
-  title: string;
-  items: Array<Item>;
-  callToAction?: CallToActionType;
-};
-
-type Links = {
-  title?: string;
-  links?: Array<Link>;
-  texts?: Array<string>;
-};
-
-type Tab = {
-  link?: Link;
-  items: Array<Item>;
-};
-
-type Dropdown = {
-  options: Array<Tab>;
-  activeTab: number;
-  onActiveTabSelected: Function;
-  iconUp?: ReactElement;
-  iconDown?: ReactElement;
-};
-
-type ToggleMenuProps = {
-  handleToggleMenuOnClick: MouseEventHandler<HTMLButtonElement>;
-  isToggleMenuOpen: boolean;
-};
-
-type WindowSize = {
-  width: number;
-  height: number;
-};
-
-type HeroProps = {
-  title?: string | ReactElement;
-  subtitle?: string | ReactElement;
-  tagline?: string;
-  callToAction?: CallToActionType;
-  callToAction2?: CallToActionType;
-  image?: Image;
-};
-
-type FAQsProps = Widget & {
-  header?: Header;
-  items?: Array<Item>;
-  columns?: number;
-  tabs?: Array<Tab>;
-  callToAction?: CallToActionType;
-};
-
-type CollapseProps = {
-  items: Array<Item>;
-  classCollapseItem?: string;
-  iconUp?: ReactElement;
-  iconDown?: ReactElement;
-};
-
-type CallToActionProps = Widget & {
-  title: string;
-  subtitle: string;
-  callToAction?: CallToActionType;
-  items?: Array<Item>;
-};
-
-type NewsletterProps = Widget & {
-  title: string;
-  subtitle: string;
-  callToAction?: CallToActionType;
-  items?: Array<Item>;
-};
-
-type FeaturesProps = Widget & {
-  header?: Header;
-  items?: Array<Item>;
-  columns?: 1 | 2 | 3;
-  isImageDisplayed?: boolean;
-  image?: Image;
-  isBeforeContent?: boolean;
-  isAfterContent?: boolean;
-};
-
-type ContentProps = Widget & {
-  header?: Header;
-  content?: string;
-  items?: Array<Item>;
-  image?: Image;
-  isReversed?: boolean;
-  isAfterContent?: boolean;
-};
-
-type StepsProps = Widget & {
-  header?: Header;
-  items: Array<Item>;
-  isImageDisplayed?: boolean;
-  image?: Image;
-  isReversed?: boolean;
-};
-
-type TeamProps = Widget & {
-  header?: Header;
-  teams: Array<Team>;
-};
-
-type AnnouncementProps = {
-  title: string;
-  callToAction?: CallToActionType;
-  callToAction2?: CallToActionType;
-};
-
-type TestimonialsProps = Widget & {
-  header?: Header;
-  testimonials: Array<Testimonial>;
-  isTestimonialUp?: boolean;
-  hasDividerLine?: boolean;
-  startSlice?: number;
-  endSlice?: number;
-  callToAction?: CallToActionType;
-};
-
-type PricingProps = Widget & {
-  header?: Header;
-  prices: Array<Price>;
-};
-
-type ComparisonProps = Widget & {
-  header?: Header;
-  columns: Array<Column>;
-};
-
-type StatsProps = Widget & {
-  items: Array<Item>;
-};
-
-type SocialProofProps = Widget & {
-  images: Array<Image>;
-};
-
-type ContactProps = Widget & {
-  header?: Header;
-  content?: string;
-  items?: Array<Item>;
-  form: FormProps;
-};
-
-type FooterProps = {
-  title?: string;
-  links?: Array<Link>;
-  columns: Array<Links>;
-  socials: Array<Link>;
-  footNote?: string | ReactElement;
-  theme?: string;
-};
-
-type HeaderProps = {
-  links?: Array<Link>;
-  actions?: Array<CallToActionType>;
-  isSticky?: boolean;
-  showToggleTheme?: boolean;
-  showRssFeed?: boolean;
-  position?: 'center' | 'right' | 'left';
-};
