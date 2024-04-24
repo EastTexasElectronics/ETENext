@@ -20,50 +20,6 @@ export const announcementData: AnnouncementProps = {
     href: URLs.TWITTER,
   },
 };
-// Header data
-export const dashboardHeaderData: HeaderProps = {
-  links: [
-    {
-      label: 'My Business',
-      icon: IconChevronDown,
-      links: [
-        {
-          label: 'Overview',
-          href: URLs.IT,
-        },
-        {
-          label: 'Schedules',
-          href: URLs.REPAIRS,
-        },
-        {
-          label: 'Time Sheets',
-          href: URLs.WEB_DEVELOPMENT,
-        },
-        {
-          label: 'Settings',
-          href: URLs.SOFTWARE,
-        },
-      ],
-    },
-    // TODO - Add blog link when ready
-
-    {
-      label: 'Employees',
-      href: URLs.CONTACT,
-    },
-  ],
-  actions: [
-    {
-      text: 'Book an Appointment',
-      href: URLs.CPORTAL,
-      targetBlank: false,
-    },
-  ],
-  isSticky: true,
-  showToggleTheme: true,
-  showRssFeed: false,
-  position: 'center',
-};
 
 // Header data
 export const headerData: HeaderProps = {
@@ -95,7 +51,7 @@ export const headerData: HeaderProps = {
         {
           label: 'Data Recovery',
           href: URLs.DATA_RECOVERY,
-        },
+        }
       ],
     },
     // TODO - Add blog link when ready
@@ -114,6 +70,7 @@ export const headerData: HeaderProps = {
     {
       label: 'Visit Our Shop',
       href: URLs.ETE,
+      
     },
   ],
   actions: [
@@ -232,7 +189,9 @@ export const footerData: FooterProps = {
         {' '}
         East Texas Electronics, LLC.
       </a>{' '}
-      · All Rights Reserved. <span className="text-xs text-gray-600 dark:text-slate-300">©2022</span>
+      · All Rights Reserved.
+      {' '}
+      <span className="text-xs text-gray-600 dark:text-slate-300">©2022</span>
     </div>
   ),
 };

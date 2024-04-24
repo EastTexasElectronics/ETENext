@@ -19,12 +19,6 @@ const URLs = {
   CONSULTATIONS: '/services/consultations',
   RECYCLING: '/services/e-waste-recycling',
   CPORTAL: '/customer-portal',
-  NEW_USER: '/new-user',
-  SIGN_IN: '/sign-in',
-  VERIFY_REQUEST: '/verify-request',
-  AUTH_ERROR: '/auth-error',
-  MY_INFO: '/user-dashboard/my-info',
-  EMPLOYEE_LIST: '/user-dashboard/employees',
 
   // Social Profiles
   FACEBOOK: 'https://www.facebook.com/',

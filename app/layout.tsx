@@ -3,14 +3,15 @@ import { Suspense } from 'react';
 import { SITE } from '~/config.js';
 import Loading from '../app/loading';
 import Providers from '~/components/atoms/Providers';
-import Header from '~/components/widgets/headerFooter/Header';
-import Footer from '~/components/widgets/headerFooter/Footer';
+import Header from '~/components/widgets/Header';
+import Footer from '~/components/widgets/Footer';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
-// import Announcement from '~/components/widgets/Announcement';
+import BookingButton from '~/components/atoms/BookingButton';
 
+// import Announcement from '~/components/widgets/Announcement';
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
@@ -51,12 +52,12 @@ export const metadata: Metadata = {
     SITE?.description ||
     'East Texas Electronics provides IT Support, Computer Repair, Network Support, Web Design, SEO, and Digital Marketing services to East Texas.',
   robots: {
-    index: false,
+    index: true,
     follow: true,
     nocache: true,
     googleBot: {
       index: true,
-      follow: false,
+      follow: true,
       noimageindex: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: LayoutProps) {
           <Suspense fallback={<Loading />}>
             <main>{children}</main>
           </Suspense>
+          <BookingButton />
           <Footer />
           <SpeedInsights />
           <Analytics />

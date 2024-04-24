@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, memo } from 'react';
-import Modal from '../widgets/modals/BookingModal';
+import Modal from '../widgets/BookingModal';
 import URLs from '~/constants/urls';
 
 // Define the BookingButton component using React Functional Component type

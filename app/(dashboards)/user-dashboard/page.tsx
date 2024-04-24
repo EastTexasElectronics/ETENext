@@ -1,6 +1,5 @@
 import React from 'react';
-// import Navigation from '~/components/widgets/userDashboard/Navigation';
-import Tabs from '~/components/widgets/userDashboard/Tabs';
+import Tabs from '~/components/widgets/Tabs';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,7 +10,6 @@ export const metadata: Metadata = {
 const UserDashboard: React.FC = () => {
   return (
     <div className="min-h-screen">
-      {/* <Navigation /> */}
       <Tabs />
     </div>
   );

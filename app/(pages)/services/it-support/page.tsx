@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
-import CallToAction from '~/components/widgets/callToAction/CallToAction';
+import CallToAction from '~/components/widgets/CallToAction';
 import Content from '~/components/widgets/Content';
-import FAQs from '~/components/widgets/faq/FAQs';
-import Features2 from '~/components/widgets/features/Features2';
-import Features4 from '~/components/widgets/features/Features4';
-import Hero from '~/components/widgets/heros/Hero2';
+import FAQs from '~/components/widgets/FAQs';
+import Features2 from '~/components/widgets/Features2';
+import Features4 from '~/components/widgets/Features4';
+import Hero from '~/components/widgets/Hero2';
 import {
   callToActionIT,
   contentITOne,

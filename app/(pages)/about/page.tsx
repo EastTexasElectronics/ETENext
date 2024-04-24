@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import Features3 from '~/components/widgets/features/Features3';
-import Features4 from '~/components/widgets/features/Features4';
-import Hero2 from '~/components/widgets/heros/Hero2';
+import Features3 from '~/components/widgets/Features3';
+import Features4 from '~/components/widgets/Features4';
+import Hero2 from '~/components/widgets/Hero2';
 
 
 import {
