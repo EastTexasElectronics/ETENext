@@ -76,7 +76,6 @@ export default function RootLayout({ children }: LayoutProps) {
             <UserButton />
           </SignedIn>
         </head>
-
         <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300">
           <ThemeProviders>
             <Header />
@@ -85,11 +84,11 @@ export default function RootLayout({ children }: LayoutProps) {
             </Suspense>
             <BookingButton />
             <Footer />
-            <SpeedInsights />
-            <Analytics />
           </ThemeProviders>
         </body>
       </html>
+      <SpeedInsights />
+      <Analytics />
     </ClerkProvider>
   );
 }
