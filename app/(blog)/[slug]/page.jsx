@@ -1,3 +1,5 @@
+// TODO We need to get rid of the document.write in the markdown-it renderer evaluate using MDX instead for this.
+
 import md from 'markdown-it';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -8,7 +10,7 @@ export const dynamicParams = false;
 
 const getFormattedDate = (date) => date;
 
-export async function generateMetadata({ params}) {
+export async function generateMetadata({ params }) {
   const post = await findPostBySlug(params.slug);
   if (!post) {
     return notFound();
