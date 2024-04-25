@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SITE } from '~/config.js';
 import Loading from '../app/loading';
-import Providers from '~/components/atoms/Providers';
+import ThemeProviders from '~/components/atoms/ThemeProviders';
 import Header from '~/components/widgets/Header';
 import Footer from '~/components/widgets/Footer';
 import { Inter as CustomFont } from 'next/font/google';
@@ -10,16 +10,12 @@ import '~/assets/styles/base.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 import BookingButton from '~/components/atoms/BookingButton';
-
-// import Announcement from '~/components/widgets/Announcement';
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { LayoutProps } from '~/shared/types';
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
 
-// Layout props
-export interface LayoutProps {
-  children: React.ReactNode;
-}
 // Metadata for the site
 export const metadata: Metadata = {
   category: 'technology',
@@ -68,24 +64,32 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    // TODO This line is causing a warning in the console
-    <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300">
-        <Providers>
-          <Header />
-          <Suspense fallback={<Loading />}>
-            <main>{children}</main>
-          </Suspense>
-          <BookingButton />
-          <Footer />
-          <SpeedInsights />
-          <Analytics />
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}>
+        <head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </head>
+
+        <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300">
+          <ThemeProviders>
+            <Header />
+            <Suspense fallback={<Loading />}>
+              <main>{children}</main>
+            </Suspense>
+            <BookingButton />
+            <Footer />
+            <SpeedInsights />
+            <Analytics />
+          </ThemeProviders>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

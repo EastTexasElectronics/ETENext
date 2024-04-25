@@ -1,6 +1,13 @@
 import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
 
+type LayoutProps = {
+  children: React.ReactNode;
+}
+
+type ThemeProvidersProps = {
+  children: React.ReactNode
+};
 
 /**
  * Represents properties for company details, supporting dynamic properties via index signature.
