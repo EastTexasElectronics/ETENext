@@ -9,6 +9,7 @@ import ToggleMenu from '../atoms/ToggleMenu';
 import { headerData } from '~/shared/data/global.data';
 import CTA from '../common/CTA';
 import { CallToActionType } from '~/shared/types';
+import Image from 'next/image';
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 const Header = () => {
@@ -122,6 +123,9 @@ const Header = () => {
               ))}
           </ul>
         </nav>
+        <div>
+        <UserButton />
+        </div>
         <div
           className={`${
             isToggleMenuOpen ? 'block' : 'hidden'
