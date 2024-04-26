@@ -9,8 +9,8 @@ import ToggleMenu from '../atoms/ToggleMenu';
 import { headerData } from '~/shared/data/global.data';
 import CTA from '../common/CTA';
 import { CallToActionType } from '~/shared/types';
-import Image from 'next/image';
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import URLs from '~/constants/urls';
 
 const Header = () => {
   const { links, actions, isSticky, showToggleTheme, showRssFeed, position } = headerData;
@@ -61,7 +61,7 @@ const Header = () => {
         <div className="flex justify-between">
           <Link
             className="flex items-center"
-            href="/"
+            href={URLs.HOME}
             onClick={() =>
               isToggleMenuOpen ? handleToggleMenuOnClick() : setIsDropdownOpen(updatedIsDropdownOpen as boolean[])
             }
@@ -123,7 +123,6 @@ const Header = () => {
               ))}
           </ul>
         </nav>
-        <div></div>
         <div
           className={`${
             isToggleMenuOpen ? 'block' : 'hidden'
