@@ -1,9 +1,16 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-// This Middleware does not protect any routes by default.
-// See https://clerk.com/docs/references/nextjs/clerk-middleware for more information about configuring your Middleware
-export default clerkMiddleware();
+const isDashboardRoute = createRouteMatcher(['/user-dashboard(.*)']);
+// const isAdminRoute = createRouteMatcher(['/admin(.*)']);
+
+export default clerkMiddleware((auth, req) => {
+  // Restrict admin route to users with specific role
+  // if (isAdminRoute(req)) auth().protect({ role: 'org:admin' });
+
+  // Restrict dashboard routes to signed in users
+  if (isDashboardRoute(req)) auth().protect();
+});
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };

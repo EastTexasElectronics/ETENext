@@ -20,6 +20,7 @@ const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' })
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
+      {/* TODO remove className from HTML tag, this causes hydration issues. Find another way to implement.*/}
       <html lang="en" className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}>
         <head>
           <meta charSet="utf-8" />
