@@ -124,7 +124,6 @@ const Header = () => {
           </ul>
         </nav>
         <div>
-        <UserButton />
         </div>
         <div
           className={`${
