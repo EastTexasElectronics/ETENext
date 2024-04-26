@@ -123,8 +123,7 @@ const Header = () => {
               ))}
           </ul>
         </nav>
-        <div>
-        </div>
+        <div></div>
         <div
           className={`${
             isToggleMenuOpen ? 'block' : 'hidden'
