@@ -14,12 +14,8 @@ import URLs from '~/constants/urls';
 export const announcementData: AnnouncementProps = {
   title: 'NEW',
   callToAction: {
-    text: 'Welcome to our new website! Learn more about the changes here.',
-    href: '/demo-post-1/',
-  },
-  callToAction2: {
-    text: 'Follow us on Twitter',
-    href: URLs.TWITTER,
+    text: 'THIS WEBSITE IS UNDER CONSTRUCTION IF YOU ARE LOOKING FOR OUR ECOMMERCE STORE PLEASE VISIT OUR SHOP',
+    href: 'https://www.easttexaselectronics.com',
   },
 };
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { SITE } from '~/config.js';
-import Hero from '~/components/widgets/Hero';
+import Hero from '~/components/widgets/Hero2';
 import { heroHome } from '~/shared/data/pages/home.data';
 import Features from '~/components/widgets/Features3';
 import { featuresHome } from '~/shared/data/pages/home.data';

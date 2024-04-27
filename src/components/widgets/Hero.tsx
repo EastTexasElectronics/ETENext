@@ -8,11 +8,10 @@ const Hero = ({ title, subtitle, tagline, callToAction, callToAction2, image }: 
       {image && (
         <div className="absolute inset-0 z-0">
           <Image
-            className="h-full w-full object-cover"
+            className="object-cover opacity-50"
             src={image.src}
             alt={image.alt}
-            width={1920}
-            height={1080}
+            layout="responsive"
             sizes="100vw"
             loading="eager"
             priority

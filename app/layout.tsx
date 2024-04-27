@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import Loading from '../app/loading';
 import ThemeProviders from '~/components/atoms/ThemeProviders';
 import Footer from '~/components/widgets/Footer';
+import Announcement from '~/components/widgets/Announcement';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 // TODO Causing Hydration Error
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </head>
         <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300">
           <ThemeProviders>
+            <Announcement />
             <Suspense fallback={<Loading />}>
               <main>{children}</main>
             </Suspense>

@@ -1,6 +1,10 @@
 import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
 
+type CTAProps = {
+  containerClass: string;
+  linkClass: string;
+}
 
 type DigitalAssetsProps = {
   name: string;
@@ -308,7 +312,7 @@ type WindowSize = {
 type HeroProps = {
   title?: string | ReactElement;
   subtitle?: string | ReactElement;
-  tagline?: string;
+  tagline?: string | ReactElement;
   callToAction?: CallToActionType;
   callToAction2?: CallToActionType;
   image?: Image;

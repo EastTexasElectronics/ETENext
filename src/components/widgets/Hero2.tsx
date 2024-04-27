@@ -15,15 +15,27 @@ const Hero2 = ({ title, subtitle, tagline, callToAction, callToAction2, image }:
                 </p>
               )}
               {title && (
-                <h1 className="leading-none mb-4 px-4 text-5xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-300 md:px-0 md:text-[3.48rem]">
+                <h1 className="leading-none mb-4 px-4 text-5xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400 dark:from-primary-600 dark:to-primary-300 md:px-0 md:text-[3.48rem]">
                   {title}
                 </h1>
               )}
               <div className="mx-auto max-w-3xl">
                 {subtitle && <p className="mb-8 text-xl font-normal text-gray-600 dark:text-slate-400">{subtitle}</p>}
                 <div className="flex max-w-none flex-col flex-nowrap justify-center gap-4 sm:flex-row md:m-0 md:justify-start">
-                  {callToAction && <CTA callToAction={callToAction} containerClass="shadow-lg hover:scale-105 transition-transform duration-300" linkClass="btn btn-primary" />}
-                  {callToAction2 && <CTA callToAction={callToAction2} containerClass="shadow-lg hover:scale-105 transition-transform duration-300" linkClass="btn" />}
+                  {callToAction && (
+                    <CTA
+                      callToAction={callToAction}
+                      containerClass="shadow-lg hover:scale-105 transition-transform duration-300"
+                      linkClass="btn btn-primary"
+                    />
+                  )}
+                  {callToAction2 && (
+                    <CTA
+                      callToAction={callToAction2}
+                      containerClass="shadow-lg hover:scale-105 transition-transform duration-300"
+                      linkClass="btn"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -35,12 +47,10 @@ const Hero2 = ({ title, subtitle, tagline, callToAction, callToAction2, image }:
                   className="mx-auto h-full w-auto rounded-md bg-gray-400 object-cover drop-shadow-2xl dark:bg-slate-700 hover:scale-105 transition-transform duration-500"
                   src={image.src}
                   alt={image.alt}
-                  width={540}
-                  height={405}
                   sizes="(min-width: 1920px) 749px, (min-width: 1540px) 43.89vw, (min-width: 1360px) 542px, (min-width: 780px) calc(39.29vw + 16px), calc(96.52vw - 22px)"
                   loading="eager"
                   placeholder="blur"
-                  priority
+                  priority={true}
                 />
               )}
             </div>
@@ -52,6 +62,3 @@ const Hero2 = ({ title, subtitle, tagline, callToAction, callToAction2, image }:
 };
 
 export default Hero2;
-
-
-

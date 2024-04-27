@@ -1,19 +1,19 @@
 import { IconMail, IconCalendarEvent, IconHeartHandshake, IconCodeCircle2, IconCpu } from '@tabler/icons-react';
 import { NewsletterProps, FeaturesProps, HeroProps } from '../../types';
-import heroImg from '~/assets/images/hero.png';
+import heroImg from '~/assets/images/welcomeRobot.webp';
 import URLs from '~/constants/urls';
 
 // Hero data on Home page
 export const heroHome: HeroProps = {
   title: (
     <>
-      <span className="font-semibold text-lg md:text-3xl lg:text-5xl">IT &amp; Repair Solutions</span>
+      <span className="font-semibold text-2xl md:text-5xl lg:text-7xl">East Texas Electronics, LLC.</span>
     </>
   ),
   subtitle: (
     <>
       <span className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400">
-        Your on-demand IT department—enjoy all the perks without the full-time costs.
+        Your on-demand IT & Service department—enjoy all the perks without the full-time costs.
       </span>
     </>
   ),
