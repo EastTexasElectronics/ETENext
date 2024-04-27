@@ -45,3 +45,5 @@ public/sitemap-0.xml
 public/robots.txt
 .vercel
 .env*.local
+
+.env*.local
