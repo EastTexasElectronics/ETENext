@@ -14,20 +14,20 @@ export const heroHome: HeroProps = {
   subtitle: (
     <>
       <div className="font-extrabold text-3xl md:text-4xl [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-slate-800/60 to-50% to-slate-400 dark:from-slate-200/60 dark:to-50% dark:to-slate-200">
-        Your go to for{' '}
+        Assisting you with{' '}
         <span className="text-primary-500 dark:text-primary-300 inline-flex flex-col h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] overflow-hidden">
           <ul className="block animate-text-slide-5 text-left leading-tight [&_li]:block">
             <li>
-              <Link href={URLs.HOME}>Device Repairs</Link>
+              <Link href={URLs.HOME}>Repairs</Link>
             </li>
             <li>
-              <Link href={URLs.HOME}>IT Support</Link>
+              <Link href={URLs.HOME}>Support</Link>
             </li>
             <li>
-              <Link href={URLs.HOME}>Website Management</Link>
+              <Link href={URLs.HOME}>Websites</Link>
             </li>
             <li>
-              <Link href={URLs.HOME}>Custom Software</Link>
+              <Link href={URLs.HOME}>Software</Link>
             </li>
             <li>
               <Link href={URLs.HOME}>eCommerce</Link>
