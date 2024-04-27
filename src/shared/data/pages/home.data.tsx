@@ -2,6 +2,7 @@ import { IconMail, IconCalendarEvent, IconHeartHandshake, IconCodeCircle2, IconC
 import { NewsletterProps, FeaturesProps, HeroProps } from '../../types';
 import heroImg from '~/assets/images/welcomeRobot.webp';
 import URLs from '~/constants/urls';
+import Link from 'next/link';
 
 // Hero data on Home page
 export const heroHome: HeroProps = {
@@ -12,9 +13,31 @@ export const heroHome: HeroProps = {
   ),
   subtitle: (
     <>
-      <span className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400">
-        Your on-demand IT & Service department—enjoy all the perks without the full-time costs.
-      </span>
+      <div className="font-extrabold text-3xl md:text-4xl [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-slate-800/60 to-50% to-slate-400 dark:from-slate-200/60 dark:to-50% dark:to-slate-200">
+        Your go to for{' '}
+        <span className="text-primary-500 dark:text-primary-300 inline-flex flex-col h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] overflow-hidden">
+          <ul className="block animate-text-slide-5 text-left leading-tight [&_li]:block">
+            <li>
+              <Link href={URLs.HOME}>Device Repairs</Link>
+            </li>
+            <li>
+              <Link href={URLs.HOME}>IT Support</Link>
+            </li>
+            <li>
+              <Link href={URLs.HOME}>Website Management</Link>
+            </li>
+            <li>
+              <Link href={URLs.HOME}>Custom Software</Link>
+            </li>
+            <li>
+              <Link href={URLs.HOME}>eCommerce</Link>
+            </li>
+            <li aria-hidden="true">
+              <Link href={URLs.HOME}>Recycling</Link>
+            </li>
+          </ul>
+        </span>
+      </div>
     </>
   ),
   callToAction: {

@@ -116,3 +116,5 @@ $ npm run dev
 This project is under the Proprietary License. For more details, see the [LICENSE](LICENSE.md) file.
 
 Made with love by <a href="https://github.com/EastTexasElectronics" target="_blank">Robert Havelaar</a> using the TailNext template.
+
+Credit to https://cruip.com/creating-a-sliding-text-animation-with-tailwind-css/
