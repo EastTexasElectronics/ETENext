@@ -20,7 +20,9 @@ const Hero2 = ({ title, subtitle, tagline, callToAction, callToAction2, image }:
                 </h1>
               )}
               <div className="mx-auto max-w-3xl">
-                {subtitle && <div className="mb-8 text-xl font-normal text-gray-600 dark:text-slate-400">{subtitle}</div>}
+                {subtitle && (
+                  <div className="mb-8 text-xl font-normal text-gray-600 dark:text-slate-400">{subtitle}</div>
+                )}
                 <div className="flex max-w-none flex-col flex-nowrap justify-center gap-4 sm:flex-row md:m-0 md:justify-start">
                   {callToAction && (
                     <CTA
@@ -41,7 +43,7 @@ const Hero2 = ({ title, subtitle, tagline, callToAction, callToAction2, image }:
             </div>
           </div>
           <div className="block flex-1 items-center md:flex">
-            <div className="relative m-auto h-full max-w-4xl object-cover">
+            <div className="relative m-auto h-full max-w-4xl object-cover hidden md:block">
               {image && (
                 <Image
                   className="mx-auto h-full w-auto rounded-md bg-gray-400 object-cover drop-shadow-2xl dark:bg-slate-700 hover:scale-105 transition-transform duration-500"
