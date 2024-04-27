@@ -1,6 +1,26 @@
 import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
 
+
+type DigitalAssetsProps = {
+  name: string;
+  website: string;
+  websiteDashboard: string;
+  domainDashboard: string;
+  businessNumber: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+  mainContactName: string;
+  mainContactPhone: string;
+  mainContactEmail: string;
+  secondaryContactName: string;
+  secondaryContactPhone: string;
+  secondaryContactEmail: string;
+  [key: string]: string; // Allows string indexing
+};
+
 type LayoutProps = {
   children: React.ReactNode;
 }
@@ -406,6 +426,15 @@ type FooterProps = {
 };
 
 type HeaderProps = {
+  links?: Array<Link>;
+  actions?: Array<CallToActionType>;
+  isSticky?: boolean;
+  showToggleTheme?: boolean;
+  showRssFeed?: boolean;
+  position?: 'center' | 'right' | 'left';
+};
+
+type CPortalHeaderProps = {
   links?: Array<Link>;
   actions?: Array<CallToActionType>;
   isSticky?: boolean;

@@ -11,6 +11,7 @@ import {
   heroServices,
   testimonialsServices,
 } from '~/shared/data/pages/services.data';
+import Header from '~/components/widgets/Header';
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -47,6 +48,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
+      <Header />
       <Hero {...heroServices} />
       <Features2 {...features2Services} />
       <Testimonials {...testimonialsServices} />

@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import Loading from '../app/loading';
 import ThemeProviders from '~/components/atoms/ThemeProviders';
-import Header from '~/components/widgets/Header';
 import Footer from '~/components/widgets/Footer';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
@@ -28,16 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </head>
         <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300">
           <ThemeProviders>
-            <header>
-              <Header />
-            </header>
             <Suspense fallback={<Loading />}>
               <main>{children}</main>
             </Suspense>
             <BookingButton />
-            <footer>
-              <Footer />
-            </footer>
+            <Footer />
           </ThemeProviders>
         </body>
       </html>

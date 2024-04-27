@@ -13,6 +13,7 @@ import {
   features2Repair,
   heroRepair,
 } from '~/shared/data/pages/repairServices.data';
+import Header from '~/components/widgets/Header';
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
+      <Header />
       <Hero {...heroRepair} />
       <Features2 {...features2Repair} /> {/* Services component */}
       <Content {...contentRepairOne} /> {/* Data Privacy component */}

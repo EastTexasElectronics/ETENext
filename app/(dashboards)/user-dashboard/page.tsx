@@ -1,6 +1,7 @@
 import React from 'react';
 import Tabs from '~/components/widgets/Tabs';
 import type { Metadata } from 'next';
+import CPortalHeader from '~/components/widgets/CPortalHeader';
 
 export const metadata: Metadata = {
   title: `User Dashboard`,
@@ -9,9 +10,12 @@ export const metadata: Metadata = {
 
 const UserDashboard: React.FC = () => {
   return (
-    <div className="min-h-screen">
-      <Tabs />
-    </div>
+    <>
+      <CPortalHeader />
+      <div className="min-h-screen">
+        <Tabs />
+      </div>
+    </>
   );
 };
 

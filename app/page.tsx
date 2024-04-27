@@ -6,6 +6,7 @@ import Features from '~/components/widgets/Features3';
 import { featuresHome } from '~/shared/data/pages/home.data';
 import Newsletter from '~/components/widgets/NewsletterCTA';
 import { NewsletterHome } from '~/shared/data/pages/home.data';
+import Header from '~/components/widgets/Header';
 
 export const metadata: Metadata = {
   title: SITE.title,
@@ -14,8 +15,9 @@ export const metadata: Metadata = {
 export default async function Page() {
   return (
     <>
+      <Header />
       <Hero {...heroHome} />
-      <Features {...featuresHome}  />
+      <Features {...featuresHome} />
       <Newsletter {...NewsletterHome} />
     </>
   );

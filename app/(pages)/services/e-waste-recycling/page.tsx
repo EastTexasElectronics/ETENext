@@ -12,6 +12,7 @@ import {
   features2Recycling,
   heroRecycling,
 } from '~/shared/data/pages/eWasteRecycling.data';
+import Header from '~/components/widgets/Header';
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
+      <Header />
       <Hero {...heroRecycling} />
       <Features2 {...features2Recycling} /> {/* Services component */}
       <Content {...contentRecyclingOne} /> {/* Data Privacy component */}

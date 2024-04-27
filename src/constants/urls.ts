@@ -18,7 +18,7 @@ const URLs = {
   SOFTWARE: '/services/software-website-app-development#software-development',
   CONSULTATIONS: '/services/consultations',
   RECYCLING: '/services/e-waste-recycling',
-  CPORTAL: '/customer-portal',
+  CPORTAL: '/user-dashboard',
 
   // Social Profiles
   FACEBOOK: 'https://www.facebook.com/',

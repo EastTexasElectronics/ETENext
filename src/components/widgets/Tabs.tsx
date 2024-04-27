@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import CompanyDetails from './CompanyDetails';
 // import RequestFeed from './RequestFeed';
 import ScheduleManager from './ScheduleManager';
+import DigitalAssets from './DigitalAssets';
 
 type TabContent = {
   'Company Details': JSX.Element;
+  'Digital Assets': JSX.Element;
   'Leave Requests': JSX.Element;
   Appointments: JSX.Element;
   Schedules: JSX.Element;
@@ -13,7 +15,7 @@ type TabContent = {
 };
 
 const Tabs: React.FC = () => {
-  const tabs: (keyof TabContent)[] = ['Company Details', 'Leave Requests', 'Appointments', 'Schedules', 'Time Tracker'];
+  const tabs: (keyof TabContent)[] = ['Company Details', 'Leave Requests', 'Appointments', 'Schedules', 'Time Tracker', 'Digital Assets'];
 
   const [activeTab, setActiveTab] = useState<keyof TabContent>(tabs[0]);
 
@@ -23,6 +25,7 @@ const Tabs: React.FC = () => {
 
   const tabContent: TabContent = {
     'Company Details': <CompanyDetails />,
+    'Digital Assets': <DigitalAssets />,
     'Leave Requests':  <div>Content for Appointments</div>,
     Appointments: <div>Content for Appointments</div>,
     Schedules: <ScheduleManager />,

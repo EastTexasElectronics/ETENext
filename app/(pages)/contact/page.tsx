@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Header from '~/components/widgets/Header';
 
 import Contact from '~/components/widgets/Contact';
 import Features2 from '~/components/widgets/Features2';
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
+      <Header />
       <Features2 {...features2Contact} />
       <Contact {...contact2Contact} />
     </>

@@ -13,6 +13,7 @@ import {
   features2IT,
   heroIT,
 } from '~/shared/data/pages/itServices.data';
+import Header from '~/components/widgets/Header';
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -21,6 +22,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
+      <Header />
       <Hero {...heroIT} />
       <Features2 {...features2IT} /> {/* Services component */}
       <Content {...contentITOne} /> {/* Data Privacy component */}

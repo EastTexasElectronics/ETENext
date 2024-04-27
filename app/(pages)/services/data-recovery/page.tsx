@@ -12,6 +12,7 @@ import {
   features2Data,
   heroData,
 } from '~/shared/data/pages/dataRecovery.data';
+import Header from '~/components/widgets/Header';
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
+      <Header />
       <Hero {...heroData} />
       <Features2 {...features2Data} /> {/* Services component */}
       <Content {...contentDataOne} /> {/* Data Privacy component */}

@@ -3,9 +3,11 @@ import {
   IconBrandGithub,
   IconBrandInstagram,
   IconBrandTwitter,
+  IconCalendar,
   IconChevronDown,
+  IconUsers,
 } from '@tabler/icons-react';
-import { AnnouncementProps, FooterProps, HeaderProps } from '../types';
+import { AnnouncementProps, FooterProps, HeaderProps, CPortalHeaderProps } from '../types';
 import URLs from '~/constants/urls';
 
 // Announcement data
@@ -51,7 +53,7 @@ export const headerData: HeaderProps = {
         {
           label: 'Data Recovery',
           href: URLs.DATA_RECOVERY,
-        }
+        },
       ],
     },
     // TODO - Add blog link when ready
@@ -70,19 +72,18 @@ export const headerData: HeaderProps = {
     {
       label: 'Visit Our Shop',
       href: URLs.ETE,
-      
     },
   ],
   actions: [
     {
       text: 'Customer Portal',
       href: URLs.CPORTAL,
+      icon: IconUsers,
       targetBlank: false,
     },
   ],
   isSticky: true,
   showToggleTheme: true,
-  showRssFeed: false,
   position: 'center',
 };
 
@@ -189,9 +190,63 @@ export const footerData: FooterProps = {
         {' '}
         East Texas Electronics, LLC.
       </a>{' '}
-      · All Rights Reserved.
-      {' '}
-      <span className="text-xs text-gray-600 dark:text-slate-300">©2022</span>
+      · All Rights Reserved. <span className="text-xs text-gray-600 dark:text-slate-300">©2022</span>
     </div>
   ),
+};
+
+export const cPortalHeaderData: CPortalHeaderProps = {
+  links: [
+    {
+      label: 'My Business',
+      icon: IconChevronDown,
+      links: [
+        {
+          label: 'Company Profile',
+          href: URLs.IT,
+        },
+        {
+          label: 'Electronics Repair',
+          href: URLs.REPAIRS,
+        },
+        {
+          label: 'Web & App Development',
+          href: URLs.WEB_DEVELOPMENT,
+        },
+        {
+          label: 'Software Development',
+          href: URLs.SOFTWARE,
+        },
+        {
+          label: 'Electronics Recycling',
+          href: URLs.RECYCLING,
+        },
+        {
+          label: 'Data Recovery',
+          href: URLs.DATA_RECOVERY,
+        },
+      ],
+    },
+    {
+      label: 'Employees',
+      icon: IconChevronDown,
+      links: [
+        {
+          label: 'Employee List',
+          href: URLs.IT,
+        },
+      ],
+    },
+  ],
+  actions: [
+    {
+      text: 'Book an Appointment',
+      href: URLs.APPOINTMENT,
+      icon: IconCalendar,
+      targetBlank: true,
+    },
+  ],
+  isSticky: true,
+  showToggleTheme: true,
+  position: 'center',
 };
