@@ -1,6 +1,6 @@
 import { IconMail, IconCalendarEvent, IconHeartHandshake, IconCodeCircle2, IconCpu } from '@tabler/icons-react';
 import { NewsletterProps, FeaturesProps, HeroProps } from '../../types';
-import heroImg from '~/assets/images/welcomeRobot.webp';
+import heroImg from '~/assets/images/homeHeroImg.png';
 import URLs from '~/constants/urls';
 import Link from 'next/link';
 

@@ -7,7 +7,7 @@ import Footer from '~/components/widgets/Footer';
 import Announcement from '~/components/widgets/Announcement';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
-// TODO Causing Hydration Error
+// TODO Enable when going live
 // import { SpeedInsights } from '@vercel/speed-insights/next';
 // import { Analytics } from '@vercel/analytics/react';
 import BookingButton from '~/components/atoms/BookingButton';
@@ -85,10 +85,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </ThemeProviders>
         </body>
       </html>
-      {/* TODO Causing Hydration Error */}
-      {/* <SpeedInsights /> */}
-      {/* TODO Enable when ready to deploy no need to use yet. */}
-      {/* <Analytics /> */}
     </ClerkProvider>
   );
 }
