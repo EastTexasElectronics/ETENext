@@ -1,6 +1,8 @@
 import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
 
+
+
 type CTAProps = {
   containerClass: string;
   linkClass: string;

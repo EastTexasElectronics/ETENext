@@ -118,3 +118,7 @@ This project is under the Proprietary License. For more details, see the [LICENS
 Made with love by <a href="https://github.com/EastTexasElectronics" target="_blank">Robert Havelaar</a> using the TailNext template.
 
 Credit to https://cruip.com/creating-a-sliding-text-animation-with-tailwind-css/
+
+TODO LIST:
+Fix Speed Insights Hydration error
+Fix word scrolling on home hero

@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import { CompanyDetailsProps } from '~/shared/types';
-import { IconInfoCircle, IconEdit } from '@tabler/icons-react'; 
-// Import appropriate icons
+import { IconInfoCircle, IconEdit, IconDeviceFloppy } from '@tabler/icons-react'; 
+
+// TODO make it obvious that you are in edit mode by changing the background color of the input fields
+// TODO Change edit/save button colors.  Save button should be green and edit button should be blue (as it is now)
+// TODO add IconEdit to the edit button
+// TODO add IconSave to the save button
 
 const initialDetails: CompanyDetailsProps = {
-  name: 'Acme Corporation',
-  website: 'https://www.acmecorp.com',
-  websiteDashboard: 'https://dashboard.acmecorp.com',
-  domainDashboard: 'https://domains.acmecorp.com',
-  businessNumber: '123-456-7890',
+
+  name: 'Acme Corporation', // company name 
+  website: 'https://www.acmecorp.com', // company website
+  websiteDashboard: 'https://dashboard.acmecorp.com', // Remove
+  domainDashboard: 'https://domains.acmecorp.com', //remove
+  businessNumber: '123-456-7890', 
+  // Company Address
   street: '123 Business Rd.',
   city: 'Business City',
   state: 'BS',
   zip: '12345',
-  mainContactName: 'Main Contact Name',
+  // This is the main contact for the company that we should reach out to
+  mainContactName: 'Main Contact Name', 
   mainContactPhone: '123-456-7890',
   mainContactEmail: 'abc@fake.com',
+  // This is the secondary contact for the company that we should reach out to
   secondaryContactName: 'Secondary Contact Name',
   secondaryContactPhone: '123-456-7890',
   secondaryContactEmail: 'abc@fake.com',
@@ -42,10 +50,7 @@ const CompanyDetails: React.FC = () => {
   return (
     <div className="dark:bg-slate-800 dark:text-white p-4 rounded-lg shadow-lg space-y-4">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold shadow">Company and Contact Details</h1>
-        <button onClick={toggleEdit} className="p-2">
-          <IconEdit />
-        </button>
+        <h1 className="text-2xl font-bold shadow">Company Details</h1>  {/* Center Me */}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {companyKeys.map((key) => (
@@ -53,6 +58,7 @@ const CompanyDetails: React.FC = () => {
         ))}
       </div>
       <hr className="my-4" />
+      <h1 className="text-2xl font-bold shadow">Company Contact Info</h1>  {/* Center Me */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {contactKeys.map((key) => (
           <InputField key={key} name={key} value={details[key]} handleChange={handleInputChange} isEditing={isEditing} />

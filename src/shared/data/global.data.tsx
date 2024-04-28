@@ -12,9 +12,13 @@ import URLs from '~/constants/urls';
 
 // Announcement data
 export const announcementData: AnnouncementProps = {
-  title: 'NEW',
+  title: 'READE ME',
   callToAction: {
     text: 'THIS WEBSITE IS UNDER CONSTRUCTION IF YOU ARE LOOKING FOR OUR ECOMMERCE STORE PLEASE VISIT OUR SHOP',
+    href: 'https://www.easttexaselectronics.com',
+  },
+  callToAction2: {
+    text: 'Visit',
     href: 'https://www.easttexaselectronics.com',
   },
 };

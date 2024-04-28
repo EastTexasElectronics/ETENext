@@ -12,6 +12,7 @@ import '~/assets/styles/base.css';
 // import { Analytics } from '@vercel/analytics/react';
 import BookingButton from '~/components/atoms/BookingButton';
 import { ClerkProvider } from '@clerk/nextjs';
+import PrelineScript from '~/components/common/PrelineScript';
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </ThemeProviders>
         </body>
+        <PrelineScript />
       </html>
     </ClerkProvider>
   );
