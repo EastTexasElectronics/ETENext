@@ -1,12 +1,15 @@
 import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
 
-
+type TextGenerateEffectProps = {
+  words: string[];
+  className?: string;
+};
 
 type CTAProps = {
   containerClass: string;
   linkClass: string;
-}
+};
 
 type DigitalAssetsProps = {
   name: string;
@@ -29,10 +32,10 @@ type DigitalAssetsProps = {
 
 type LayoutProps = {
   children: React.ReactNode;
-}
+};
 
 type ThemeProvidersProps = {
-  children: React.ReactNode
+  children: React.ReactNode;
 };
 
 /**

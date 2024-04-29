@@ -33,14 +33,14 @@ const Pricing = ({ header, prices, id, hasBackground = false }: PricingProps) =>
                         </h3>
                       )}
                       {subtitle && (
-                        <p className="font-light sm:text-lg text-gray-600 dark:text-slate-400">{subtitle}</p>
+                        <p className="font-light sm:text-lg text-gray-600 dark:text-secondary-400">{subtitle}</p>
                       )}
                       <div className="my-8">
                         <div className="flex items-center justify-center text-center mb-1">
                           <span className="text-5xl">$</span>
                           <span className="text-6xl font-extrabold">{price}</span>
                         </div>
-                        <span className="text-base leading-6 lowercase text-gray-600 dark:text-slate-400">
+                        <span className="text-base leading-6 lowercase text-gray-600 dark:text-secondary-400">
                           {period}
                         </span>
                       </div>
@@ -53,7 +53,7 @@ const Pricing = ({ header, prices, id, hasBackground = false }: PricingProps) =>
                             defaultIcon={IconCheck}
                             containerClass="gap-2 md:gap-y-2"
                             panelClass="flex items-start space-x-2"
-                            iconClass="w-4 h-4 mt-1.5 mr-2 rtl:mr-0 rtl:ml-2 mr-1.5 flex items-center justify-center rounded-full border-2 border-primary-600 bg-primary-600 text-white dark:text-slate-200"
+                            iconClass="w-4 h-4 mt-1.5 mr-2 rtl:mr-0 rtl:ml-2 mr-1.5 flex items-center justify-center rounded-full border-2 border-primary-600 bg-primary-600 text-white dark:text-secondary-200"
                           />
                         </div>
                       )}

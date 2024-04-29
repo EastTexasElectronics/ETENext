@@ -1,7 +1,7 @@
 import { IconMail, IconCalendarEvent, IconHeartHandshake, IconCodeCircle2, IconCpu } from '@tabler/icons-react';
 import { NewsletterProps, FeaturesProps, HeroProps } from '../../types';
 import heroImg from '~/assets/images/homeHeroImg.png';
-import URLs from '~/constants/urls';
+import URLs from '~/utils/constants/urls';
 import Link from 'next/link';
 
 // Hero data on Home page
@@ -13,7 +13,7 @@ export const heroHome: HeroProps = {
   ),
   subtitle: (
     <>
-      <div className="font-extrabold text-3xl md:text-4xl [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-slate-800/60 to-50% to-slate-400 dark:from-slate-200/60 dark:to-50% dark:to-slate-200">
+      <div className="font-extrabold text-3xl md:text-4xl [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-secondary-800/60 to-50% to-secondary-400 dark:from-secondary-200/60 dark:to-50% dark:to-secondary-200">
         Assisting you with{' '}
         <span className="text-primary-500 dark:text-primary-300 inline-flex flex-col h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] overflow-hidden">
           <ul className="block animate-text-slide text-left leading-tight [&_li]:block">

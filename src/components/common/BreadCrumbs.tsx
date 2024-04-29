@@ -5,7 +5,7 @@ const Breadcrumb: React.FC = () => {
         <div>
             <h2>With auto width</h2>
             <div className="flex">
-                <ol className="flex w-auto items-center gap-2 rounded-md bg-slate-200 px-4 py-2 shadow-md">
+                <ol className="flex w-auto items-center gap-2 rounded-md bg-secondary-200 px-4 py-2 shadow-md">
                     <li>
                         <div className="!mr-0 flex items-center text-lg font-medium">
                             <a href="#" className="opacity-60 transition-all duration-300 hover:text-blue-600">

@@ -13,7 +13,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ onClose, children }) => {
         className="relative bg-[#1A1A1A] w-full md:w-3/5 lg:w-2/5 xl:w-1/3 h-4/5 p-6 rounded-lg shadow-xl overflow-auto flex flex-col "
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-end space-x-2 top-1/2 transform -translate-y-1/2">
+        <div className="flex justify-end space-x-2 top-1/2 transform -transecondary-y-1/2">
           <div className="group cursor-pointer">
             <IconInfoCircle size={24} className="text-gray-400 hover:text-gray-300" />
             <div className="hidden group-hover:block absolute right-0 z-10 w-64 p-2 pb-3 text-xs text-white bg-black rounded-md shadow-md">

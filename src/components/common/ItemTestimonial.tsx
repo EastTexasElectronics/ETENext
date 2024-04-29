@@ -33,13 +33,13 @@ const ItemTestimonial = ({
                   width={248}
                   height={248}
                   alt={image.alt}
-                  className={twMerge('object-cover shadow-lg bg-gray-500 dark:bg-slate-700', imageClass)}
+                  className={twMerge('object-cover shadow-lg bg-gray-500 dark:bg-secondary-700', imageClass)}
                 />
               )}
 
               <div className={twMerge('flex flex-col justify-center', nameJobClass)}>
                 {name && <h3 className={twMerge('font-semibold', nameClass)}>{name}</h3>}
-                {job && <span className={twMerge('dark:text-slate-400', jobClass)}>{job}</span>}
+                {job && <span className={twMerge('dark:text-secondary-400', jobClass)}>{job}</span>}
               </div>
             </div>
 
@@ -49,7 +49,7 @@ const ItemTestimonial = ({
 
         {testimonial && (
           <blockquote className={twMerge('flex-auto', testimonialClass)}>
-            <p className="font-light dark:text-slate-400">
+            <p className="font-light dark:text-secondary-400">
               {startSlice !== undefined && endSlice !== undefined
                 ? `" ${testimonial.slice(Number(startSlice), Number(endSlice))}... "`
                 : `" ${testimonial} "`}

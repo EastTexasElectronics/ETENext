@@ -8,7 +8,7 @@ import {
   IconUsers,
 } from '@tabler/icons-react';
 import { AnnouncementProps, FooterProps, HeaderProps, CPortalHeaderProps } from '../types';
-import URLs from '~/constants/urls';
+import URLs from '~/utils/constants/urls';
 
 // Announcement data
 export const announcementData: AnnouncementProps = {
@@ -185,12 +185,12 @@ export const footerData: FooterProps = {
     { label: 'Github', icon: IconBrandGithub, href: URLs.GITHUB },
   ],
   footNote: (
-    <div className="mr-4 text-sm dark:text-slate-400">
+    <div className="mr-4 text-sm dark:text-secondary-400">
       <a className="text-blue-600 hover:underline dark:text-gray-200" href={URLs.ETE}>
         {' '}
         East Texas Electronics, LLC.
       </a>{' '}
-      · All Rights Reserved. <span className="text-xs text-gray-600 dark:text-slate-300">©2022</span>
+      · All Rights Reserved. <span className="text-xs text-gray-600 dark:text-secondary-300">©2022</span>
     </div>
   ),
 };

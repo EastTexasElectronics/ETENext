@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import URLs from '~/constants/urls';
+import URLs from '~/utils/constants/urls';
 import Header from '~/components/widgets/Header';
 
 export const metadata: Metadata = {
@@ -34,7 +34,7 @@ const Page = () => {
     <>
       <Header />
       <div className="max-w-4xl mx-auto p-6 shadow-lg rounded-lg flex flex-col items-center text-center">
-        <h1 className="text-2xl font-bold mb-4 text-black dark:text-slate-200">Careers at Our Company</h1>
+        <h1 className="text-2xl font-bold mb-4 text-black dark:text-secondary-200">Careers at Our Company</h1>
         <p className="mb-3">
           Join our team of professionals who are dedicated to providing the best services to our clients. Discover how
           you can contribute to our ongoing success and grow your career with us.

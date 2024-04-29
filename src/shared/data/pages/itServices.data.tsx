@@ -1,5 +1,5 @@
 import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, ContentProps } from '~/shared/types';
-import URLs from '~/constants/urls';
+import URLs from '~/utils/constants/urls';
 import itSupportHero from '~/assets/images/itSupportHero.png';
 import itSupportQuality from '~/assets/images/itSupportHero.png';  // Update this image if needed
 import dataSecurity from '~/assets/images/itSupportHero.png';  // Update this image if needed

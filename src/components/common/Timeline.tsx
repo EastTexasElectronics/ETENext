@@ -20,7 +20,7 @@ const Timeline = ({
               <div className="flex flex-col items-center mr-4 rtl:mr-0 rtl:ml-4">
                 <div
                   className={`flex items-center justify-center ${
-                    index !== items.length - 1 ? '' : 'text-slate-200 rounded-full bg-primary-900'
+                    index !== items.length - 1 ? '' : 'text-secondary-200 rounded-full bg-primary-900'
                   }`}
                 >
                   {Icon ? (
@@ -30,16 +30,16 @@ const Timeline = ({
                   ) : null}
                 </div>
 
-                {index !== items.length - 1 && <div className="w-px h-full bg-black/10 dark:bg-slate-400/50" />}
+                {index !== items.length - 1 && <div className="w-px h-full bg-black/10 dark:bg-secondary-400/50" />}
               </div>
               <div className={`pt-1 ${index !== items.length - 1 ? 'pb-8' : ''}`}>
                 {title && (
-                  <h3 className={twMerge('text-xl font-bold text-gray-900 dark:text-slate-300 mb-2', titleClass)}>
+                  <h3 className={twMerge('text-xl font-bold text-gray-900 dark:text-secondary-300 mb-2', titleClass)}>
                     {title}
                   </h3>
                 )}
                 {description && (
-                  <p className={twMerge('text-gray-600 dark:text-slate-400', descriptionClass)}>{description}</p>
+                  <p className={twMerge('text-gray-600 dark:text-secondary-400', descriptionClass)}>{description}</p>
                 )}
               </div>
             </div>

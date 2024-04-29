@@ -48,7 +48,7 @@ const CompanyDetails: React.FC = () => {
   const contactKeys = ['mainContactName', 'mainContactPhone', 'mainContactEmail', 'secondaryContactName', 'secondaryContactPhone', 'secondaryContactEmail'];
 
   return (
-    <div className="dark:bg-slate-800 dark:text-white p-4 rounded-lg shadow-lg space-y-4">
+    <div className="dark:bg-secondary-800 dark:text-white p-4 rounded-lg shadow-lg space-y-4">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold shadow">Company Details</h1>  {/* Center Me */}
       </div>
@@ -98,7 +98,7 @@ const InputField: React.FC<InputFieldProps> = ({ name, value, handleChange, isEd
       value={value}
       onChange={handleChange}
       disabled={!isEditing}
-      className="mt-1 block w-full rounded-md dark:bg-slate-700 dark:border-gray-600 dark:text-white"
+      className="mt-1 block w-full rounded-md dark:bg-secondary-700 dark:border-gray-600 dark:text-white"
       placeholder={name}
     />
   </div>

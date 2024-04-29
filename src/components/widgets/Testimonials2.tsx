@@ -35,7 +35,7 @@ const Testimonials2 = ({ header, testimonials, isTestimonialUp, id, hasBackgroun
               <div
                 key={`item-testimonial-${index}`}
                 className="mx-auto inline-flex flex-col items-stretch justify-center min-w-full transition-all duration-300 linear max-w-6xl"
-                style={{ transform: `translate(-${activeIndex * 100}%)` }}
+                style={{ transform: `transecondary(-${activeIndex * 100}%)` }}
               >
                 <ItemTestimonial
                   name={name}

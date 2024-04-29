@@ -1,5 +1,5 @@
 import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, ContentProps } from '~/shared/types';
-import URLs from '~/constants/urls';
+import URLs from '~/utils/constants/urls';
 import repairHero from '~/assets/images/aboutHero.webp';
 import repairQuality from '~/assets/images/repairQuality.png';
 import dataPrivacy from '~/assets/images/dataPrivacy.png';

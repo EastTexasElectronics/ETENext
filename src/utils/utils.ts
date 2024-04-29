@@ -1,3 +1,9 @@
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 // Function to format a number in thousands (K) or millions (M) format depending on its value
 export const getSuffixNumber = (number: number, digits: number = 1): string => {
   const lookup = [

@@ -10,7 +10,7 @@ import '~/assets/styles/base.css';
 // TODO Enable when going live
 // import { SpeedInsights } from '@vercel/speed-insights/next';
 // import { Analytics } from '@vercel/analytics/react';
-import BookingButton from '~/components/atoms/BookingButton';
+import BookingButton from '~/components/atoms/BookingModalButton';
 import { ClerkProvider } from '@clerk/nextjs';
 import PrelineScript from '~/components/common/PrelineScript';
 
@@ -75,13 +75,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </head>
-        <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300">
+        <body className="tracking-tight antialiased text-gray-900 dark:text-secondary-300">
           <ThemeProviders>
             <Announcement />
             <Suspense fallback={<Loading />}>
               <main>{children}</main>
             </Suspense>
-            <BookingButton />
+            {/* <BookingButton /> */}
             <Footer />
           </ThemeProviders>
         </body>

@@ -50,7 +50,7 @@ const Tabs: React.FC = () => {
           </li>
         ))}
       </ul>
-      <div className="p-4 bg-white dark:bg-slate-700 rounded-md shadow-md">
+      <div className="p-4 bg-white dark:bg-secondary-700 rounded-md shadow-md">
         {tabContent[activeTab]}
       </div>
     </div>

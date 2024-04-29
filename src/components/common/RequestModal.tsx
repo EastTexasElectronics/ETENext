@@ -20,7 +20,7 @@ const RequestModal: React.FC<RequestModalProps> = ({ request, onClose, onApprove
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-4" onClick={onClose}>
       <div
-        className="relative bg-white text-black dark:bg-slate-800 dark:text-white w-full max-w-lg p-6 rounded-lg shadow-xl overflow-auto"
+        className="relative bg-white text-black dark:bg-secondary-800 dark:text-white w-full max-w-lg p-6 rounded-lg shadow-xl overflow-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-end mb-4">
@@ -49,7 +49,7 @@ const RequestModal: React.FC<RequestModalProps> = ({ request, onClose, onApprove
           placeholder="Optional note"
           value={note}
           onChange={(e) => setNote(e.target.value)}
-          className="mt-4 p-2 w-full border rounded bg-gray-50 dark:bg-slate-700 dark:border-gray-600 dark:text-white"
+          className="mt-4 p-2 w-full border rounded bg-gray-50 dark:bg-secondary-700 dark:border-gray-600 dark:text-white"
         />
 
         <div className="flex space-x-4 mt-4">

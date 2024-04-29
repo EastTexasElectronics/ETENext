@@ -1,4 +1,4 @@
-import URLs from '~/constants/urls';
+import URLs from '~/utils/constants/urls';
 import dynamicIcons from '~/components/atoms/Icons';
 import { FeaturesProps, HeroProps } from '~/shared/types';
 // TODO UPDATE IMAGE

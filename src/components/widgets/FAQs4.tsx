@@ -5,7 +5,7 @@ import Collapse from '../common/Collapse';
 import { IconMinus, IconPlus } from '@tabler/icons-react';
 import { FAQsProps, Item, Tab } from '~/shared/types';
 import { useState } from 'react';
-import useWindowSize from '~/hooks/useWindowSize';
+import useWindowSize from '~/utils/hooks/useWindowSize';
 import Dropdown from '../common/Dropdown';
 import WidgetWrapper from '../common/WidgetWrapper';
 
@@ -56,9 +56,9 @@ const FAQs4 = ({ header, tabs, id, hasBackground = false }: FAQsProps) => {
                 {activeTab === index && (
                   <Collapse
                     items={tab.items as Item[]}
-                    classCollapseItem="border-b border-solid border-slate-300 dark:border-slate-500 py-5"
-                    iconUp={<IconMinus className="h-6 w-6 text-primary-600 dark:text-slate-200" />}
-                    iconDown={<IconPlus className="h-6 w-6 text-primary-600 dark:text-slate-200" />}
+                    classCollapseItem="border-b border-solid border-secondary-300 dark:border-secondary-500 py-5"
+                    iconUp={<IconMinus className="h-6 w-6 text-primary-600 dark:text-secondary-200" />}
+                    iconDown={<IconPlus className="h-6 w-6 text-primary-600 dark:text-secondary-200" />}
                   />
                 )}
               </div>

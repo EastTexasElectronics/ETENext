@@ -6,11 +6,11 @@ const Card = ({ title, description, href, form }: Item) => (
     <div className="flex items-center justify-between">
       <div className="w-full">
         <h3 className="mb-3 text-xl font-bold text-gray-700 dark:text-white">{title}</h3>
-        <p className="text-gray-600 dark:text-slate-400">{description}</p>
+        <p className="text-gray-600 dark:text-secondary-400">{description}</p>
       </div>
       {href && (
         <div className="flex h-10 w-10 items-center justify-center">
-          <IconChevronRight className="h-6 w-6 text-primary-600 dark:text-slate-200" />
+          <IconChevronRight className="h-6 w-6 text-primary-600 dark:text-secondary-200" />
         </div>
       )}
     </div>
@@ -49,7 +49,7 @@ const Newsletter = ({ title, subtitle, items }: NewsletterProps) => (
       <div className="row-gap-10 grid gap-6 md:grid-cols-2">
         <div className="mx-auto md:my-auto md:ml-0 md:pb-6 md:pr-24">
           <h2 className="mb-3 flex justify-center text-6xl font-bold md:justify-start">{title}</h2>
-          <p className="text-center text-xl text-gray-200 dark:text-slate-300 md:text-left">{subtitle}</p>
+          <p className="text-center text-xl text-gray-200 dark:text-secondary-300 md:text-left">{subtitle}</p>
         </div>
         <div className="relative -mb-6">
           {items &&

@@ -1,5 +1,5 @@
 import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, TestimonialsProps } from '~/shared/types';
-import URLs from '~/constants/urls';
+import URLs from '~/utils/constants/urls';
 import servicesHero from '~/assets/images/aboutHero.webp';
 import dynamicIcons from '~/components/atoms/Icons';
 

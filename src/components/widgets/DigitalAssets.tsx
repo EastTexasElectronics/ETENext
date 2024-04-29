@@ -92,7 +92,7 @@ const DigitalAssets: React.FC = () => {
   const toggleEdit = () => setIsEditing(!isEditing);
 
   return (
-    <div className="dark:bg-slate-800 dark:text-white p-4 rounded-lg shadow-lg space-y-4 text-center">
+    <div className="dark:bg-secondary-800 dark:text-white p-4 rounded-lg shadow-lg space-y-4 text-center">
       <h1 className="text-2xl font-bold">Manage Your Digital Assets</h1>
       <p>Here you can manage links to your digital platforms. For security reasons, do not store passwords here.</p>
 
@@ -151,7 +151,7 @@ const InputField: React.FC<InputFieldProps> = ({
       onChange={handleTitleChange}
       disabled={!isEditing}
       className={`mt-1 block w-full ${
-        isEditing ? 'rounded-md dark:bg-slate-700 dark:border-gray-600 dark:text-white' : 'bg-transparent border-none shadow-none'
+        isEditing ? 'rounded-md dark:bg-secondary-700 dark:border-gray-600 dark:text-white' : 'bg-transparent border-none shadow-none'
       }`}
       placeholder="Enter field title"
       ref={titleRef || undefined}
@@ -170,7 +170,7 @@ const InputField: React.FC<InputFieldProps> = ({
       onClick={() => copyToClipboard ? copyToClipboard(value) : null}
       disabled={!isEditing}
       className={`mt-1 block w-full ${
-        isEditing ? 'rounded-md dark:bg-slate-700 dark:border-gray-600 dark:text-white' : 'bg-transparent border-none shadow-none'
+        isEditing ? 'rounded-md dark:bg-secondary-700 dark:border-gray-600 dark:text-white' : 'bg-transparent border-none shadow-none'
       }`}
       placeholder="Enter field value"
       title="Click to Copy"  // Tooltip for copy functionality

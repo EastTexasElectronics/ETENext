@@ -13,7 +13,7 @@ const FlipTooltip: React.FC = () => {
                             {/* Text/Icon goes here */}
                             <p className="text-xs text-center">Hover Me</p>
                             {/* Tooltip here */}
-                            <div className="transform perspective-50 translate-z-0 rotate-x-10 group-hover:perspective-none group-hover:translate-z-0 group-hover:rotate-x-0 absolute bottom-0 mb-6 origin-bottom rounded text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
+                            <div className="transform perspective-50 transecondary-z-0 rotate-x-10 group-hover:perspective-none group-hover:transecondary-z-0 group-hover:rotate-x-0 absolute bottom-0 mb-6 origin-bottom rounded text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
                                 <div className="flex max-w-xs flex-col items-center">
                                     <div className="rounded bg-gray-900 p-2 text-xs text-center shadow-lg">Tooltip Title</div>
                                     <div className="clip-bottom h-2 w-4 bg-gray-900"></div>

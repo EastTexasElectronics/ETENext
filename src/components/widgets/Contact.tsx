@@ -12,7 +12,7 @@ const Contact = ({ header, content, items, form, id, hasBackground = false }: Co
     {header && <Headline header={header} titleClass="text-3xl sm:text-5xl" />}
     <div className="flex flex-col md:flex-row items-stretch justify-center gap-4" id="contact-form">
       <div className="w-full md:w-1/2">
-        {content && <p className="mt-3 mb-12 text-lg text-gray-600 dark:text-slate-400">{content}</p>}
+        {content && <p className="mt-3 mb-12 text-lg text-gray-600 dark:text-secondary-400">{content}</p>}
         <ul className="mb-6 md:mb-0">
           {items &&
             items.map(({ title, description, icon: Icon }, index) => (
@@ -23,7 +23,7 @@ const Contact = ({ header, content, items, form, id, hasBackground = false }: Co
                 <div className="ml-4 mb-4">
                   <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">{title}</h3>
                   {description && (
-                    <div className="text-gray-600 dark:text-slate-400">
+                    <div className="text-gray-600 dark:text-secondary-400">
                       {Array.isArray(description) ? (
                         description.map((desc, idx) => <p key={`desc-${idx}`}>{formatContactInfo(desc)}</p>)
                       ) : (
