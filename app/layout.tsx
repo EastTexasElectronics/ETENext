@@ -4,15 +4,14 @@ import { Metadata } from 'next';
 import Loading from '../app/loading';
 import ThemeProviders from '~/components/atoms/ThemeProviders';
 import Footer from '~/components/widgets/Footer';
-import Announcement from '~/components/widgets/Announcement';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 // TODO Enable when going live
 // import { SpeedInsights } from '@vercel/speed-insights/next';
 // import { Analytics } from '@vercel/analytics/react';
-import BookingButton from '~/components/atoms/BookingModalButton';
+// import BookingButton from '~/components/atoms/BookingModalButton';
 import { ClerkProvider } from '@clerk/nextjs';
-import PrelineScript from '~/components/common/PrelineScript';
+import { UnderConstruction } from '~/components/widgets/UnderConstruction';
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
@@ -38,8 +37,6 @@ export const metadata: Metadata = {
     'Henderson',
     'Kilgore',
   ],
-  authors: [{ name: 'Robert Havelaar', url: 'https://www.linkedin.com/in/robert-havelaar/' }],
-  creator: 'Robert Havelaar',
   publisher: 'East Texas Electronics, LLC.',
   title: {
     template: `${SITE?.name ? `%s — ${SITE.name}` : 'East Texas Electronics'}`,
@@ -48,19 +45,6 @@ export const metadata: Metadata = {
   description:
     SITE?.description ||
     'East Texas Electronics provides IT Support, Computer Repair, Network Support, Web Design, SEO, and Digital Marketing services to East Texas.',
-  robots: {
-    index: true,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -77,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </head>
         <body className="tracking-tight antialiased text-gray-900 dark:text-secondary-300">
           <ThemeProviders>
-            <Announcement />
+            <UnderConstruction />
             <Suspense fallback={<Loading />}>
               <main>{children}</main>
             </Suspense>
@@ -85,7 +69,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </ThemeProviders>
         </body>
-        <PrelineScript />
       </html>
     </ClerkProvider>
   );
