@@ -1,6 +1,12 @@
 import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
 
+interface CookieSettingsProps {
+  necessary: boolean;
+  analytics: boolean;
+  marketing: boolean;
+}
+
 type TextGenerateEffectProps = {
   words: string[];
   className?: string;
@@ -89,7 +95,7 @@ type Icon = React.ComponentType<React.ComponentProps<'svg'>>;
 type Header = {
   title?: string | ReactElement;
   subtitle?: string | ReactElement;
-  tagline?: string;
+  tagline?: string | ReactElement;
   position?: 'center' | 'right' | 'left';
 };
 

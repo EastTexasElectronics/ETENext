@@ -6,12 +6,12 @@ import ThemeProviders from '~/components/atoms/ThemeProviders';
 import Footer from '~/components/widgets/Footer';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
-// TODO Enable when going live
-// import { SpeedInsights } from '@vercel/speed-insights/next';
-// import { Analytics } from '@vercel/analytics/react';
-// import BookingButton from '~/components/atoms/BookingModalButton';
+// import { SpeedInsights } from '@vercel/speed-insights/next'; // TODO Enable when going live
+// import { Analytics } from '@vercel/analytics/react'; // TODO Enable when going live
+// import BookingButton from '~/components/atoms/BookingModalButton'; // TODO Fix or remove looks bad on mobile
 import { ClerkProvider } from '@clerk/nextjs';
 import { UnderConstruction } from '~/components/widgets/UnderConstruction';
+import CookieConsent from '~/components/widgets/CookieConsent';
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
@@ -66,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <main>{children}</main>
             </Suspense>
             {/* <BookingButton /> */}
+            <CookieConsent />
             <Footer />
           </ThemeProviders>
         </body>

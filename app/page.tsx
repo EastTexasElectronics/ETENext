@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { SITE } from '~/config.js';
-import Features from '~/components/widgets/Features3';
+import ServiceCards from '~/components/widgets/ServiceCards';
 import { featuresHome } from '~/shared/data/pages/home.data';
 import Newsletter from '~/components/widgets/NewsletterCTA';
 import { NewsletterHome } from '~/shared/data/pages/home.data';
@@ -16,7 +16,7 @@ export default async function Page() {
     <>
       <Header />
       <HomeHero />
-      <Features {...featuresHome} />
+      <ServiceCards {...featuresHome} />
       <Newsletter {...NewsletterHome} />
     </>
   );

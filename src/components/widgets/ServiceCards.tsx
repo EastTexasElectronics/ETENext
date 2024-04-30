@@ -3,14 +3,14 @@ import Headline from '../common/Headline';
 import WidgetWrapper from '../common/WidgetWrapper';
 import ItemGrid from '../common/ItemGrid';
 
-const Features3 = ({
+const ServiceCards = ({
   header,
   items,
   columns = 3,
   isBeforeContent,
   isAfterContent,
   id,
-  hasBackground = false,
+  hasBackground = true,
 }: FeaturesProps) => (
   <WidgetWrapper
     id={id || ''}
@@ -25,12 +25,12 @@ const Features3 = ({
       items={items}
       columns={columns}
       defaultColumns={3}
-      panelClass="card h-full relative flex flex-col text-center p-8 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
-      iconClass="h-20 w-20 flex justify-center items-center rounded-md text-white mb-6 p-2 md:p-3 mx-auto"
-      titleClass="mb-3 text-xl font-bold"
-      descriptionClass="text-gray-600 dark:text-secondary-400"
+      panelClass="card h-full relative flex flex-col text-center p-8 transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg bg-primary-100 dark:bg-base-800 rounded-lg border-primary-200 shadow-md"
+      iconClass="h-20 w-20 flex justify-center items-center rounded-md dark:text-white text-secondary-800 mb-6 p-2 md:p-3 mx-auto"
+      titleClass="mb-3 text-xl font-bold text-secondary-900 dark:text-secondary-300"
+      descriptionClass="text-secondary-900 dark:text-secondary-400"
     />
   </WidgetWrapper>
 );
 
-export default Features3;
+export default ServiceCards;

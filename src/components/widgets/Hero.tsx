@@ -1,12 +1,12 @@
 import { HeroProps } from '~/shared/types';
 import CTA from '../common/CTA';
-import { GridBackground } from '~/components/widgets/HomeHero';
+import { HomeHero } from '~/components/widgets/HomeHero';
 
 const Hero = ({ title, subtitle, tagline, callToAction, callToAction2, image }: HeroProps) => {
   return (
     <section id="heroOne" className="relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <GridBackground />
+        <HomeHero />
       </div>
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 py-12 md:py-20">
         <div className="mx-auto max-w-4xl text-center">

@@ -66,20 +66,30 @@ export const heroHome: HeroProps = {
   },
 };
 
-// Features data on Home page
+// Services data on Home page
 export const featuresHome: FeaturesProps = {
-  id: 'features-on-home',
+  id: 'Services-on-home',
   hasBackground: false,
   columns: 3,
   header: {
     title: (
       <>
-        What you get with <span className="whitespace-nowrap">East Texas Electronics</span>
+        <span className="text-primary-900 dark:text-secondary-200">What Can We Assist You With?</span>
       </>
     ),
-    subtitle:
-      "We're here to help you with all your IT needs. From computer repair to network setup, we've got you covered.",
-    tagline: 'Services',
+    subtitle: (
+      <>
+        <span className="text-primary-900 dark:text-secondary-300">
+          We&apos;re here to help you with all your IT needs. From computer repair to network setup, we&apos;ve got you
+          covered.
+        </span>
+      </>
+    ),
+    tagline: (
+      <>
+        <span className="text-primary-900 dark:text-secondary-300">Services</span>
+      </>
+    ),
   },
   items: [
     {
@@ -89,7 +99,7 @@ export const featuresHome: FeaturesProps = {
       icon: IconCpu,
       callToAction: {
         text: 'Discover now',
-        href: URLs.REPAIRS,
+        href: URLs.HOME,
       },
     },
     {
