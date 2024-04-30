@@ -2,7 +2,7 @@ import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, ContentProps } 
 import URLs from '~/utils/constants/urls';
 import itSupportHero from '~/assets/images/itSupportHero.png';
 import itSupportQuality from '~/assets/images/itSupportHero.png';  // Update this image if needed
-import dataSecurity from '~/assets/images/itSupportHero.png';  // Update this image if needed
+import dataSecurity from '~/assets/images/dataSecurity.png';  // Update this image if needed
 import dynamicIcons from '~/components/atoms/Icons';
 
 // Hero data on IT page
@@ -22,8 +22,26 @@ export const heroIT: HeroProps = {
 // Features data on IT page
 export const features2IT: FeaturesProps = {
   columns: 3,
+
   header: {
-    title: 'What We Provide',
+    title: (
+      <>
+        <span className="text-primary-900 dark:text-secondary-200">Tailored IT Solutions</span>
+      </>
+    ),
+    subtitle: (
+      <>
+        <span className="text-primary-900 dark:text-secondary-300">
+          We&apos;re here to help you with all your IT needs. From website design and management to network setup, we&apos;ve got you
+          covered.
+        </span>
+      </>
+    ),
+    tagline: (
+      <>
+        <span className="text-primary-900 dark:text-secondary-300">Services</span>
+      </>
+    ),
   },
   items: [
     {
@@ -49,12 +67,12 @@ export const features2IT: FeaturesProps = {
     {
       title: 'Cloud Services',
       description: 'Scalable cloud services to enhance your data accessibility and disaster recovery strategies.',
-      icon: dynamicIcons.cloudUpload,
+      icon: dynamicIcons.cloudCode,
     },
     {
       title: 'IT Consultations',
       description: 'Expert IT consulting to help you navigate the complex world of technology effectively.',
-      icon: dynamicIcons.userSearch,
+      icon: dynamicIcons.messages,
     },
   ],
 };
@@ -63,21 +81,41 @@ export const features2IT: FeaturesProps = {
 export const contentITOne: ContentProps = {
   id: 'contentOne-on-it-one',
   hasBackground: true,
-  content: 'Data Security & Privacy Commitment',
+  header: {
+    title: (
+      <>
+        <span className="text-primary-900 dark:text-secondary-200">Data Best Practices</span>
+      </>
+    ),
+    subtitle: (
+      <>
+        <span className="text-primary-900 dark:text-secondary-300">
+          Your data&apos;s security is our top priority, and we take comprehensive steps to protect it.
+        </span>
+      </>
+    ),
+    tagline: (
+      <>
+        <span className="text-primary-900 dark:text-secondary-300">Effective Data Management</span>
+      </>
+    ),
+  },
+  content: 'Commitment to Data Security and Privacy',
   items: [
     {
-      title: 'Secure Data Practices',
-      description: 'Strict data handling protocols to ensure maximum security and confidentiality.',
+      title: 'Robust Data Handling',
+      description: 'We adhere to strict data handling protocols to ensure the utmost security and confidentiality.',
     },
     {
-      title: 'Regular Compliance Audits',
-      description: 'Ensuring compliance with the latest industry standards and regulations.',
+      title: 'Ongoing Compliance Reviews',
+      description: 'We conduct regular audits to ensure compliance with evolving industry standards and regulations.',
     },
     {
-      title: 'Customizable Security Solutions',
-      description: 'Security solutions tailored to your specific business needs and challenges.',
+      title: 'Tailored Security Solutions',
+      description: 'We offer security solutions customized to meet the unique requirements and challenges of your business.',
     },
   ],
+  
   image: {
     src: dataSecurity,
     alt: 'Data Security Image',

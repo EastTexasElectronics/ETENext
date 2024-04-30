@@ -1,6 +1,17 @@
 import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
 import { StaticImageData } from 'next/image';
 
+type IFormInput = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  company?: string;
+  phone: string;
+  contactReason: 'General' | 'Service' | 'Product' | 'Other';
+  contactMethod: 'Phone' | 'Text' | 'Email';
+  message: string;
+  newsletter: boolean;
+}
 interface CookieSettingsProps {
   necessary: boolean;
   analytics: boolean;

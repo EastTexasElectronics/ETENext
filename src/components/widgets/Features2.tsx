@@ -13,7 +13,7 @@ const Features2 = ({ header, items, columns = 3, id }: FeaturesProps) => (
         columns={columns}
         defaultColumns={3}
         panelClass="card flex flex-start min-w-screen-sm items-stretch h-full"
-        iconClass="h-8 w-8 mr-4 text-primary-800 dark:text-primary-600"
+        iconClass="h-12 w-12 flex items-center justify-center rounded-md text-white bg-primary-900 p-2 md:p-3 mt-1.5 mb-4 mr-4 rtl:ml-4 rtl:mr-0"
         titleClass="text-xl font-bold"
         descriptionClass="text-md text-gray-500 dark:text-gray-400"
         actionClass="justify-start"
@@ -23,3 +23,4 @@ const Features2 = ({ header, items, columns = 3, id }: FeaturesProps) => (
 );
 
 export default Features2;
+5
