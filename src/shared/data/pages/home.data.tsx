@@ -1,4 +1,13 @@
-import { IconMail, IconCalendarEvent, IconHeartHandshake, IconCodeCircle2, IconCpu } from '@tabler/icons-react';
+import {
+  IconMail,
+  IconCalendarEvent,
+  IconHeartHandshake,
+  IconCodeCircle2,
+  IconCpu,
+  IconDatabase,
+  IconRecycle,
+  IconMessages,
+} from '@tabler/icons-react';
 import { NewsletterProps, FeaturesProps, HeroProps } from '../../types';
 import heroImg from '~/assets/images/homeHeroImg.png';
 import URLs from '~/utils/constants/urls';
@@ -80,27 +89,57 @@ export const featuresHome: FeaturesProps = {
       icon: IconCpu,
       callToAction: {
         text: 'Discover now',
-        href: URLs.HOME,
+        href: URLs.REPAIRS,
       },
     },
     {
-      title: 'Web Development',
+      title: 'Website & Software Development',
       description:
         'We create beautiful websites that are easy to use and look great on any device. Our team of experts can help you build the perfect website for your business.',
       icon: IconCodeCircle2,
       callToAction: {
         text: 'Discover now',
-        href: URLs.HOME,
+        href: URLs.WEB_DEVELOPMENT,
       },
     },
     {
-      title: 'IT Services',
+      title: 'Data Management & Recovery',
+      description:
+        'We offer a wide range of IT services, from network setup to data recovery. Our team of experts can help you with any IT issue.',
+      icon: IconDatabase,
+      callToAction: {
+        text: 'Discover now',
+        href: URLs.DATA_RECOVERY,
+      },
+    },
+    {
+      title: 'IT Support Services',
       description:
         'We offer a wide range of IT services, from network setup to data recovery. Our team of experts can help you with any IT issue.',
       icon: IconHeartHandshake,
       callToAction: {
         text: 'Discover now',
-        href: URLs.HOME,
+        href: URLs.IT,
+      },
+    },
+    {
+      title: 'e-Waste Recycling',
+      description:
+        'We offer a wide range of IT services, from network setup to data recovery. Our team of experts can help you with any IT issue.',
+      icon: IconRecycle,
+      callToAction: {
+        text: 'Discover now',
+        href: URLs.RECYCLING,
+      },
+    },
+    {
+      title: 'Consulting Services',
+      description:
+        'We offer a wide range of IT services, from network setup to data recovery. Our team of experts can help you with any IT issue.',
+      icon: IconMessages,
+      callToAction: {
+        text: 'Discover now',
+        href: URLs.CONSULTATIONS,
       },
     },
   ],
