@@ -1,34 +1,45 @@
+// CookieConsent.tsx
 "use client";
 
 import React, { useState, useEffect } from 'react';
 import CookieSettings from '../common/CookieSettings';
 
+interface CookieSettingsType {
+  necessary: boolean;
+  analytics: boolean;
+  marketing: boolean;
+}
+
 const CookieConsent: React.FC = () => {
-  // State for managing visibility of the banner and settings modal
   const [showBanner, setShowBanner] = useState<boolean>(false);
   const [showSettings, setShowSettings] = useState<boolean>(false);
-  // State for managing cookie preferences
-  const [cookies, setCookies] = useState({
+  const [cookies, setCookies] = useState<CookieSettingsType>({
     necessary: true,
     analytics: false,
     marketing: false,
   });
 
-  // Effect to load cookie preferences from localStorage or show the banner
   useEffect(() => {
     const cookiePrefs = localStorage.getItem('cookiePrefs');
     if (cookiePrefs) {
       setCookies(JSON.parse(cookiePrefs));
+      setShowBanner(false);  // Hide banner if preferences are already set
     } else {
-      setShowBanner(true);
+      setShowBanner(true);  // Show banner if no preferences are stored
     }
   }, []);
 
-  // Handles the acceptance of all cookies
   const handleAccept = () => {
-    const defaultPrefs = { necessary: true, analytics: true, marketing: true };
+    const defaultPrefs: CookieSettingsType = { necessary: true, analytics: true, marketing: true };
     setCookies(defaultPrefs);
     localStorage.setItem('cookiePrefs', JSON.stringify(defaultPrefs));
+    setShowBanner(false);
+  };
+
+  const handleSaveAndAccept = (newSettings: CookieSettingsType) => {
+    setCookies(newSettings);
+    localStorage.setItem('cookiePrefs', JSON.stringify(newSettings));
+    setShowSettings(false);
     setShowBanner(false);
   };
 
@@ -41,7 +52,14 @@ const CookieConsent: React.FC = () => {
           <button onClick={() => setShowSettings(true)} className="bg-gray-300 text-gray-800 hover:bg-gray-400 rounded px-4 py-2 m-2">Cookie Settings</button>
         </div>
       )}
-      {showSettings && <CookieSettings onSave={setCookies} initialCookies={cookies} setShowSettings={setShowSettings} />}
+      {showSettings && (
+        <CookieSettings
+          onSave={handleSaveAndAccept}
+          initialCookies={cookies}
+          setShowSettings={setShowSettings}
+          onAccept={() => setShowBanner(false)}  // Optional if needed based on your actual CookieSettings component
+        />
+      )}
     </div>
   );
 };
