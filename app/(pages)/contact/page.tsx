@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Header from '~/components/widgets/Header';
-import ContactUsForm from '~/components/widgets/ContactForm';
+import { SignupFormDemo } from '~/components/widgets/SignInForm';
 import Features2 from '~/components/widgets/Features2';
 import { features2Contact } from '~/shared/data/pages/contact.data';
 
@@ -13,7 +13,7 @@ const Page = () => {
     <>
       <Header />
       <Features2 {...features2Contact} />
-      <ContactUsForm />
+      <SignupFormDemo />
     </>
   );
 };
