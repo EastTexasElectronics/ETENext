@@ -122,3 +122,318 @@ Credit to https://cruip.com/creating-a-sliding-text-animation-with-tailwind-css/
 TODO LIST:
 Fix Speed Insights Hydration error
 Fix word scrolling on home hero
+
+
+```
+ETENext
+├─ app
+│  ├─ (blog)
+│  │  ├─ blog
+│  │  │  └─ page.tsx
+│  │  └─ [slug]
+│  │     └─ page.jsx
+│  ├─ (dashboards)
+│  │  └─ user-dashboard
+│  │     └─ page.tsx
+│  ├─ (legal)
+│  │  ├─ privacy
+│  │  │  └─ page.tsx
+│  │  └─ terms
+│  │     └─ page.tsx
+│  ├─ (pages)
+│  │  ├─ about
+│  │  │  └─ page.tsx
+│  │  ├─ appointment
+│  │  │  └─ page.tsx
+│  │  ├─ careers
+│  │  │  └─ page.tsx
+│  │  ├─ contact
+│  │  │  └─ page.tsx
+│  │  ├─ faqs
+│  │  │  └─ page.tsx
+│  │  ├─ pricing
+│  │  │  └─ page.tsx
+│  │  └─ services
+│  │     ├─ data-recovery
+│  │     │  └─ page.tsx
+│  │     ├─ e-waste-recycling
+│  │     │  └─ page.tsx
+│  │     ├─ it-support
+│  │     │  └─ page.tsx
+│  │     ├─ page.tsx
+│  │     ├─ repairs
+│  │     │  └─ page.tsx
+│  │     └─ software-website-app-development
+│  │        └─ page.tsx
+│  ├─ globals.css
+│  ├─ layout.tsx
+│  ├─ loading.tsx
+│  ├─ page.tsx
+│  ├─ sign-in
+│  │  └─ [[...sign-in]]
+│  │     └─ page.tsx
+│  └─ sign-up
+│     └─ [[...sign-up]]
+│        └─ page.tsx
+├─ components.json
+├─ LICENSE.md
+├─ middleware.ts
+├─ next-sitemap.config.js
+├─ next.config.js
+├─ package.json
+├─ postcss.config.js
+├─ prisma
+│  └─ schema.prisma
+├─ public
+│  └─ favicon.ico
+├─ README.md
+├─ src
+│  ├─ assets
+│  │  ├─ iconSVG
+│  │  │  ├─ google.svg
+│  │  │  ├─ microsoft.svg
+│  │  │  ├─ repairIcon.svg
+│  │  │  ├─ spinner.svg
+│  │  │  ├─ supportIcon.svg
+│  │  │  ├─ techSupportIcon.svg
+│  │  │  └─ webDevIcon.svg
+│  │  ├─ images
+│  │  │  ├─ .gitkeep
+│  │  │  ├─ aboutHero.webp
+│  │  │  ├─ Brand Kit
+│  │  │  │  ├─ Brand Guidelines.pdf
+│  │  │  │  ├─ Logo Files
+│  │  │  │  │  ├─ 3D Logo Mockup.jpg
+│  │  │  │  │  ├─ Logo_Black
+│  │  │  │  │  │  ├─ Logo_Black.ai
+│  │  │  │  │  │  ├─ Logo_Black.eps
+│  │  │  │  │  │  ├─ Logo_Black.jpg
+│  │  │  │  │  │  ├─ Logo_Black.pdf
+│  │  │  │  │  │  ├─ Logo_Black.png
+│  │  │  │  │  │  ├─ Logo_Black.psd
+│  │  │  │  │  │  └─ Logo_Black.svg
+│  │  │  │  │  ├─ Logo_Blue_White
+│  │  │  │  │  │  ├─ Logo_Blue_White.ai
+│  │  │  │  │  │  ├─ Logo_Blue_White.eps
+│  │  │  │  │  │  ├─ Logo_Blue_White.jpg
+│  │  │  │  │  │  ├─ Logo_Blue_White.pdf
+│  │  │  │  │  │  ├─ Logo_Blue_White.png
+│  │  │  │  │  │  ├─ Logo_Blue_White.psd
+│  │  │  │  │  │  └─ Logo_Blue_White.svg
+│  │  │  │  │  ├─ Logo_White_Black
+│  │  │  │  │  │  ├─ Logo_White_Black.ai
+│  │  │  │  │  │  ├─ Logo_White_Black.eps
+│  │  │  │  │  │  ├─ Logo_White_Black.jpg
+│  │  │  │  │  │  ├─ Logo_White_Black.pdf
+│  │  │  │  │  │  ├─ Logo_White_Black.png
+│  │  │  │  │  │  ├─ Logo_White_Black.psd
+│  │  │  │  │  │  └─ Logo_White_Black.svg
+│  │  │  │  │  └─ Logo_White_Blue
+│  │  │  │  │     ├─ Logo_White_Blue.ai
+│  │  │  │  │     ├─ Logo_White_Blue.eps
+│  │  │  │  │     ├─ Logo_White_Blue.jpg
+│  │  │  │  │     ├─ Logo_White_Blue.pdf
+│  │  │  │  │     ├─ Logo_White_Blue.png
+│  │  │  │  │     ├─ Logo_White_Blue.psd
+│  │  │  │  │     └─ Logo_White_Blue.svg
+│  │  │  │  └─ Social Media Kit
+│  │  │  │     ├─ Etsy
+│  │  │  │     │  ├─ 1_Etsy Cover Image.jpg
+│  │  │  │     │  ├─ 1_Etsy Profile Image.jpg
+│  │  │  │     │  ├─ 1_Etsy Shop Banner.jpg
+│  │  │  │     │  └─ 1_Etsy Shop Icon.jpg
+│  │  │  │     ├─ Facebook
+│  │  │  │     │  ├─ 1_Facebook Cover Image.jpg
+│  │  │  │     │  └─ 1_Facebook Profile Image.jpg
+│  │  │  │     ├─ Instagram
+│  │  │  │     │  └─ 1_Instagram Profile Image.jpg
+│  │  │  │     ├─ LinkedIn
+│  │  │  │     │  ├─ 1_LinkedIn Background Photo.jpg
+│  │  │  │     │  ├─ 1_LinkedIn Company Logo 300x300.jpg
+│  │  │  │     │  ├─ 1_LinkedIn Company Logo 400x400.jpg
+│  │  │  │     │  └─ 1_LinkedIn Cover Photo.jpg
+│  │  │  │     ├─ Pinterest
+│  │  │  │     │  └─ 1_Pinterest Profile Image.jpg
+│  │  │  │     ├─ Twitter
+│  │  │  │     │  ├─ 1_Twitter Header Image.jpg
+│  │  │  │     │  └─ 1_Twitter Profile Image.jpg
+│  │  │  │     └─ Youtube
+│  │  │  │        ├─ 1_Youtube Cover Image.jpg
+│  │  │  │        └─ 1_Youtube Profile Image.jpg
+│  │  │  ├─ dataHero.png
+│  │  │  ├─ dataPrivacy.png
+│  │  │  ├─ defaultBlogImage.png
+│  │  │  ├─ heroSoftware.png
+│  │  │  ├─ homeHeroImg.png
+│  │  │  ├─ itSupportHero.png
+│  │  │  ├─ recyclingHero.png
+│  │  │  ├─ repairPrivacy.png
+│  │  │  ├─ repairQuality.png
+│  │  │  ├─ SEO.png
+│  │  │  ├─ UnderConstruction.gif
+│  │  │  └─ welcomeRobot.webp
+│  │  └─ styles
+│  │     ├─ base.css
+│  │     ├─ Hero.module.css
+│  │     └─ theme-image.module.css
+│  ├─ components
+│  │  ├─ atoms
+│  │  │  ├─ BackgroundBeams.tsx
+│  │  │  ├─ BackgroundGradient.tsx
+│  │  │  ├─ BookingButton.tsx
+│  │  │  ├─ BookingModalButton.tsx
+│  │  │  ├─ CookieBanner.tsx
+│  │  │  ├─ FlipTooltip.tsx
+│  │  │  ├─ Icons.tsx
+│  │  │  ├─ LearnMoreButton.tsx
+│  │  │  ├─ Logo.tsx
+│  │  │  ├─ TextGenerateEffect.tsx
+│  │  │  ├─ ThemeProviders.tsx
+│  │  │  ├─ Toast.tsx
+│  │  │  ├─ ToggleDarkMode.tsx
+│  │  │  └─ ToggleMenu.tsx
+│  │  ├─ common
+│  │  │  ├─ Background.tsx
+│  │  │  ├─ BookingCTA.tsx
+│  │  │  ├─ BreadCrumbs.tsx
+│  │  │  ├─ Collapse.tsx
+│  │  │  ├─ CookieSettings.tsx
+│  │  │  ├─ CTA.tsx
+│  │  │  ├─ DividerLine.tsx
+│  │  │  ├─ Dropdown.tsx
+│  │  │  ├─ FileUpload.tsx
+│  │  │  ├─ Form.tsx
+│  │  │  ├─ Headline.tsx
+│  │  │  ├─ ItemGrid.tsx
+│  │  │  ├─ ItemTeam.tsx
+│  │  │  ├─ ItemTestimonial.tsx
+│  │  │  ├─ RequestModal.tsx
+│  │  │  ├─ ScheduleForm.tsx
+│  │  │  ├─ Timeline.tsx
+│  │  │  └─ WidgetWrapper.tsx
+│  │  ├─ ui
+│  │  │  ├─ aspect-ratio.tsx
+│  │  │  ├─ button.tsx
+│  │  │  ├─ card.tsx
+│  │  │  ├─ checkbox.tsx
+│  │  │  ├─ combo-box.tsx
+│  │  │  ├─ command.tsx
+│  │  │  ├─ dialog.tsx
+│  │  │  ├─ dropdown-menu.tsx
+│  │  │  ├─ input.tsx
+│  │  │  ├─ menubar.tsx
+│  │  │  ├─ navigation-menu.tsx
+│  │  │  ├─ pagination.tsx
+│  │  │  ├─ popover.tsx
+│  │  │  ├─ scroll-area.tsx
+│  │  │  ├─ select.tsx
+│  │  │  ├─ separator.tsx
+│  │  │  ├─ switch.tsx
+│  │  │  ├─ table.tsx
+│  │  │  ├─ tabs.tsx
+│  │  │  ├─ textarea.tsx
+│  │  │  └─ tooltip.tsx
+│  │  └─ widgets
+│  │     ├─ Announcement.tsx
+│  │     ├─ BookingModal.tsx
+│  │     ├─ Calender.tsx
+│  │     ├─ CalenderLarge.tsx
+│  │     ├─ CallToAction.tsx
+│  │     ├─ CallToAction2.tsx
+│  │     ├─ CompanyDetails.tsx
+│  │     ├─ Comparison.tsx
+│  │     ├─ Contact.tsx
+│  │     ├─ Content.tsx
+│  │     ├─ CookieConsent.tsx
+│  │     ├─ CPortalHeader.tsx
+│  │     ├─ DigitalAssets.tsx
+│  │     ├─ FAQs.tsx
+│  │     ├─ FAQs2.tsx
+│  │     ├─ FAQs3.tsx
+│  │     ├─ FAQs4.tsx
+│  │     ├─ Features.tsx
+│  │     ├─ Features2.tsx
+│  │     ├─ Features4.tsx
+│  │     ├─ Footer.tsx
+│  │     ├─ Header.tsx
+│  │     ├─ Hero.tsx
+│  │     ├─ Hero2.tsx
+│  │     ├─ HomeHero.tsx
+│  │     ├─ NewsletterCTA.tsx
+│  │     ├─ Pricing.tsx
+│  │     ├─ Pricing2.tsx
+│  │     ├─ RequestFeed.tsx
+│  │     ├─ ResponsiveCardGrid.tsx
+│  │     ├─ ScheduleManager.tsx
+│  │     ├─ ServiceCards.tsx
+│  │     ├─ SignInForm.tsx
+│  │     ├─ SocialProof.tsx
+│  │     ├─ Stats.tsx
+│  │     ├─ Steps.tsx
+│  │     ├─ Tabs.tsx
+│  │     ├─ Team.tsx
+│  │     ├─ Team2.tsx
+│  │     ├─ Testimonials.tsx
+│  │     ├─ Testimonials2.tsx
+│  │     ├─ UnderConstruction.tsx
+│  │     └─ UserDetailsForm.tsx
+│  ├─ config.js
+│  ├─ content
+│  │  ├─ .gitkeep
+│  │  ├─ blog
+│  │  │  ├─ emerging-tech-trends.md
+│  │  │  ├─ home-automation-101.md
+│  │  │  ├─ how-to-pick-a-laptop.md
+│  │  │  ├─ how-to-protect-your-devices-from-cyber-threats.md
+│  │  │  ├─ maximizing-productivity-with-dual-monitors.md
+│  │  │  ├─ password-managers.md
+│  │  │  ├─ recycling-disposing-electronics-responsibly.md
+│  │  │  ├─ the-benefits-of-renewable-enegery-in-electronics.md
+│  │  │  ├─ the-evolution-of-gaming-consoles.md
+│  │  │  ├─ the-importance-of-regular-data-backups.md
+│  │  │  └─ tips-for-optimizing-home-offices.md
+│  │  ├─ privacy
+│  │  │  └─ privacy.md
+│  │  └─ terms
+│  │     └─ terms.md
+│  ├─ prisma
+│  │  └─ schema.prisma
+│  ├─ shared
+│  │  ├─ data
+│  │  │  ├─ global.data.tsx
+│  │  │  ├─ loaderFile.js
+│  │  │  └─ pages
+│  │  │     ├─ about.data.tsx
+│  │  │     ├─ contact.data.tsx
+│  │  │     ├─ dataRecovery.data.tsx
+│  │  │     ├─ eWasteRecycling.data.tsx
+│  │  │     ├─ faqs.data.tsx
+│  │  │     ├─ home.data.tsx
+│  │  │     ├─ itServices.data.tsx
+│  │  │     ├─ pricing.data.tsx
+│  │  │     ├─ repairServices.data.tsx
+│  │  │     ├─ services.data.tsx
+│  │  │     └─ softwareWebsiteAppDevelopment.data.tsx
+│  │  └─ types.d.ts
+│  └─ utils
+│     ├─ constants
+│     │  ├─ constants.ts
+│     │  ├─ descriptions.ts
+│     │  ├─ seoKeywords.ts
+│     │  ├─ text.ts
+│     │  ├─ titles.ts
+│     │  └─ urls.ts
+│     ├─ db.ts
+│     ├─ formatContactInfo.tsx
+│     ├─ hooks
+│     │  ├─ useCollapse.tsx
+│     │  └─ useWindowSize.tsx
+│     ├─ permalinks.js
+│     ├─ posts.js
+│     └─ utils.ts
+├─ tailwind.config.js
+├─ tailwind.config.ts
+├─ tsconfig.json
+└─ vscode.tailwind.json
+
+```

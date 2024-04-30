@@ -1,4 +1,4 @@
-// CookieConsent.tsx
+// TODO Implement logic with the backend to store user preferences and serve cookies occordingly
 "use client";
 
 import React, { useState, useEffect } from 'react';
