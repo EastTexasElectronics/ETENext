@@ -50,6 +50,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
+    <ClerkProvider>
     <html
       lang="en"
       className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}
@@ -72,5 +73,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProviders>
       </body>
     </html>
+   </ ClerkProvider>
   );
 }
