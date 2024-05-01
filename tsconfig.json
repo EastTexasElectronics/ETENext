@@ -25,6 +25,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(blog)/blog/page.tsx", "app/(blog)/[slug]/page.jsx", "app/404.tsx", "src/shared/data/loaderFile.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(blog)/blog/page.tsx", "app/(blog)/[slug]/page.jsx", "app/404.tsx", "src/shared/data/loaderFile.js", "app/api/contact.js", "app/api/contact/route.ts"],
   "exclude": ["node_modules"]
 }

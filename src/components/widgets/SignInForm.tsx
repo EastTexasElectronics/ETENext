@@ -1,86 +1,155 @@
 'use client';
 import React from 'react';
-import { Label } from '../ui/label';
-import { Input } from '../ui/input';
-import { cn } from '../../utils/utils';
-import { IconBrandGithub, IconBrandGoogle, IconBrandOnlyfans } from '@tabler/icons-react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { RadioGroup, RadioGroupItem } from '~/components/ui/radio-group';
+import { Button } from '~/components/ui/button';
+import { Checkbox } from '~/components/ui/checkbox';
+import { Input } from '~/components/ui/input';
+import { Label } from '~/components/ui/label';
+import { Textarea } from '~/components/ui/textarea';
+import { cn } from '~/utils/utils';
+import { ToastAction } from '~/components/ui/toast';
+import { useToast } from '~/components/ui/use-toast';
 
-export function SignupFormDemo() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Form submitted');
+// Define the form inputs' structure, if not already defined
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  email: string;
+  company?: string;
+  phone: string;
+  contactReason: 'General' | 'Service' | 'Product' | 'Other';
+  contactMethod: 'Phone' | 'Text' | 'Email';
+  message: string;
+  newsletter: boolean;
+}
+
+export function ContactForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInput>();
+  const { toast } = useToast();
+
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast({
+          title: 'Success!',
+          description: 'Your message has been successfully sent.',
+          duration: 5000,
+        });
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to send message. Please try again.',
+        action: (
+          <ToastAction onClick={() => onSubmit(data)} altText="Try again">
+            Try again
+          </ToastAction>
+        ),
+        duration: 5000,
+      });
+    }
   };
-  return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">Welcome to Aceternity</h2>
-      <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
-        Login to aceternity if you can because we don&apos;t have a login flow yet
-      </p>
 
-      <form className="my-8" onSubmit={handleSubmit}>
+  return (
+    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-secondary-300 dark:bg-secondary-900">
+      <h2 className="text-xl font-bold text-center text-secondary-800 dark:text-neutral-200">Contact Us</h2>
+      <p className="text-center text-secondary-600 text-sm max-w-sm mt-2 dark:text-neutral-300 mb-5">
+        Were here to help! Fill out the form below and well get back to you as soon as we can.
+      </p>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
-            <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
+            <Label htmlFor="firstName">First Name:</Label>
+            <Input {...register('firstName')} id="firstName" placeholder="John" type="text" />
+            {errors.firstName && <p>{errors.firstName.message}</p>}
           </LabelInputContainer>
           <LabelInputContainer>
-            <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
+            <Label htmlFor="lastName">Last Name:</Label>
+            <Input {...register('lastName')} id="lastName" placeholder="Doe" type="text" />
           </LabelInputContainer>
         </div>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+        <LabelInputContainer>
+          <Label htmlFor="email">Email Address:</Label>
+          <Input {...register('email')} id="email" placeholder="john.doe@example.com" type="email" />
         </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+        <LabelInputContainer>
+          <Label htmlFor="phone">Phone Number:</Label>
+          <Input {...register('phone')} id="phone" placeholder="555-555-5555" type="tel" />
         </LabelInputContainer>
-        <LabelInputContainer className="mb-8">
-          <Label htmlFor="twitterpassword">Your twitter password</Label>
-          <Input id="twitterpassword" placeholder="••••••••" type="twitterpassword" />
+        <LabelInputContainer>
+          <Label htmlFor="company">Company Name:</Label>
+          <Input {...register('company')} id="company" placeholder="Acme Inc." type="text" />
         </LabelInputContainer>
-
-        <button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-          type="submit"
-        >
-          Sign up &rarr;
-          <BottomGradient />
-        </button>
-
-        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-
-        <div className="flex flex-col space-y-4">
-          <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
-          >
-            <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">GitHub</span>
-            <BottomGradient />
-          </button>
-          <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
-          >
-            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">Google</span>
-            <BottomGradient />
-          </button>
-          <button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-            type="submit"
-          >
-            <IconBrandOnlyfans className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">OnlyFans</span>
-            <BottomGradient />
-          </button>
-        </div>
+        <BottomGradient />
+        <RadioGroup className="flex space-x-4">
+          <div className="flex items-center">
+            <RadioGroupItem {...register('contactReason')} value="General" id="general" />
+            <Label htmlFor="general">General</Label>
+          </div>
+          <div className="flex items-center">
+            <RadioGroupItem {...register('contactReason')} value="Service" id="service" />
+            <Label htmlFor="service">Service</Label>
+          </div>
+          <div className="flex items-center">
+            <RadioGroupItem {...register('contactReason')} value="Product" id="product" />
+            <Label htmlFor="product">Product</Label>
+          </div>
+          <div className="flex items-center">
+            <RadioGroupItem {...register('contactReason')} value="Other" id="other" />
+            <Label htmlFor="other">Other</Label>
+          </div>
+        </RadioGroup>
+        <RadioGroup className="flex space-x-4">
+          <div className="flex items-center">
+            <RadioGroupItem {...register('contactMethod')} value="Phone" id="contactMethodPhone" />
+            <Label htmlFor="contactMethodPhone">Phone</Label>
+          </div>
+          <div className="flex items-center">
+            <RadioGroupItem {...register('contactMethod')} value="Text" id="contactMethodText" />
+            <Label htmlFor="contactMethodText">Text</Label>
+          </div>
+          <div className="flex items-center">
+            <RadioGroupItem {...register('contactMethod')} value="Email" id="contactMethodEmail" />
+            <Label htmlFor="contactMethodEmail">Email</Label>
+          </div>
+        </RadioGroup>
+        <BottomGradient />
+        <Textarea
+          {...register('message')}
+          id="message"
+          placeholder="Your message..."
+          className="w-full p-3 border border-gray-300 rounded-md"
+        />
+        <LabelInputContainer>
+          <Label>
+            Subscribe to our newsletter
+            <input type="checkbox" {...register('newsletter')} defaultChecked={true} />
+          </Label>
+        </LabelInputContainer>
+        <Button type="submit" className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Send Message
+        </Button>
+        <BottomGradient />
       </form>
     </div>
   );
 }
+export default ContactForm;
 
 const BottomGradient = () => {
   return (
