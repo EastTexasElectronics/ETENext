@@ -2,7 +2,7 @@ import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, ContentProps } 
 import URLs from '~/utils/constants/urls';
 import softwareHero from '~/assets/images/heroSoftware.png';
 import repairQuality from '~/assets/images/repairQuality.png';
-import dataPrivacy from '~/assets/images/dataSecurity.png';
+import dataPrivacy from '~/assets/images/dataPrivacy.png';
 import dynamicIcons from '~/components/atoms/Icons';
 
 // Hero data on Software page
