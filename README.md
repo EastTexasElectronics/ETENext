@@ -261,7 +261,7 @@ ETENext
 │  │  │  │        ├─ 1_Youtube Cover Image.jpg
 │  │  │  │        └─ 1_Youtube Profile Image.jpg
 │  │  │  ├─ dataHero.png
-│  │  │  ├─ dataPrivacy.png
+│  │  │  ├─ dataSecurity.png
 │  │  │  ├─ defaultBlogImage.png
 │  │  │  ├─ heroSoftware.png
 │  │  │  ├─ homeHeroImg.png
