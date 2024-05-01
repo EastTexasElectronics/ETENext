@@ -2,7 +2,7 @@ import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, ContentProps } 
 import URLs from '~/utils/constants/urls';
 import repairHero from '~/assets/images/aboutHero.webp';
 import repairQuality from '~/assets/images/repairQuality.png';
-import dataPrivacy from '~/assets/images/dataPrivacy.png';
+import dataPrivacy from '~/assets/images/dataSecurity.png';
 import dynamicIcons from '~/components/atoms/Icons';
 
 // Hero data on Services page
