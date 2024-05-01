@@ -1,22 +1,18 @@
-import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler } from 'react';
+import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler, UseFormRegister } from 'react';
 import { StaticImageData } from 'next/image';
 
-type IFormInput = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  company?: string;
-  phone: string;
-  contactReason: 'General' | 'Service' | 'Product' | 'Other';
-  contactMethod: 'Phone' | 'Text' | 'Email';
-  message: string;
-  newsletter: boolean;
-}
-interface CookieSettingsProps {
+
+export type RadioItemWithLabelProps = {
+  register: UseFormRegister<IFormInput>;
+  value: string;
+  label: string;
+};
+
+type CookieSettingsProps = {
   necessary: boolean;
   analytics: boolean;
   marketing: boolean;
-}
+};
 
 type TextGenerateEffectProps = {
   words: string[];

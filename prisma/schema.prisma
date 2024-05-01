@@ -82,9 +82,7 @@ model Contact {
   email         String
   company       String?
   phone         String
-  contactReason String
-  contactMethod String
   message       String
-  newsletter    Boolean @default(true)
+  newsletter    Boolean
   createdAt     DateTime @default(now())
 }
