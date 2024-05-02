@@ -81,8 +81,9 @@ model Contact {
   lastName      String
   email         String
   company       String?
-  phone         String
+  phone         String?
   message       String
   newsletter    Boolean
+  contactMethod String
   createdAt     DateTime @default(now())
 }
