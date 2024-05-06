@@ -76,7 +76,7 @@ model VerificationToken {
 }
 
 model Contact {
-  id            Int      @id @default(autoincrement())
+  id            String      @id @default(cuid())
   firstName     String
   lastName      String
   email         String
@@ -87,3 +87,14 @@ model Contact {
   contactMethod String
   createdAt     DateTime @default(now())
 }
+model WorkSession {
+  id        String      @id @default(cuid())
+  userId    String   
+  clockIn   DateTime
+  clockOut  DateTime?
+  duration  Int?
+
+  @@unique([userId, clockIn])  // Ensures unique combination of 'userId' and 'clockIn'
+}
+
+

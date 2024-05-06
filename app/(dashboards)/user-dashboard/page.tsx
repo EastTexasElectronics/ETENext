@@ -1,5 +1,5 @@
 import React from 'react';
-import Tabs from '~/components/widgets/Tabs';
+import {TabsDemo} from '~/components/widgets/Tabs';
 import type { Metadata } from 'next';
 import CPortalHeader from '~/components/widgets/CPortalHeader';
 
@@ -13,7 +13,7 @@ const UserDashboard: React.FC = () => {
     <>
       <CPortalHeader />
       <div className="min-h-screen">
-        <Tabs />
+        <TabsDemo />
       </div>
     </>
   );

@@ -1,60 +1,27 @@
-'use client';
-import React, { useState } from 'react';
-import CompanyDetails from './CompanyDetails';
-// import RequestFeed from './RequestFeed';
-import ScheduleManager from './ScheduleManager';
-import DigitalAssets from './DigitalAssets';
+"use client";
 
-type TabContent = {
-  'Company Details': JSX.Element;
-  'Digital Assets': JSX.Element;
-  'Leave Requests': JSX.Element;
-  Appointments: JSX.Element;
-  Schedules: JSX.Element;
-  'Time Tracker': JSX.Element;
-};
+import Image from "next/image";
+import { Tabs } from "../ui/tabs";
+import ClockWidget from "~/components/widgets/ClockWidget";
 
-const Tabs: React.FC = () => {
-  const tabs: (keyof TabContent)[] = ['Company Details', 'Leave Requests', 'Appointments', 'Schedules', 'Time Tracker', 'Digital Assets'];
-
-  const [activeTab, setActiveTab] = useState<keyof TabContent>(tabs[0]);
-
-  const handleTabClick = (tab: keyof TabContent) => {
-    setActiveTab(tab);
-  };
-
-  const tabContent: TabContent = {
-    'Company Details': <CompanyDetails />,
-    'Digital Assets': <DigitalAssets />,
-    'Leave Requests':  <div>Content for Appointments</div>,
-    Appointments: <div>Content for Appointments</div>,
-    Schedules: <ScheduleManager />,
-    'Time Tracker': <div>Content for Time Tracker</div>,
-  };
-
+export function TabsDemo() {
+  const tabs = [
+    {
+      title: "Punch Clock",
+      value: "punchClock",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-primary-900 to-violet-900 flex items-center justify-center">
+          <div className="text-center">
+            <ClockWidget />
+          </div>
+        </div>
+      )
+    }
+  ];
   return (
-    <div className="my-8 mx-auto w-3/4">
-      {/* TODO why is this making a line?  Can we Remove it? */}
-      <ul className="flex justify-center gap-4 border-b-2 dark:border-gray-700">
-        {tabs.map((tab) => (
-          <li
-            key={tab}
-            onClick={() => handleTabClick(tab)}
-            className={`cursor-pointer py-2 px-4 ${
-              activeTab === tab
-                ? 'bg-blue-600 dark:bg-blue-700 text-white'
-                : 'text-black dark:text-white dark:hover:text-gray-200 hover:text-gray-700'
-            } hover:bg-gray-100 dark:hover:bg-gray-600 rounded-md transition-colors duration-300`}
-          >
-            {tab}
-          </li>
-        ))}
-      </ul>
-      <div className="p-4 bg-white dark:bg-secondary-700 rounded-md shadow-md">
-        {tabContent[activeTab]}
-      </div>
+    <div className="h-[20rem] md:h-[40rem] perspective:1000px relative flex flex-col max-w-5xl mx-auto w-full items-center justify-center my-40">
+      <Tabs tabs={tabs} />
     </div>
   );
-};
+}
 
-export default Tabs;
