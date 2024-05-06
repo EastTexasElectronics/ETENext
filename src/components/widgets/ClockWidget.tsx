@@ -28,21 +28,38 @@ const ClockInComponent = () => {
   const formatDate = (date: Date): string => {
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
   };
-
-  const handleClockIn = async () => {
+ 
+  const handleClockIn = async (userId: string) => {
     try {
-      const response = await fetch('/api/clockIn', { method: 'POST' });
+      const response = await fetch('/api/clockIn', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: userId,
+          clockIn: new Date(),
+        })
+      });
+  
       if (!response.ok) {
-        const errorData = await response.json(); // Assuming server sends JSON error details
+        const errorData = await response.json();
         console.error('Failed to clock in:', errorData);
-        throw new Error(errorData.error);
+        throw new Error('Clock-in failed: ' + (errorData.error || 'Unknown error'));
       }
+  
       const data = await response.json();
       console.log("Clock in data:", data);
-    } catch (error) {
-      console.error("Error when attempting to clock in:", error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Error when attempting to clock in:", error.message);
+      } else {
+        console.error("Error when attempting to clock in:", String(error));
+      }
     }
   };
+  
+   
+  
+  
   
 
   const handleClockOut = async () => {
