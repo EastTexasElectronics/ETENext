@@ -1,10 +1,6 @@
 import dynamic from 'next/dynamic';
 import { ComponentType, SVGProps } from 'react';
-import microsoftColor from '~/assets/iconSVG/microsoft.svg';
-import googleColor from '~/assets/iconSVG/google.svg';
-import repairIcon from '~/assets/iconSVG/repairIcon.svg';
-import techSupportIcon from '~/assets/iconSVG/techSupportIcon.svg';
-import webDevIcon from '~/assets/iconSVG/webDevIcon.svg';
+
 
 type IconType = {
   [key: string]: ComponentType<SVGProps<SVGSVGElement>> | string;
@@ -38,7 +34,6 @@ const dynamicIcons: IconType = {
   flame: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconFlame)),
   github: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandGithub)),
   google: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandGoogle)),
-  googleColor,
   headset: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconHeadset)),
   heartHandShake: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconHeartHandshake)),
   heartHandshake: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconHeartHandshake)),
@@ -53,7 +48,6 @@ const dynamicIcons: IconType = {
   mapPin: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconMapPin)),
   menu: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconMenu)),
   messages: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconMessages)),
-  microsoftColor,
   minus: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconMinus)),
   moon: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconMoon)),
   number1: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconNumber1)),
@@ -67,7 +61,6 @@ const dynamicIcons: IconType = {
   plus: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconPlus)),
   puzzle2: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconPuzzle2)),
   recycle: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconRecycle)),
-  repairIcon,
   rocket: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconRocket)),
   rss: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconRss)),
   scale: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconScale)),
@@ -76,8 +69,6 @@ const dynamicIcons: IconType = {
   tailwind: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandTailwind)),
   urgent: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconUrgent)),
   user: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconUser)),
-  webDevIcon,
-  techSupportIcon,
   thumbUp: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconThumbUp)),
   twitter: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandTwitter)),
   windows: dynamic(() => import('@tabler/icons-react').then((mod) => mod.IconBrandWindows)),

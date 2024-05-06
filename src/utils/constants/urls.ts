@@ -57,6 +57,8 @@ const URLs = {
   TESTIMONIAL1: '/https://maps.app.goo.gl/ewmffLTNcu8k4Rjc9',
   TESTIMONIAL2: 'https://maps.app.goo.gl/xx6zm8bseFaq1J936',
   TESTIMONIAL3: 'https://maps.app.goo.gl/aPuH52L3vybG2YUz9',
+  PHONE: 'tel:+19034711575',
+  SUPPORT_EMAIL: 'mailto:Support@ETXElectronics.com',
 };
 
 export default URLs;

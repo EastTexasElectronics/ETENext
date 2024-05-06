@@ -1,6 +1,33 @@
-import { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler, UseFormRegister } from 'react';
+import React, { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler, UseFormRegister } from 'react';
 import { StaticImageData } from 'next/image';
+import { z } from 'zod';
 
+type SVGReact = () => ReactElement;
+
+type ContactUsFormProps = {
+  id: string;
+  hasBackground?: boolean;
+  header?: Header;
+  items: Array<Item>;
+  isImageDisplayed?: boolean;
+  image?: Image;
+  isBeforeContent?: boolean;
+  isAfterContent?: boolean;
+};
+
+type ItemListType = {
+  id: string;
+  items: Array<Item>;
+  iconClass: string;
+  titleClass: string;
+  descriptionClass: string;
+  containerClass: string;
+  listItemClass: string;
+  defaultIcon?: Icon | undefined;
+  actionClass?: string;
+};
+
+type IFormInput = z.infer<typeof contactFormSchema>;
 
 export type RadioItemWithLabelProps = {
   register: UseFormRegister<IFormInput>;
@@ -195,7 +222,7 @@ type Item = {
   description?: string | Array<string>;
   href?: string;
   form?: SmallForm;
-  icon?: Icon | string;
+  icon?: Icon | string | SVGReact;
   callToAction?: CallToActionType;
 };
 
