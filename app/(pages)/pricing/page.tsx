@@ -7,7 +7,6 @@ import FAQs3 from '~/components/widgets/FAQs3';
 import { heroPricing, comparisonPricing, faqs3Pricing, pricingPricing } from '~/shared/data/pages/pricing.data';
 import Header from '~/components/widgets/Header';
 
-
 export const metadata: Metadata = {
   title: 'Pricing',
 };

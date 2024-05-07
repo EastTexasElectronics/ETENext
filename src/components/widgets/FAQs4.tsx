@@ -1,3 +1,16 @@
+/**
+ * FAQs4 Component
+ *
+ * Renders a FAQs widget with collapsible tabs and items.
+ *
+ * @component
+ * @param {FAQsProps} props - The component props.
+ * @param {string} props.header - The header text for the widget.
+ * @param {Tab[]} props.tabs - An array of tabs with their respective items.
+ * @param {string} [props.id] - The ID of the widget.
+ * @param {boolean} [props.hasBackground=false] - Determines if the widget has a background.
+ * @returns {JSX.Element} The rendered FAQs4 component.
+ */
 'use client';
 
 import Headline from '../common/Headline';

@@ -1,3 +1,18 @@
+/**
+ * Renders a widget with 4 features.
+ *
+ * @param {FeaturesProps} props - The component props.
+ * @param {string} props.header - The header text.
+ * @param {Array<FeatureItem>} props.items - The array of feature items.
+ * @param {number} [props.columns=2] - The number of columns to display the feature items.
+ * @param {ImageProps} props.image - The image to display.
+ * @param {boolean} [props.isBeforeContent] - Whether to display content before the widget.
+ * @param {boolean} [props.isAfterContent] - Whether to display content after the widget.
+ * @param {string} [props.id] - The ID of the widget.
+ * @param {boolean} [props.hasBackground=false] - Whether the widget has a background.
+ * @param {boolean} [props.isImageDisplayed=true] - Whether the image is displayed.
+ * @returns {JSX.Element} The rendered widget.
+ */
 import Image from 'next/image';
 import { FeaturesProps } from '~/shared/types';
 import WidgetWrapper from '../common/WidgetWrapper';

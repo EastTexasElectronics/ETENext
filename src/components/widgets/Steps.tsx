@@ -1,3 +1,16 @@
+/**
+ * Renders a Steps component.
+ *
+ * @component
+ * @param {string} id - The ID of the Steps component.
+ * @param {string} header - The header of the Steps component.
+ * @param {Array} items - The array of items to be displayed in the Steps component.
+ * @param {boolean} isImageDisplayed - Determines whether the image is displayed in the Steps component. Default is true.
+ * @param {object} image - The image object to be displayed in the Steps component.
+ * @param {boolean} isReversed - Determines whether the order of the Steps component is reversed. Default is false.
+ * @param {boolean} hasBackground - Determines whether the Steps component has a background. Default is false.
+ * @returns {JSX.Element} The rendered Steps component.
+ */
 import Image from 'next/image';
 import { IconCheck } from '@tabler/icons-react';
 import { StepsProps } from '~/shared/types';

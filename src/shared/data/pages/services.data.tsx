@@ -38,7 +38,6 @@ export const features2Services: FeaturesProps = {
         'From custom software to off-the-shelf solutions, we have the expertise to help you build the perfect software for your business.',
       icon: dynamicIcons.code,
       callToAction: { text: 'Learn More', href: URLs.SOFTWARE },
-
     },
     {
       title: 'IT Solutions',
@@ -46,7 +45,6 @@ export const features2Services: FeaturesProps = {
         'Let us help you build the perfect IT infrastructure for your business. From networking to security, we have you covered.',
       icon: dynamicIcons.heartHandshake,
       callToAction: { text: 'Learn More', href: URLs.IT },
-
     },
     {
       title: 'Web Development',
@@ -54,7 +52,6 @@ export const features2Services: FeaturesProps = {
         'We provide the best web development services for your business. From e-commerce to custom websites, we have you covered.',
       icon: dynamicIcons.appWindow,
       callToAction: { text: 'Learn More', href: URLs.WEB_DEVELOPMENT },
-
     },
     {
       title: 'Tech Consulting',
@@ -62,7 +59,6 @@ export const features2Services: FeaturesProps = {
         "Don't know where to start? Let us help you build the perfect tech strategy for your business. From planning to execution, we have you covered.",
       icon: dynamicIcons.hipChat,
       callToAction: { text: 'Learn More', href: URLs.CONSULTATIONS },
-
     },
     {
       title: 'Electronics Recycling',
@@ -127,7 +123,6 @@ export const faqsServices: FAQsProps = {
       description:
         'We repair a wide range of electronics, including computers, smartphones, tablets, circuit boards and much more. If you have a question about a specific device, feel free to contact us.',
       icon: dynamicIcons.helpHexagon,
-      
     },
     {
       title: 'What are your rates?',

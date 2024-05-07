@@ -1,3 +1,8 @@
+/**
+ * Renders the HomeHero component.
+ *
+ * @returns JSX.Element representing the HomeHero component.
+ */
 import React from 'react';
 import BookingButton from '../atoms/BookingButton';
 import LearnMoreButton from '../atoms/LearnMoreButton';

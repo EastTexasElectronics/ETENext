@@ -1,3 +1,14 @@
+/**
+ * Renders a team widget that displays a list of team members.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.header - The header text for the widget.
+ * @param {Array} props.teams - An array of team objects.
+ * @param {string} props.id - The ID of the widget.
+ * @param {boolean} [props.hasBackground=false] - Determines if the widget has a background.
+ * @returns {JSX.Element} The rendered Team component.
+ */
 import Headline from '../common/Headline';
 import { TeamProps } from '~/shared/types';
 import WidgetWrapper from '../common/WidgetWrapper';

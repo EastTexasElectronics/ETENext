@@ -1,3 +1,16 @@
+/**
+ * Renders a hero section with a title, subtitle, tagline, call-to-action buttons, and an image.
+ *
+ * @component
+ * @param {HeroProps} props - The props for the Hero component.
+ * @param {string} props.title - The title of the hero section.
+ * @param {string} props.subtitle - The subtitle of the hero section.
+ * @param {string} props.tagline - The tagline of the hero section.
+ * @param {string} props.callToAction - The call-to-action text for the first button.
+ * @param {string} props.callToAction2 - The call-to-action text for the second button.
+ * @param {string} props.image - The image source for the hero section.
+ * @returns {JSX.Element} The rendered Hero component.
+ */
 import { HeroProps } from '~/shared/types';
 import CTA from '../common/CTA';
 import { HomeHero } from '~/components/widgets/HomeHero';

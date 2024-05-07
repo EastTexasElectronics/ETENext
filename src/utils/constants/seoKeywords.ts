@@ -1,8 +1,5 @@
 const seoKeywords = {
-
-    // Cree
+  // Cree
 };
 
 export default seoKeywords;
-
-

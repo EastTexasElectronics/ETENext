@@ -2,7 +2,8 @@
   <!-- You can add a representative image or gif of the application here -->
   <img src="/src/assets/images/Brand Kit/Logo Files/Logo_White_Blue/Logo_White_Blue.png" alt="ETE LOGO" />
 
-  &#xa0;
+&#xa0;
+
 </div>
 
 <h1 align="center">East Texas Electronics - NextJS 14 App</h1>
@@ -14,17 +15,17 @@
   <img alt="License" src="https://img.shields.io/github/license/EastTexasElectronics/ETENext?color=56BEB8">
 </p>
 
-## About ##
+## About
 
 East Texas Electronics is a cutting-edge Next.js application designed to showcase the best in modern web development. Leveraging Next.js 14's App Routing.
 
-## Features ##
+## Features
 
 User authentication with Clerk;\
 Responsive UI with Tailwind CSS;\
 Real-time data fetching using Prisma;
 
-## Technologies ##
+## Technologies
 
 This project utilizes the following technologies:
 
@@ -36,11 +37,11 @@ This project utilizes the following technologies:
 
 (Plus all other technologies listed in the package summary at the bottom)
 
-## Requirements ##
+## Requirements
 
 Before you begin, ensure you have both [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/) installed on your machine.
 
-## Starting ##
+## Starting
 
 ```bash
 # Clone this project
@@ -64,7 +65,7 @@ $ npm run dev
 **System:**
 - OS: Windows 11 10.0.22631
 - CPU: (16) x64 11th Gen Intel(R) Core(TM) i7-11700K @ 3.60GHz
-- Memory: 22.91 GB / 31.81 GB 
+- Memory: 22.91 GB / 31.81 GB
 
 **Binaries:**
 - Node: 20.12.2
@@ -111,7 +112,8 @@ $ npm run dev
 - typescript: ^5.3.3 => 5.4.5
 - vercel: ^34.1.1 => 34.1.2
 ```
-##  License ##
+
+## License
 
 This project is under the Proprietary License. For more details, see the [LICENSE](LICENSE.md) file.
 
@@ -122,7 +124,6 @@ Credit to https://cruip.com/creating-a-sliding-text-animation-with-tailwind-css/
 TODO LIST:
 Fix Speed Insights Hydration error
 Fix word scrolling on home hero
-
 
 ```
 ETENext
@@ -438,6 +439,6 @@ ETENext
 
 ```
 
-
 <!-- Freepik Credits -->
+
 <a href="https://www.freepik.com/free-vector/staying-touch-modern-communication-means-phone-calls-letters-emails-person-contacting-friends-customers-via-email-encouraging-feedback-vector-isolated-concept-metaphor-illustration_12083363.htm#query=contact%20svg&position=3&from_view=keyword&track=ais&uuid=15fb5d42-0d9b-4b3b-a745-21b2169338b1">Image by vectorjuice</a> on Freepik

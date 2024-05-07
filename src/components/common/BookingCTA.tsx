@@ -8,7 +8,7 @@ const CTA = ({ callToAction, containerClass, linkClass, iconClass }: LinkOrButto
   if (modalOpen) {
     return (
       <button onClick={modalOpen} className={twMerge('btn btn-primary', linkClass)}>
-        {Icon && <Icon className="w-5 h-5 mr-2"/>}
+        {Icon && <Icon className="w-5 h-5 mr-2" />}
         {text}
       </button>
     );

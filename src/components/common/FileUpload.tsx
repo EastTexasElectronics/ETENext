@@ -1,4 +1,5 @@
-{/* <div class="bg-gray-500 h-screen w-screen sm:px-8 md:px-16 sm:py-8">
+{
+  /* <div class="bg-gray-500 h-screen w-screen sm:px-8 md:px-16 sm:py-8">
       <main class="container mx-auto max-w-screen-lg h-full">
         <!-- file upload modal -->
         <article aria-label="File Upload Modal" class="relative h-full flex flex-col bg-white shadow-xl rounded-md" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" ondragenter="dragEnterHandler(event);">
@@ -249,4 +250,5 @@ i {
 .group:hover .group-hover\:text-blue-800 {
   color: #2b6cb0;
 }
-</style> */}
+</style> */
+}

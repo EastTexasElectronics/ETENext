@@ -1,3 +1,13 @@
+/**
+ * Renders a Stats component that displays statistical information.
+ *
+ * @component
+ * @param {StatsProps} props - The props object containing the items, id, and hasBackground properties.
+ * @param {Array<{ title: number, description: string }>} props.items - The array of items to display, each containing a title and description.
+ * @param {string} [props.id] - The optional ID for the component.
+ * @param {boolean} [props.hasBackground=false] - Determines if the component has a background.
+ * @returns {JSX.Element} The rendered Stats component.
+ */
 import { StatsProps } from '~/shared/types';
 import { getSuffixNumber } from '~/utils/utils';
 import WidgetWrapper from '../common/WidgetWrapper';

@@ -1,4 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+
+/**
+ * Renders an announcement component with a title and optional call-to-action links.
+ */
 import { announcementData } from '~/shared/data/global.data';
 
 const Announcement = () => {

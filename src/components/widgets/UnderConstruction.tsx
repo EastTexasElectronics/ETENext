@@ -15,7 +15,7 @@ export function UnderConstruction() {
       <BackgroundGradient containerClassName="max-w-sm mx-auto rounded-xl overflow-hidden">
         <div className="relative p-6 flex flex-col items-center text-center bg-white dark:bg-zinc-900 rounded-lg">
           <button onClick={() => setIsVisible(false)} className="absolute top-2 right-2 text-white p-1">
-            <IconXboxX size={24} aria-label="close" className="text-red-900 dark:text-red-600"/>
+            <IconXboxX size={24} aria-label="close" className="text-red-900 dark:text-red-600" />
           </button>
           <Image
             src={GIF}

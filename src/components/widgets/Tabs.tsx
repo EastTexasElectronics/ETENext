@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { Tabs } from '../ui/tabs';
 import ClockWidget from '~/components/widgets/ClockWidget';
 import  TimesheetTable  from '~/components/widgets/TimesheetTable';

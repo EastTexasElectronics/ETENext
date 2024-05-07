@@ -20,14 +20,25 @@
       "~/*": ["src/*"],
       "~/shared/*": ["src/shared/*"],
       "~/components/*": ["src/components/*"],
-      "~/utils/*": ["src/utils/*"]
+      "~/utils/*": ["src/utils/*"],
     },
     "plugins": [
       {
-        "name": "next"
-      }
-    ]
+        "name": "next",
+      },
+    ],
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(blog)/blog/page.tsx", "app/(blog)/[slug]/page.jsx", "app/404.tsx", "src/shared/data/loaderFile.js", "app/api/contact.js", "app/api/contact/route.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/(blog)/blog/page.tsx",
+    "app/(blog)/[slug]/page.jsx",
+    "app/404.tsx",
+    "src/shared/data/loaderFile.js",
+    "app/api/contact.js",
+    "app/api/contact/route.ts",
+  ],
+  "exclude": ["node_modules"],
 }

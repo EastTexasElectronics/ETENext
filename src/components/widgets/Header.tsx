@@ -1,3 +1,8 @@
+/**
+ * Renders the header component.
+ * 
+ * @returns The rendered header component.
+ */
 'use client';
 
 import { useState } from 'react';

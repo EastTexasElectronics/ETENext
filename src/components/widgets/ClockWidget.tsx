@@ -22,6 +22,9 @@ const ClockInComponent = () => {
       const newIntervalId = setInterval(() => {
         setTimer((prevTime) => prevTime + 1);
       }, 1000);
+      // we are getting the following error from the line below, I beileve this is causing the clockIn key to not assign a unique ID value to each clockIn
+      // Argument of type 'Timeout' is not assignable to parameter of type 'SetStateAction<number | null>'.ts(2345)
+      // const newIntervalId: NodeJS.Timeout
       setIntervalId(newIntervalId);
     }
   }, []);
@@ -54,21 +57,24 @@ const ClockInComponent = () => {
       setClockedIn(true);
       const clockInTime = new Date();
       setStartTime(clockInTime);
-      localStorage.setItem('clockInTime', clockInTime.toISOString());  // Store clock-in time
+      localStorage.setItem('clockInTime', clockInTime.toISOString()); // Store clock-in time
       setTimer(0);
       const newIntervalId = setInterval(() => {
         setTimer((prevTime) => prevTime + 1);
       }, 1000);
+      // we are getting the following error from the line below, I beileve this is causing the clockIn key to not assign a unique ID value to each clockIn
+      // Argument of type 'Timeout' is not assignable to parameter of type 'SetStateAction<number | null>'.ts(2345)
+      // const newIntervalId: NodeJS.Timeout
       setIntervalId(newIntervalId);
     } catch (error) {
-      console.error("Error when attempting to clock in:", error);
+      console.error('Error when attempting to clock in:', error);
     }
   };
 
   const handleClockOut = async () => {
     if (intervalId) clearInterval(intervalId);
     setIntervalId(null);
-    localStorage.removeItem('clockInTime');  // Clear local storage
+    localStorage.removeItem('clockInTime'); // Clear local storage
     try {
       const response = await fetch('/api/clockOut', { method: 'POST' });
       const data = await response.json();
@@ -80,7 +86,7 @@ const ClockInComponent = () => {
       setTimer(0);
       setStartTime(null);
     } catch (error) {
-      console.error("Error when attempting to clock out:", error);
+      console.error('Error when attempting to clock out:', error);
     }
   };
 

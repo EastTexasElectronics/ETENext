@@ -1,3 +1,4 @@
+
 import { FAQsProps } from '~/shared/types';
 import Headline from '../common/Headline';
 import WidgetWrapper from '../common/WidgetWrapper';
@@ -60,3 +61,4 @@ export default FAQs;
 //     },
 //   ],
 // };
+

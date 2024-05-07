@@ -1,3 +1,14 @@
+/**
+ * Renders a widget that displays a list of features.
+ *
+ * @component
+ * @param {string} id - The unique identifier for the widget.
+ * @param {string} header - The header text for the widget.
+ * @param {Array} items - The array of feature items to display.
+ * @param {number} columns - The number of columns to display the feature items in. Default is 3.
+ * @param {boolean} hasBackground - Determines if the widget has a background. Default is false.
+ * @returns {JSX.Element} The rendered Features component.
+ */
 import { FeaturesProps } from '~/shared/types';
 import Headline from '../common/Headline';
 import WidgetWrapper from '../common/WidgetWrapper';

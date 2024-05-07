@@ -27,7 +27,9 @@ const BookingButton: React.FC = () => {
 
       {/* Conditional rendering of Modal based on isOpen state */}
       {isOpen && (
-        <Modal onClose={toggleModal}> {/* Modal component with close handler */}
+        <Modal onClose={toggleModal}>
+          {' '}
+          {/* Modal component with close handler */}
           {/* Iframe for embedding an external booking page, styled to fill Modal */}
           <iframe src={URLs.APPOINTMENT} title="Setmore Booking Page" className="w-full h-full border-none"></iframe>
         </Modal>

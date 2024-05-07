@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const session = auth();
     const { userId } = session;
     if (!userId) {
-      return new NextResponse(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
+      return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
     }
 
     const existingSession = await prisma.workSession.findFirst({
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (!existingSession) {
-      throw new Error("No active session to clock out.");
+      throw new Error('No active session to clock out.');
     }
 
     const clockOutTime = new Date();
@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
 
     return new NextResponse(JSON.stringify(workSession), { status: 200 });
   } catch (error: unknown) {
-    console.error("Error during clock-out:", error);
+    console.error('Error during clock-out:', error);
     return new NextResponse(JSON.stringify({ error: 'Error processing clock-out' }), { status: 500 });
   }
 }
