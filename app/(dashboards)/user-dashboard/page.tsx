@@ -1,5 +1,5 @@
 import React from 'react';
-import {TabsDemo} from '~/components/widgets/Tabs';
+import { TabsDemo } from '~/components/widgets/Tabs';
 import type { Metadata } from 'next';
 import CPortalHeader from '~/components/widgets/CPortalHeader';
 
