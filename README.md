@@ -442,3 +442,23 @@ ETENext
 <!-- Freepik Credits -->
 
 <a href="https://www.freepik.com/free-vector/staying-touch-modern-communication-means-phone-calls-letters-emails-person-contacting-friends-customers-via-email-encouraging-feedback-vector-isolated-concept-metaphor-illustration_12083363.htm#query=contact%20svg&position=3&from_view=keyword&track=ais&uuid=15fb5d42-0d9b-4b3b-a745-21b2169338b1">Image by vectorjuice</a> on Freepik
+
+
+You have reached East Texas Electronics, your go to for commercial Repairs and IT Support. 
+
+If you know your representives extension please feel free to enter it at any time.
+
+We are a small team and are frequently assisting our clients and are not always able to answer the phone.
+
+The best way to book and appointment, learn about our services, or contact us is to visit our website ETX Electronics.com.
+
+For emergancy service please press 1 to attepemt to connect with a technician if any are available.
+To leave a voicemail please press 2
+
+
+
+You have reached the voicemail in-box for East Texas Electronics.
+
+The best way to book and appointment, learn about our services, or contact us is to visit our website E T X Electronics.com.
+
+After the tone please leave your message after you are finished, you may hang up, or press the pound key for more options.

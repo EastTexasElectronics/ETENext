@@ -13,6 +13,9 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { UnderConstruction } from '~/components/widgets/UnderConstruction';
 import CookieConsent from '~/components/widgets/CookieConsent';
 import { Toaster } from '~/components/ui/toaster';
+import ChatbotTrigger from '~/components/atoms/ChatbotTrigger';
+import Script from 'next/script'
+
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
@@ -70,9 +73,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <CookieConsent />
             <Footer />
             <Toaster />
+            <ChatbotTrigger />
           </ThemeProviders>
         </body>
       </html>
     </ClerkProvider>
   );
 }
+

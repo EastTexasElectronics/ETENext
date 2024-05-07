@@ -38,7 +38,7 @@
     "app/404.tsx",
     "src/shared/data/loaderFile.js",
     "app/api/contact.js",
-    "app/api/contact/route.ts",
+    "app/api/contact/route.ts", "src/utils/hooks/TechieTeddy.js",
   ],
   "exclude": ["node_modules"],
 }

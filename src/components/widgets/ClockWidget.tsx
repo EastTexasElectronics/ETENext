@@ -1,3 +1,4 @@
+// src/components/widgets/ClockWidget.tsx
 'use client';
 import React, { useState, useEffect } from 'react';
 
@@ -6,10 +7,9 @@ const ClockInComponent = () => {
   const [timer, setTimer] = useState(0);
   const [startTime, setStartTime] = useState<Date | null>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [intervalId, setIntervalId] = useState<number | null>(null);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | number | null>(null);
 
   useEffect(() => {
-    // Check local storage for clock-in state on component mount
     const storedClockInTime = localStorage.getItem('clockInTime');
     if (storedClockInTime) {
       setClockedIn(true);
@@ -18,14 +18,10 @@ const ClockInComponent = () => {
       const elapsed = Math.floor((new Date().getTime() - parsedStartTime.getTime()) / 1000);
       setTimer(elapsed);
 
-      // Restart the timer
       const newIntervalId = setInterval(() => {
         setTimer((prevTime) => prevTime + 1);
       }, 1000);
-      // we are getting the following error from the line below, I beileve this is causing the clockIn key to not assign a unique ID value to each clockIn
-      // Argument of type 'Timeout' is not assignable to parameter of type 'SetStateAction<number | null>'.ts(2345)
-      // const newIntervalId: NodeJS.Timeout
-      setIntervalId(newIntervalId);
+      setIntervalId(newIntervalId as NodeJS.Timeout); // Type assertion here
     }
   }, []);
 
@@ -49,38 +45,31 @@ const ClockInComponent = () => {
     try {
       const response = await fetch('/api/clockIn', { method: 'POST' });
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Failed to clock in:', errorData);
-        throw new Error(errorData.error);
+        throw new Error('Failed to clock in');
       }
       const data = await response.json();
       setClockedIn(true);
       const clockInTime = new Date();
       setStartTime(clockInTime);
-      localStorage.setItem('clockInTime', clockInTime.toISOString()); // Store clock-in time
+      localStorage.setItem('clockInTime', clockInTime.toISOString());
       setTimer(0);
       const newIntervalId = setInterval(() => {
         setTimer((prevTime) => prevTime + 1);
       }, 1000);
-      // we are getting the following error from the line below, I beileve this is causing the clockIn key to not assign a unique ID value to each clockIn
-      // Argument of type 'Timeout' is not assignable to parameter of type 'SetStateAction<number | null>'.ts(2345)
-      // const newIntervalId: NodeJS.Timeout
-      setIntervalId(newIntervalId);
+      setIntervalId(newIntervalId as NodeJS.Timeout); // Type assertion here
     } catch (error) {
       console.error('Error when attempting to clock in:', error);
     }
   };
 
   const handleClockOut = async () => {
-    if (intervalId) clearInterval(intervalId);
+    if (intervalId) clearInterval(intervalId as NodeJS.Timeout); // Type assertion here
     setIntervalId(null);
-    localStorage.removeItem('clockInTime'); // Clear local storage
+    localStorage.removeItem('clockInTime');
     try {
       const response = await fetch('/api/clockOut', { method: 'POST' });
-      const data = await response.json();
       if (!response.ok) {
-        console.error('Failed to clock out:', data.error);
-        throw new Error(data.error);
+        throw new Error('Failed to clock out');
       }
       setClockedIn(false);
       setTimer(0);
@@ -97,12 +86,13 @@ const ClockInComponent = () => {
 
     return () => {
       clearInterval(timeIntervalId);
-      if (intervalId) clearInterval(intervalId);
+      if (intervalId) clearInterval(intervalId as NodeJS.Timeout); // 
     };
   }, [intervalId]);
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen">
+
       <p className="text-lg text-neutral-600 dark:text-neutral-400" suppressHydrationWarning>
         {`Current Time: ${formatDateTime(currentTime)}`}
       </p>

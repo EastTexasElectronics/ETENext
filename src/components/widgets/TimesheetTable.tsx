@@ -1,4 +1,3 @@
-// src/components/widgets/TimesheetTable.tsx
 import React, { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
 import { ColumnDef, useReactTable, flexRender, getCoreRowModel } from '@tanstack/react-table';
@@ -45,21 +44,25 @@ const TimesheetTable = () => {
       accessorKey: 'clockIn',
       header: 'Date',
       cell: (info) => formatDate(info.getValue() as string),
+      id: 'date' // Added unique ID for keying purposes
     },
     {
       accessorKey: 'clockIn',
       header: 'Start Time',
       cell: (info) => formatTime(info.getValue() as string),
+      id: 'start_time' // Added unique ID for keying purposes
     },
     {
       accessorKey: 'clockOut',
       header: 'End Time',
       cell: (info) => (info.getValue() ? formatTime(info.getValue() as string) : 'N/A'),
+      id: 'end_time' // Ensure unique ID for keying purposes
     },
     {
       accessorKey: 'duration',
       header: 'Total Hours',
       cell: (info) => (info.getValue() ? ((info.getValue() as number) / 3600).toFixed(2) + ' hrs' : 'N/A'),
+      id: 'total_hours' // Ensure unique ID for keying purposes
     },
   ], []);
 
