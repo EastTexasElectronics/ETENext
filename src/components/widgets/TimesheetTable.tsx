@@ -1,105 +1,96 @@
 "use client"
 
-import * as React from "react"
+import React, { useEffect, useState } from "react";
+import axios from 'axios'; // Ensure axios is installed using npm or yarn
 import {
   ColumnDef,
   SortingState,
-  VisibilityState,
-  flexRender,
   getCoreRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table"
-import { ChevronDown, MoreHorizontal } from "lucide-react"
+  flexRender, // Added import for flexRender
+} from "@tanstack/react-table";
+import { ChevronDown, MoreHorizontal } from "lucide-react";
 
-import { Button } from "../ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table"
-
-const data: Timesheet[] = [
-  {
-    id: "m5gr84i9",
-    date: "12/31/2021",
-    clockIn: "8:00:15 PM",
-    clockOut: "1:01:01 PM",
-    duration: "8 hours",
-  },
-]
+import { Button } from "../ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 
 export type Timesheet = {
-  id: string
-  date: string
-  clockIn: string
-  clockOut: string
-  duration: string
+  id: number;
+  date: string;
+  clockIn: Date;
+  clockOut: Date | null;
+  duration: number;
 }
 
-export const columns: ColumnDef<Timesheet>[] = [
-  {
-    accessorKey: "date",
-    header: "Date",
-    cell: ({ row }) => row.getValue("date"),
-  },
-  {
-    accessorKey: "clockIn",
-    header: "Clock In",
-    cell: ({ row }) => row.getValue("clockIn"),
-  },
-  {
-    accessorKey: "clockOut",
-    header: "Clock Out",
-    cell: ({ row }) => row.getValue("clockOut"),
-  },
-  {
-    accessorKey: "duration",
-    header: "Duration",
-    cell: ({ row }) => row.getValue("duration"),
-  },
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const timesheet = row.original
+const TimesheetTable = () => {
+  const [timesheets, setTimesheets] = useState<Timesheet[]>([]);
+  const [loading, setLoading] = useState(true);
 
-      return (
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/api/timesheets');
+        setTimesheets(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Failed to load timesheets:', error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const columns: ColumnDef<Timesheet>[] = [
+    {
+      accessorKey: "clockIn",
+      header: "Clock In",
+      cell: info => info.getValue<Date>().toLocaleTimeString()
+    },
+    {
+      accessorKey: "clockOut",
+      header: "Clock Out",
+      cell: info => info.getValue<Date | null>() ? info.getValue<Date>().toLocaleTimeString() : "—"
+    },
+    {
+      accessorKey: "duration",
+      header: "Duration",
+      cell: info => `${info.getValue<number>()} minutes`
+    },
+    {
+      id: "actions",
+      header: "Actions",
+      cell: ({ row }) => (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(timesheet.duration)}>
-              Copy Duration
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(timesheet.clockIn)}>
-              Copy Clock In
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(timesheet.clockOut)}>
-              Copy Clock Out
+            <DropdownMenuItem onClick={() => navigator.clipboard.writeText(String(row.original.id))}>
+              Copy ID
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
     },
-  },
-]
+  ];
 
-export function TimesheetTable() {
-  const [sorting, setSorting] = React.useState<SortingState>([])
   const table = useReactTable({
-    data,
+    data: timesheets,
     columns,
-    onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     state: {
-      sorting,
+      sorting: [],
     },
-  })
+  });
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="w-full rounded-md border">
@@ -116,9 +107,9 @@ export function TimesheetTable() {
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows?.length ? (
+          {table.getRowModel().rows.length ? (
             table.getRowModel().rows.map((row) => (
-              <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
+              <TableRow key={row.id}>
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -129,12 +120,14 @@ export function TimesheetTable() {
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
+                No results found.
               </TableCell>
             </TableRow>
           )}
         </TableBody>
       </Table>
     </div>
-  )
-}
+  );
+};
+
+export default TimesheetTable;
