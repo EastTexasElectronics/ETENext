@@ -1,18 +1,35 @@
-import { PrismaClient } from '@prisma/client';
+// pages/api/clockIn.ts
 import { NextRequest, NextResponse } from 'next/server';
+import prisma from '../../../src/utils/prisma';
+import { auth } from '@clerk/nextjs/server';
 
-const prisma = new PrismaClient();
-
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest, res: NextResponse) {
   try {
-    // Assuming NextRequest has a json method, else parse manually
-    const data = await req.json();
-    const workSession = await prisma.workSession.create({
-      data
+    const session = auth();
+    const { userId } = session;
+    let workSession = null; // Declare and assign a default value to 'workSession'
+    if (!userId) {
+      console.log("Authorization failed, no user id.");
+      return new NextResponse(JSON.stringify(workSession), { status: 401 });
+    }
+
+    const clockInTime = new Date();
+    console.log(`Attempting to clock in for userId: ${userId} at ${clockInTime}`);
+    workSession = await prisma.workSession.create({ // Assign a value to 'workSession'
+      data: {
+        userId,
+        clockIn: clockInTime,
+      },
     });
+
+    console.log(`Clock-in successful: ${JSON.stringify(workSession)}`);
     return new NextResponse(JSON.stringify(workSession), { status: 200 });
-  } catch (error) {
-    console.error('Request error', error);
-    return new NextResponse(JSON.stringify({ error: 'Error saving contact information' }), { status: 500 });
+  } catch (error: unknown) {
+    console.error("Error during clock-in:", error);
+    if (error instanceof Error) {
+      return new NextResponse(JSON.stringify({ error: 'Error saving contact information' }), { status: 500 });
+    } else {
+      return new NextResponse(JSON.stringify({ error: 'Error saving contact information' }), { status: 500 });
+    }
   }
 }
