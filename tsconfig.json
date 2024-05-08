@@ -38,7 +38,7 @@
     "app/404.tsx",
     "src/shared/data/loaderFile.js",
     "app/api/contact.js",
-    "app/api/contact/route.ts", "src/utils/hooks/TechieTeddy.js",
+    "app/api/contact/route.ts", "src/utils/hooks/TechieTeddy.js", "src/components/widgets/ChatBotModal.tsx", "src/components/SVG/chat.tsx",
   ],
   "exclude": ["node_modules"],
 }

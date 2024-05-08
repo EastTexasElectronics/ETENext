@@ -13,8 +13,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { UnderConstruction } from '~/components/widgets/UnderConstruction';
 import CookieConsent from '~/components/widgets/CookieConsent';
 import { Toaster } from '~/components/ui/toaster';
-import ChatbotTrigger from '~/components/atoms/ChatbotTrigger';
-import Script from 'next/script'
+import  ChatBotModal  from '~/components/widgets/ChatBotModal';
 
 
 // Custom font
@@ -64,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </head>
         <body className="tracking-tight antialiased text-gray-900 dark:text-secondary-300">
+            <ChatBotModal />
           <ThemeProviders>
             <UnderConstruction />
             <Suspense fallback={<Loading />}>
@@ -73,7 +73,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <CookieConsent />
             <Footer />
             <Toaster />
-            <ChatbotTrigger />
           </ThemeProviders>
         </body>
       </html>
