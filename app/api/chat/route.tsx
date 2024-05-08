@@ -1,26 +1,66 @@
 // app/api/chat/route.tsx
-import { OpenAIStream, StreamingTextResponse } from 'ai';
+import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
+import fs from 'fs';
+import path from 'path';
 
-const perplexity = new OpenAI({
-  apiKey: process.env.PERPLEXITY_API_KEY || '',
-  baseURL: 'https://api.perplexity.ai',
-});
+// Define interfaces for structured data
+interface Step {
+  stepNumber: number;
+  description: string;
+}
 
-export async function POST(req: Request) {
-  // Extract the `messages` from the body of the request
-  const { messages } = await req.json();
+interface InstructionsData {
+  role: string;
+  objective: string;
+  steps: Step[];
+  integration: {
+    bookingLink: string;
+  };
+}
 
-  // Request the OpenAI-compatible API for the response based on the prompt
-  const response = await perplexity.chat.completions.create({
-    model: 'llama-3-sonar-large-32k-online',
-    stream: true,
-    messages: messages,
-  });
+export async function POST(req: NextRequest) {
+  if (req.headers.get('content-type') !== 'application/json') {
+    return new NextResponse('Content-Type must be application/json', { status: 415 });
+  }
 
-  // Convert the response into a friendly text-stream
-  const stream = OpenAIStream(response);
+  try {
+    const { userInput } = await req.json();
+    if (!userInput) {
+      return new NextResponse(JSON.stringify({ error: 'Missing required parameter: userInput' }), { status: 400 });
+    }
 
-  // Respond with the stream
-  return new StreamingTextResponse(stream);
+    // Path to JSON files
+    const baseDir = path.join(process.cwd(), 'src', 'chatBotTraining');
+    const instructionsPath = path.join(baseDir, 'instructions.json');
+
+    // Read and parse JSON files
+    const instructionsData: InstructionsData = JSON.parse(fs.readFileSync(instructionsPath, 'utf8'));
+
+    // Construct the initial system message from the instructions data with formatting
+    const systemMessage =
+      `Role: **${instructionsData.role}**\nObjective: **${instructionsData.objective}**\n\n` +
+      `**Interaction Steps:**\n${instructionsData.steps.map((step: Step) => `- ${step.description}`).join('\n')}\n\n` +
+      `**Please use clear, concise language and include key details only. For more comprehensive guidance:**\n${instructionsData.integration.bookingLink}`;
+
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
+    // Create the chat completion with structured content
+    const chatCompletion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo-0125', // Correct placement of model
+      messages: [
+        { role: 'system', content: systemMessage },
+        { role: 'user', content: userInput },
+      ],
+      max_tokens: 256, // Reduced max tokens to encourage brevity
+      temperature: 0.7, // Adjust temperature for creativity and relevance
+    });
+
+    return new NextResponse(JSON.stringify(chatCompletion), { status: 200 });
+  } catch (error) {
+    console.error('Error with OpenAI API:', error);
+    return new NextResponse(JSON.stringify({ error: 'Failed to connect to OpenAI API' }), { status: 500 });
+  }
 }

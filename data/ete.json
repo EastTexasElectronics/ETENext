@@ -1,0 +1,110 @@
+{
+  "companyOverview": {
+    "missionStatement": "EMPOWERING CONNECTIVITY & ENHANCING LIVES",
+    "description": "At East Texas Electronics LLC, our mission is to empower individuals and businesses through seamless connectivity solutions while enhancing lives through innovation, reliability, and exceptional service. Guided by a commitment to excellence, integrity, and community, we strive to deliver cutting-edge technology and personalized support that exceeds expectations, fosters growth, and creates lasting value for our customers, employees, and partners alike.",
+    "serviceAreas": "Based in Hallsville, Texas, serving customers with both in-person and mail-in services. Free travel within 10 miles; $1.12/mile beyond. Global travel with client covering expenses."
+  },
+  "productsAndServices": {
+    "ecommerceStore": "shop.etxelectronic.com",
+    "products": [
+      "Gaming consoles",
+      "Computer components",
+      "Accessories",
+      "All tech items (mostly refurbished and used)"
+    ],
+    "services": [
+      "Electronic device repair (PCB, soldering, diagnosis)",
+      "IT support",
+      "Desktop, laptop, gaming console, audio equipment repair",
+      "Data recovery",
+      "Website and Software Development",
+      "Remote Tech Support",
+      "Data management"
+    ],
+    "pricing": "Specific pricing details provided upon request through a quote system"
+  },
+  "customerService": {
+    "contactInfo": {
+      "address": "PO Box#6969 Hallsville, TX 75650",
+      "email": "Support@ETXElectronics.com",
+      "phone": "(903) 524-5532"
+    },
+    "operatingHours": "Monday to Friday, 9:00 AM to 5:00 PM. Closed Saturday and Sunday",
+    "appointmentBooking": "https://www.etxelectronics.com/appointment/"
+  },
+  "FAQs": {
+    "ITServices": [
+      {
+        "question": "What IT services do you offer?",
+        "answer": "We provide a wide range of IT services from technical support to complete IT infrastructure management."
+      },
+      {
+        "question": "How can you improve our IT security?",
+        "answer": "We implement cutting-edge security measures tailored to your specific business needs."
+      },
+      {
+        "question": "What support do you offer for networks?",
+        "answer": "From initial setup to ongoing management, our network services ensure reliable and secure connectivity."
+      },
+      {
+        "question": "Do you offer cloud storage solutions?",
+        "answer": "Yes, we provide secure and scalable cloud storage solutions for businesses of all sizes."
+      }
+    ],
+    "RepairServices": [
+      {
+        "question": "What can you repair?",
+        "answer": "We handle repairs across a broad spectrum of electronics, from everyday gadgets to specialized industrial equipment."
+      },
+      {
+        "question": "What will it cost?",
+        "answer": "Our pricing is competitive and transparent. Contact us for detailed quotes tailored to your specific repair needs."
+      },
+      {
+        "question": "Do you provide warranties?",
+        "answer": "Every repair comes with a one-year warranty on labor. We also manage warranty claims for parts used in repairs."
+      },
+      {
+        "question": "Cost of a custom website?",
+        "answer": "Custom website costs vary based on complexity and specific requirements. Get in touch for a comprehensive quote."
+      }
+    ],
+    "SoftwareAndWebsiteDevelopment": [
+      {
+        "question": "What technology stacks do you specialize in?",
+        "answer": "We offer expertise across a wide range of technologies, catering to custom software and system development needs."
+      },
+      {
+        "question": "What are your development rates?",
+        "answer": "Our rates are competitive and reflect the bespoke nature of our services. Contact us for a tailored proposal."
+      },
+      {
+        "question": "What kind of post-development support do you offer?",
+        "answer": "We provide comprehensive warranties and support for all our services to ensure your continued satisfaction."
+      },
+      {
+        "question": "Can you develop custom solutions for unique business needs?",
+        "answer": "We specialize in creating customized software solutions tailored to meet the specific demands of your business."
+      }
+    ]
+  },
+  "policiesAndProcedures": {
+    "termsAndConditions": "Last updated: April 15, 2024",
+    "privacyPolicy": "Last updated: April 15, 2024",
+    "shippingPolicy": "Packages under 15.6 oz shipped via USPS Retail within 3-5 business days. Over 15.6 oz may ship via FedEx, UPS, or USPS based on cost-effectiveness.",
+    "refundPolicy": {
+      "returns": "14-day return policy for refurbished products, 30-day for new and open box items. No returns for parts/untested items.",
+      "warranty": "90-day for refurbished products, 180-day for game consoles, 30-day for new and open box items."
+    }
+  },
+  "technicalSupport": {
+    "troubleshootingGuides": "Available for common issues related to products and services offered.",
+    "maintenanceTips": "Provides advice on maintaining the condition and performance of electronics."
+  },
+  "companyNewsAndUpdates": {
+    "recentAchievements": "Regular updates on new services, products, and special offers."
+  },
+  "termsAndDefinitions": {
+    "glossary": "Includes technical terms and jargon used in the electronics repair and IT industries."
+  }
+}
