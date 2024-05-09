@@ -1,4 +1,5 @@
 // app/api/chat/route.tsx
+
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import fs from 'fs';
@@ -19,6 +20,11 @@ interface InstructionsData {
   };
 }
 
+/**
+ * Handles the POST request for the chat route.
+ * @param req - The NextRequest object.
+ * @returns A NextResponse object.
+ */
 export async function POST(req: NextRequest) {
   if (req.headers.get('content-type') !== 'application/json') {
     return new NextResponse('Content-Type must be application/json', { status: 415 });
@@ -41,7 +47,7 @@ export async function POST(req: NextRequest) {
     const systemMessage =
       `Role: **${instructionsData.role}**\nObjective: **${instructionsData.objective}**\n\n` +
       `**Interaction Steps:**\n${instructionsData.steps.map((step: Step) => `- ${step.description}`).join('\n')}\n\n` +
-      `**Please use clear, concise language and include key details only. For more comprehensive guidance:**\n${instructionsData.integration.bookingLink}`;
+      `**Please use clear, concise language and include key details only. Our phone number is 9034711575 For more comprehensive guidance:**\n${instructionsData.integration.bookingLink}`;
 
     const openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
@@ -55,7 +61,7 @@ export async function POST(req: NextRequest) {
         { role: 'user', content: userInput },
       ],
       max_tokens: 256, // Reduced max tokens to encourage brevity
-      temperature: 0.7, // Adjust temperature for creativity and relevance
+      temperature: 0.1, // Adjust temperature for creativity and relevance
     });
 
     return new NextResponse(JSON.stringify(chatCompletion), { status: 200 });
