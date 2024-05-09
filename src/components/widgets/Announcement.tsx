@@ -46,20 +46,3 @@ const Announcement = () => {
 
 export default Announcement;
 
-/**
- * The `Announcement` component is used to render an announcement with a title and optional call-to-action links.
- *
- * It receives the following props:
- * - `title`: The title of the announcement.
- * - `callToAction`: An object containing the text and href of the first call-to-action link.
- * - `callToAction2`: An object containing the text and href of the second call-to-action link.
- *
- * Example usage:
- * ```tsx
- * <Announcement
- *   title="New Feature Announcement"
- *   callToAction={{ text: "Learn More", href: "/features" }}
- *   callToAction2={{ text: "Follow us on Twitter", href: "https://twitter.com/onWidget" }}
- * />
- * ```
- */

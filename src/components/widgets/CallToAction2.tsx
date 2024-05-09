@@ -1,7 +1,15 @@
-
 import { IconChevronRight } from '@tabler/icons-react';
 import { CallToActionProps, Item } from '~/shared/types';
 
+/**
+ * `Card` component renders a card UI element with a title, description, and an optional form or link.
+ * 
+ * Props:
+ *  - `title` (string): The main title of the card.
+ *  - `description` (string): A brief description of the card's content.
+ *  - `href` (string | undefined): A URL to direct the user on click, optional.
+ *  - `form` (FormType | undefined): An optional form to be displayed on the card.
+ */
 const Card = ({ title, description, href, form }: Item) => (
   <div className="card mb-6 px-5 py-4">
     <div className="flex items-center justify-between">
@@ -44,6 +52,14 @@ const Card = ({ title, description, href, form }: Item) => (
   </div>
 );
 
+/**
+ * `CallToAction2` component displays a section with a title, a subtitle, and a list of `Card` components.
+ * 
+ * Props:
+ *  - `title` (string): The main heading of the section.
+ *  - `subtitle` (string): Subtitle providing additional details about the section.
+ *  - `items` (Item[]): An array of items to be displayed as cards within the section.
+ */
 const CallToAction2 = ({ title, subtitle, items }: CallToActionProps) => (
   <section className="bg-primary-900 text-gray-200" id="callToActionTwo">
     <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:pt-20">

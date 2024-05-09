@@ -14,6 +14,11 @@ import { UnderConstruction } from '~/components/widgets/UnderConstruction';
 import CookieConsent from '~/components/widgets/CookieConsent';
 import { Toaster } from '~/components/ui/toaster';
 import  ChatBotModal  from '~/components/widgets/ChatBotModal';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 
 // Custom font
