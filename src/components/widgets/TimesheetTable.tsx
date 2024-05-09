@@ -1,3 +1,4 @@
+// src/components/widgets/TimesheetTable.tsx
 import React, { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
 import { ColumnDef, useReactTable, flexRender, getCoreRowModel } from '@tanstack/react-table';
@@ -12,17 +13,14 @@ export type Timesheet = {
 
 const TimesheetTable = () => {
   const [timesheets, setTimesheets] = useState<Timesheet[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get('/api/timesheets');
         setTimesheets(response.data);
-        setLoading(false);
       } catch (error) {
         console.error('Failed to load timesheets:', error);
-        setLoading(false);
       }
     };
 
@@ -44,25 +42,25 @@ const TimesheetTable = () => {
       accessorKey: 'clockIn',
       header: 'Date',
       cell: (info) => formatDate(info.getValue() as string),
-      id: 'date' // Added unique ID for keying purposes
+      id: 'date'
     },
     {
       accessorKey: 'clockIn',
       header: 'Start Time',
       cell: (info) => formatTime(info.getValue() as string),
-      id: 'start_time' // Added unique ID for keying purposes
+      id: 'start_time'
     },
     {
       accessorKey: 'clockOut',
       header: 'End Time',
       cell: (info) => (info.getValue() ? formatTime(info.getValue() as string) : 'N/A'),
-      id: 'end_time' // Ensure unique ID for keying purposes
+      id: 'end_time'
     },
     {
       accessorKey: 'duration',
       header: 'Total Hours',
       cell: (info) => (info.getValue() ? ((info.getValue() as number) / 3600).toFixed(2) + ' hrs' : 'N/A'),
-      id: 'total_hours' // Ensure unique ID for keying purposes
+      id: 'total_hours'
     },
   ], []);
 
@@ -71,8 +69,6 @@ const TimesheetTable = () => {
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
-
-  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="w-full rounded-md border">

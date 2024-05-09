@@ -57,6 +57,7 @@
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.0.4",
     "framer-motion": "^11.1.8",
+    "fs": "0.0.1-security",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.376.0",
     "markdown-it": "^14.1.0",

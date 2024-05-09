@@ -8,6 +8,7 @@ export async function POST(req: NextRequest) {
     const session = auth();
     const { userId } = session;
     if (!userId) {
+      console.log('Authorization failed, no user id.');
       return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
     }
 
