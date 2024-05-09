@@ -24,7 +24,7 @@ const DashboardHeader = () => {
           )}
         </SignedIn>
       </div>
-      <Image 
+      <Image
         src="/assets/images/Brand Kit/Logo Files/Logo_Blue_White/Logo_Blue_White.png"
         alt="Company Logo"
         width={100}
