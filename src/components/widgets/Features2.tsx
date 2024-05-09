@@ -1,3 +1,14 @@
+/**
+ * Represents a feature section with a grid layout.
+ *
+ * @component
+ * @param {FeaturesProps} props - The component props.
+ * @param {string} props.header - The header text for the section.
+ * @param {Array<FeatureItem>} props.items - The array of feature items to display in the grid.
+ * @param {number} [props.columns=3] - The number of columns in the grid.
+ * @param {string} props.id - The unique identifier for the section.
+ * @returns {JSX.Element} The rendered component.
+ */
 import { FeaturesProps } from '~/shared/types';
 import Headline from '../common/Headline';
 import ItemGrid from '../common/ItemGrid';
@@ -23,4 +34,3 @@ const Features2 = ({ header, items, columns = 3, id }: FeaturesProps) => (
 );
 
 export default Features2;
-5

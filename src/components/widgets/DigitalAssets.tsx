@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { IconEdit, IconPlus, IconDeviceFloppy, IconXboxX } from '@tabler/icons-react';
 
@@ -45,21 +45,21 @@ const DigitalAssets: React.FC = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setDetails(prevDetails => ({
+    setDetails((prevDetails) => ({
       ...prevDetails,
       [name]: value,
     }));
   };
 
   const handleCustomInputChange = (key: string, value: string) => {
-    setCustomFields(prevFields => ({
+    setCustomFields((prevFields) => ({
       ...prevFields,
       [key]: { ...prevFields[key], value },
     }));
   };
 
   const handleCustomTitleChange = (key: string, title: string) => {
-    setCustomFields(prevFields => ({
+    setCustomFields((prevFields) => ({
       ...prevFields,
       [key]: { ...prevFields[key], title },
     }));
@@ -67,19 +67,19 @@ const DigitalAssets: React.FC = () => {
 
   const addCustomField = () => {
     if (Object.keys(customFields).length >= 12) {
-      alert("You have reached the maximum number of custom fields allowed (12).");
+      alert('You have reached the maximum number of custom fields allowed (12).');
       return;
     }
     setIsEditing(true);
     const newFieldKey = `customField${Object.keys(customFields).length + 1}`;
-    setCustomFields(prevFields => ({
+    setCustomFields((prevFields) => ({
       ...prevFields,
       [newFieldKey]: { title: '', value: '' },
     }));
   };
 
   const handleDeleteField = (key: string) => {
-    const {[key]: _, ...remainingFields} = customFields;
+    const { [key]: _, ...remainingFields } = customFields;
     setCustomFields(remainingFields);
   };
 
@@ -128,12 +128,19 @@ const DigitalAssets: React.FC = () => {
 
       <div className="flex justify-between space-x-4">
         {Object.keys(customFields).length < 12 && (
-          <button onClick={addCustomField} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded flex items-center">
+          <button
+            onClick={addCustomField}
+            className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded flex items-center"
+          >
             <IconPlus className="mr-2" /> Add Field
           </button>
         )}
-        <button onClick={toggleEdit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center">
-          {isEditing ? <IconDeviceFloppy className="mr-2" /> : <IconEdit className="mr-2" />} {isEditing ? 'Save' : 'Edit'}
+        <button
+          onClick={toggleEdit}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center"
+        >
+          {isEditing ? <IconDeviceFloppy className="mr-2" /> : <IconEdit className="mr-2" />}{' '}
+          {isEditing ? 'Save' : 'Edit'}
         </button>
       </div>
     </div>
@@ -141,7 +148,15 @@ const DigitalAssets: React.FC = () => {
 };
 
 const InputField: React.FC<InputFieldProps> = ({
-  name, title, value, handleChange, handleTitleChange, handleDelete, isEditing, titleRef, copyToClipboard
+  name,
+  title,
+  value,
+  handleChange,
+  handleTitleChange,
+  handleDelete,
+  isEditing,
+  titleRef,
+  copyToClipboard,
 }) => (
   <div className="flex flex-col">
     <input
@@ -151,7 +166,9 @@ const InputField: React.FC<InputFieldProps> = ({
       onChange={handleTitleChange}
       disabled={!isEditing}
       className={`mt-1 block w-full ${
-        isEditing ? 'rounded-md dark:bg-secondary-700 dark:border-gray-600 dark:text-white' : 'bg-transparent border-none shadow-none'
+        isEditing
+          ? 'rounded-md dark:bg-secondary-700 dark:border-gray-600 dark:text-white'
+          : 'bg-transparent border-none shadow-none'
       }`}
       placeholder="Enter field title"
       ref={titleRef || undefined}
@@ -167,16 +184,21 @@ const InputField: React.FC<InputFieldProps> = ({
       name={name}
       value={value}
       onChange={handleChange}
-      onClick={() => copyToClipboard ? copyToClipboard(value) : null}
+      onClick={() => (copyToClipboard ? copyToClipboard(value) : null)}
       disabled={!isEditing}
       className={`mt-1 block w-full ${
-        isEditing ? 'rounded-md dark:bg-secondary-700 dark:border-gray-600 dark:text-white' : 'bg-transparent border-none shadow-none'
+        isEditing
+          ? 'rounded-md dark:bg-secondary-700 dark:border-gray-600 dark:text-white'
+          : 'bg-transparent border-none shadow-none'
       }`}
       placeholder="Enter field value"
-      title="Click to Copy"  // Tooltip for copy functionality
+      title="Click to Copy" // Tooltip for copy functionality
     />
     {isEditing && handleDelete && (
-      <button onClick={handleDelete} className="mt-2 text-xs bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded flex items-center justify-center">
+      <button
+        onClick={handleDelete}
+        className="mt-2 text-xs bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded flex items-center justify-center"
+      >
         <IconXboxX className="mr-1" /> Delete
       </button>
     )}

@@ -1,3 +1,17 @@
+/**
+ * Testimonials component.
+ * Renders a list of testimonials with optional header and call to action.
+ *
+ * @component
+ * @param {TestimonialsProps} props - The component props.
+ * @param {string} props.header - The header text.
+ * @param {Array<Testimonial>} props.testimonials - The array of testimonials.
+ * @param {string} props.callToAction - The call to action text.
+ * @param {boolean} props.isTestimonialUp - Determines if the testimonial is displayed above the name and job.
+ * @param {string} props.id - The ID of the component.
+ * @param {boolean} props.hasBackground - Determines if the component has a background.
+ * @returns {JSX.Element} The rendered Testimonials component.
+ */
 import Link from 'next/link';
 import { TestimonialsProps } from '~/shared/types';
 import Headline from '../common/Headline';
@@ -5,32 +19,33 @@ import WidgetWrapper from '../common/WidgetWrapper';
 import CTA from '../common/CTA';
 import ItemTestimonial from '../common/ItemTestimonial';
 
-const Testimonials = ({
+
+const Testimonials = ({ // Destructuring the props
   header,
   testimonials,
   callToAction,
   isTestimonialUp,
   id,
   hasBackground = false,
-}: TestimonialsProps) => (
+}: TestimonialsProps) => ( 
   <WidgetWrapper id={id ? id : ''} hasBackground={hasBackground} containerClass="">
     {header && <Headline header={header} titleClass="text-2xl sm:text-3xl" />}
     <div className="flex items-stretch justify-center">
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {testimonials.map(({ name, job, testimonial, image, href }, index) => (
+        {testimonials.map(({ name, job, testimonial, image, href }, index) => ( // Mapping the testimonials
           <>
-            {testimonial && (
+            {testimonial && ( // Rendering the testimonial
               <div
                 key={`item-testimonial-${index}`}
                 className={`card max-w-sm h-full ${
-                  !callToAction && href
+                  !callToAction && href // Conditional rendering for the link
                     ? 'hover:border-primary-600 hover:shadow-lg hover:transition hover:duration-100'
                     : ''
                 }`}
               >
-                {!callToAction && href ? (
+                {!callToAction && href ? ( // Conditional rendering for the link
                   <Link href={href} target="_blank" rel="noopener noreferrer">
-                    <ItemTestimonial
+                    <ItemTestimonial // Rendering the testimonial
                       name={name}
                       job={job}
                       testimonial={testimonial}
@@ -47,7 +62,7 @@ const Testimonials = ({
                     />
                   </Link>
                 ) : (
-                  <ItemTestimonial
+                  <ItemTestimonial // Rendering the testimonial
                     name={name}
                     job={job}
                     testimonial={testimonial}
@@ -69,8 +84,8 @@ const Testimonials = ({
         ))}
       </div>
     </div>
-    {callToAction && (
-      <CTA
+    {callToAction && ( // Rendering the call to action
+      <CTA // The CTA component
         callToAction={callToAction}
         containerClass="flex justify-center mx-auto w-fit mt-8 md:mt-12"
         linkClass="btn"

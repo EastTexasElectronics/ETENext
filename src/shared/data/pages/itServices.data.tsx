@@ -1,8 +1,8 @@
 import { CallToActionProps, FAQsProps, FeaturesProps, HeroProps, ContentProps } from '~/shared/types';
 import URLs from '~/utils/constants/urls';
 import itSupportHero from '~/assets/images/itSupportHero.png';
-import itSupportQuality from '~/assets/images/itSupportHero.png';  // Update this image if needed
-import dataSecurity from '~/assets/images/dataSecurity.png';  // Update this image if needed
+import itSupportQuality from '~/assets/images/itSupportHero.png'; // Update this image if needed
+import dataSecurity from '~/assets/images/dataSecurity.png'; // Update this image if needed
 import dynamicIcons from '~/components/atoms/Icons';
 
 // Hero data on IT page
@@ -32,8 +32,8 @@ export const features2IT: FeaturesProps = {
     subtitle: (
       <>
         <span className="text-primary-900 dark:text-secondary-300">
-          We&apos;re here to help you with all your IT needs. From website design and management to network setup, we&apos;ve got you
-          covered.
+          We&apos;re here to help you with all your IT needs. From website design and management to network setup,
+          we&apos;ve got you covered.
         </span>
       </>
     ),
@@ -112,10 +112,11 @@ export const contentITOne: ContentProps = {
     },
     {
       title: 'Tailored Security Solutions',
-      description: 'We offer security solutions customized to meet the unique requirements and challenges of your business.',
+      description:
+        'We offer security solutions customized to meet the unique requirements and challenges of your business.',
     },
   ],
-  
+
   image: {
     src: dataSecurity,
     alt: 'Data Security Image',
@@ -156,7 +157,8 @@ export const faqsIT: FAQsProps = {
   items: [
     {
       title: 'What IT services do you offer?',
-      description: 'We provide a wide range of IT services from technical support to complete IT infrastructure management.',
+      description:
+        'We provide a wide range of IT services from technical support to complete IT infrastructure management.',
       icon: dynamicIcons.infoCircle,
     },
     {
@@ -166,7 +168,8 @@ export const faqsIT: FAQsProps = {
     },
     {
       title: 'What support do you offer for networks?',
-      description: 'From initial setup to ongoing management, our network services ensure reliable and secure connectivity.',
+      description:
+        'From initial setup to ongoing management, our network services ensure reliable and secure connectivity.',
       icon: dynamicIcons.networkCheck,
     },
     {

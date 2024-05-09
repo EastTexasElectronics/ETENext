@@ -1,3 +1,14 @@
+/**
+ * Renders a pricing widget with customizable header, prices, and options.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.header - The header text for the pricing widget.
+ * @param {Array<Object>} props.prices - An array of price options.
+ * @param {string} props.id - The unique identifier for the pricing widget.
+ * @param {boolean} [props.hasBackground=false] - Indicates whether the pricing widget has a background.
+ * @returns {JSX.Element} The rendered pricing widget.
+ */
+
 import { CallToActionType, PricingProps } from '~/shared/types';
 import CTA from '../common/CTA';
 import Headline from '../common/Headline';

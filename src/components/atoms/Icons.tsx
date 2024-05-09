@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import { ComponentType, SVGProps } from 'react';
 
-
 type IconType = {
   [key: string]: ComponentType<SVGProps<SVGSVGElement>> | string;
 };

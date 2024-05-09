@@ -150,7 +150,7 @@ export const faqsSoftware: FAQsProps = {
 export const callToActionSoftware: CallToActionProps = {
   hasBackground: false,
   title: 'Ready to Elevate Your Business?',
-  subtitle: 'Contact us today and let\’s transform your business with cutting-edge technology.',
+  subtitle: 'Contact us today and let’s transform your business with cutting-edge technology.',
   callToAction: {
     text: 'Start Your Project',
     href: URLs.APPOINTMENT,

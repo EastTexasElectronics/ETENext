@@ -1,3 +1,18 @@
+/**
+ * Represents a content widget component.
+ *
+ * @component
+ * @param {ContentProps} props - The props for the Content component.
+ * @param {string} props.header - The header of the content.
+ * @param {string} props.content - The content text.
+ * @param {Array<{ title: string, description?: string }>} props.items - The array of items to be displayed.
+ * @param {object} props.image - The image object containing the source and alt text.
+ * @param {boolean} props.isReversed - Indicates whether the content and image should be reversed.
+ * @param {boolean} props.isAfterContent - Indicates whether the image should be displayed after the content.
+ * @param {string} props.id - The ID of the content widget.
+ * @param {boolean} props.hasBackground - Indicates whether the content widget has a background.
+ * @returns {JSX.Element} The rendered Content component.
+ */
 import Image from 'next/image';
 import { IconCheck } from '@tabler/icons-react';
 
@@ -6,7 +21,7 @@ import Headline from '../common/Headline';
 import WidgetWrapper from '../common/WidgetWrapper';
 import ItemGrid from '../common/ItemGrid';
 
-const Content = ({
+const Content = ({ // Destructuring the props
   header,
   content,
   items,
@@ -15,7 +30,7 @@ const Content = ({
   isAfterContent,
   id,
   hasBackground = false,
-}: ContentProps) => (
+}: ContentProps) => ( // Content component
   <WidgetWrapper
     id={id ? id : ''}
     hasBackground={hasBackground}
@@ -25,7 +40,8 @@ const Content = ({
     <div className="mx-auto max-w-7xl">
       <div className={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
         <div className="self-center md:basis-1/2">
-          {content && <div className="mb-8 lg:mb-12 text-lg text-gray-600 dark:text-secondary-400">{content}</div>}
+          
+          {content && <div className="mb-8 lg:mb-12 text-lg text-gray-600 dark:text-secondary-400">{content}</div>} 
           <ItemGrid
             items={items}
             columns={1}

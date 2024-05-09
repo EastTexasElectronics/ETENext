@@ -4,14 +4,7 @@ import Features4 from '~/components/widgets/Features4';
 import Hero2 from '~/components/widgets/Hero2';
 import Header from '~/components/widgets/Header';
 
-
-import {
-  featuresFourAbout,
-  featuresFourAboutTwo,
-  features3About,
-  hero2About,
-
-} from '~/shared/data/pages/about.data';
+import { featuresFourAbout, featuresFourAboutTwo, features3About, hero2About } from '~/shared/data/pages/about.data';
 
 export const metadata: Metadata = {
   title: `About Us`,

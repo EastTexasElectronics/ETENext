@@ -1,3 +1,14 @@
+/**
+ * Renders a social proof widget with a list of images and links.
+ *
+ * @component
+ * @param {SocialProofProps} props - The props for the SocialProof component.
+ * @param {Array<{ src: string, alt: string, link: string }>} props.images - The array of images to display.
+ * @param {string} [props.id] - The optional ID for the widget.
+ * @param {boolean} [props.hasBackground=false] - Indicates whether the widget has a background.
+ * @returns {JSX.Element} The rendered SocialProof component.
+ */
+
 import Image from 'next/image';
 import { SocialProofProps } from '~/shared/types';
 import WidgetWrapper from '../common/WidgetWrapper';

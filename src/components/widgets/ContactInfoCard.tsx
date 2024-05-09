@@ -8,7 +8,6 @@ export function ContactInfoCard() {
       <Card className="max-w-md w-full mx-auto p-4 shadow-lg rounded-xl">
         <CardHeader>
           <CardTitle className="text-xl font-semibold text-secondary-950 dark:text-secondary-100">
-
             {/* TODO Center Me */}
             Contact Info
           </CardTitle>
@@ -62,3 +61,5 @@ export function ContactInfoCard() {
     </div>
   );
 }
+
+

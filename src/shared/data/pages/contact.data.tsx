@@ -2,8 +2,7 @@ import dynamicIcons from '~/components/atoms/Icons';
 import { ContactProps, FeaturesProps, ContactUsFormProps } from '~/shared/types';
 import { IconPhone, IconMail, IconGlobe } from '@tabler/icons-react';
 import URLs from '~/utils/constants/urls';
-import { Contact } from '~/components/SVG/contact'
-
+import { Contact } from '~/components/SVG/contact';
 
 const FORM_INPUTS = [
   { type: 'text', label: 'First name', name: 'name', autocomplete: 'on', placeholder: 'John' },
@@ -117,7 +116,6 @@ export const form2Contact: ContactUsFormProps = {
         text: 'Support@ETXElectronics.com',
         href: URLs.SUPPORT_EMAIL,
       },
-      
     },
     {
       title: 'Online Shop',

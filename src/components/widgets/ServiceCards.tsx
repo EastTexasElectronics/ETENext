@@ -1,3 +1,16 @@
+/**
+ * Renders a widget that displays service cards.
+ *
+ * @param {FeaturesProps} props - The component props.
+ * @param {string} props.header - The header text for the widget.
+ * @param {Array<any>} props.items - The array of items to be displayed as service cards.
+ * @param {number} [props.columns=3] - The number of columns to display the service cards in.
+ * @param {boolean} [props.isBeforeContent] - Determines if there is content before the service cards.
+ * @param {boolean} [props.isAfterContent] - Determines if there is content after the service cards.
+ * @param {string} [props.id] - The unique identifier for the widget.
+ * @param {boolean} [props.hasBackground=true] - Determines if the widget has a background.
+ * @returns {JSX.Element} The rendered ServiceCards component.
+ */
 import { FeaturesProps } from '~/shared/types';
 import Headline from '../common/Headline';
 import WidgetWrapper from '../common/WidgetWrapper';

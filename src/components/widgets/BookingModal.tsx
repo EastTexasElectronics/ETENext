@@ -1,11 +1,23 @@
 import React, { ReactNode } from 'react';
 import { IconXboxX, IconInfoCircle } from '@tabler/icons-react';
 
+/**
+ * Props for the BookingModal component.
+ */
 interface BookingModalProps {
+  /**
+   * Callback function to be called when the modal is closed.
+   */
   onClose: () => void;
+  /**
+   * The content to be rendered inside the modal.
+   */
   children: ReactNode;
 }
 
+/**
+ * A modal component used for booking.
+ */
 const BookingModal: React.FC<BookingModalProps> = ({ onClose, children }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center " onClick={onClose}>

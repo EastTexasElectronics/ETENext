@@ -13,6 +13,8 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { UnderConstruction } from '~/components/widgets/UnderConstruction';
 import CookieConsent from '~/components/widgets/CookieConsent';
 import { Toaster } from '~/components/ui/toaster';
+import  ChatBotModal  from '~/components/widgets/ChatBotModal';
+
 
 // Custom font
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
@@ -51,28 +53,30 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
-    <html
-      lang="en"
-      className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}
-      suppressHydrationWarning
-    >
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="tracking-tight antialiased text-gray-900 dark:text-secondary-300">
-        <ThemeProviders>
-          <UnderConstruction />
-          <Suspense fallback={<Loading />}>
-            <main>{children}</main>
-          </Suspense>
-          {/* <BookingButton /> */}
-          <CookieConsent />
-          <Footer />
-          <Toaster />
-        </ThemeProviders>
-      </body>
-    </html>
-   </ ClerkProvider>
+      <html
+        lang="en"
+        className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}
+        suppressHydrationWarning
+      >
+        <head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </head>
+        <body className="tracking-tight antialiased text-gray-900 dark:text-secondary-300">
+            <ChatBotModal />
+          <ThemeProviders>
+            <UnderConstruction />
+            <Suspense fallback={<Loading />}>
+              <main>{children}</main>
+            </Suspense>
+            {/* <BookingButton /> */}
+            <CookieConsent />
+            <Footer />
+            <Toaster />
+          </ThemeProviders>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
+

@@ -1,5 +1,5 @@
 // CookieSettings.tsx
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import { IconDeviceFloppy, IconXboxX } from '@tabler/icons-react';
@@ -22,7 +22,7 @@ const CookieSettings: React.FC<Props> = ({ onSave, onAccept, initialCookies, set
 
   // Handle changes in checkbox values
   const handleChange = (type: keyof CookieSettings) => {
-    setCookieSettings(prevSettings => ({
+    setCookieSettings((prevSettings) => ({
       ...prevSettings,
       [type]: !prevSettings[type],
     }));
@@ -58,10 +58,19 @@ const CookieSettings: React.FC<Props> = ({ onSave, onAccept, initialCookies, set
       ))}
       <p className="my-4">
         Customize how we use cookies to improve your experience. For more details, visit our{' '}
-        <a href="/cookie-policy" className="underline">Cookie Policy</a> and{' '}
-        <a href="/terms-and-conditions" className="underline">Terms and Conditions</a>.
+        <a href="/cookie-policy" className="underline">
+          Cookie Policy
+        </a>{' '}
+        and{' '}
+        <a href="/terms-and-conditions" className="underline">
+          Terms and Conditions
+        </a>
+        .
       </p>
-      <button onClick={handleSaveAndAccept} className="bg-blue-500 hover:bg-blue-700 text-white rounded px-4 py-2 mt-4 flex items-center justify-center">
+      <button
+        onClick={handleSaveAndAccept}
+        className="bg-blue-500 hover:bg-blue-700 text-white rounded px-4 py-2 mt-4 flex items-center justify-center"
+      >
         <IconDeviceFloppy size={20} className="mr-2" /> {/* Save icon */}
         Save and Accept
       </button>

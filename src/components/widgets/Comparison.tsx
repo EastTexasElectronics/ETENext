@@ -1,10 +1,22 @@
+/**
+ * Renders a comparison widget with multiple columns.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string} props.header - The header of the comparison widget.
+ * @param {Array} props.columns - The columns of the comparison widget.
+ * @param {string} props.id - The ID of the comparison widget.
+ * @param {boolean} [props.hasBackground=false] - Determines if the comparison widget has a background.
+ * @returns {JSX.Element} The comparison widget component.
+ */
+
 import { IconCheck, IconMinus } from '@tabler/icons-react';
 import { CallToActionType, ComparisonProps } from '~/shared/types';
 import CTA from '../common/CTA';
 import Headline from '../common/Headline';
 import WidgetWrapper from '../common/WidgetWrapper';
 
-const Comparison = ({ header, columns, id, hasBackground = false }: ComparisonProps) => (
+const Comparison = ({ header, columns, id, hasBackground = false }: ComparisonProps) => ( // Destructuring the props
   <WidgetWrapper id={id ? id : ''} hasBackground={hasBackground} containerClass="">
     {header && <Headline header={header} titleClass="text-2xl sm:text-3xl" />}
     <div className="relative ml-[-1em] flex overflow-x-auto md:pb-12">
@@ -25,7 +37,7 @@ const Comparison = ({ header, columns, id, hasBackground = false }: ComparisonPr
             {title}
           </h3>
           {items &&
-            items.map(({ title: title2 }, index2) => (
+            items.map(({ title: title2 }, index2) => ( // Mapping the items
               <div
                 key={`column-content-${index2}`}
                 className={`leading-7 text-gray-600 dark:text-secondary-400 ${index === 0 ? 'text-left' : 'text-center'}`}
@@ -41,7 +53,7 @@ const Comparison = ({ header, columns, id, hasBackground = false }: ComparisonPr
                 )}
               </div>
             ))}
-          {index !== 0 && callToAction && (
+          {index !== 0 && callToAction && ( // Conditional rendering of the callToAction
             <CTA callToAction={callToAction as CallToActionType} linkClass="btn btn-primary mt-8" />
           )}
         </div>
@@ -51,3 +63,4 @@ const Comparison = ({ header, columns, id, hasBackground = false }: ComparisonPr
 );
 
 export default Comparison;
+

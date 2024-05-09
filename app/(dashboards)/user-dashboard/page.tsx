@@ -1,5 +1,5 @@
 import React from 'react';
-import {TabsDemo} from '~/components/widgets/Tabs';
+import { TabsDemo } from '~/components/widgets/Tabs';
 import type { Metadata } from 'next';
 import CPortalHeader from '~/components/widgets/CPortalHeader';
 
@@ -14,6 +14,9 @@ const UserDashboard: React.FC = () => {
       <CPortalHeader />
       <div className="min-h-screen">
         <TabsDemo />
+        <div>
+          <iframe src='https://interfaces.zapier.com/embed/chatbot/clvwqfy4r000c10bmjp0yl7ir' height='600px' width='400px' allow='clipboard-write *'></iframe>
+          </div>
       </div>
     </>
   );

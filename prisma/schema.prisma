@@ -88,13 +88,14 @@ model Contact {
   createdAt     DateTime @default(now())
 }
 model WorkSession {
-  id        String      @id @default(cuid())
+  id        Int       @id @default(autoincrement())
   userId    String   
   clockIn   DateTime
   clockOut  DateTime?
+  isClockedIn Boolean @default(true)
   duration  Int?
-
-  @@unique([userId, clockIn])  // Ensures unique combination of 'userId' and 'clockIn'
+  @@unique([userId, clockIn])
 }
+
 
 

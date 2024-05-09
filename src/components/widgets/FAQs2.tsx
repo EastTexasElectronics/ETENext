@@ -1,3 +1,14 @@
+/**
+ * Renders a FAQs widget with collapsible items.
+ *
+ * @component
+ * @param {FAQsProps} props - The props for the FAQs widget.
+ * @param {string} props.header - The header text for the FAQs widget.
+ * @param {Item[]} props.items - The array of items to be displayed in the FAQs widget.
+ * @param {string} [props.id] - The optional ID for the FAQs widget.
+ * @param {boolean} [props.hasBackground=false] - Determines if the FAQs widget has a background.
+ * @returns {JSX.Element} The rendered FAQs widget.
+ */
 import Headline from '../common/Headline';
 import Collapse from '../common/Collapse';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';

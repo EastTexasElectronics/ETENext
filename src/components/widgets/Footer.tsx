@@ -1,3 +1,8 @@
+/**
+ * Renders the footer component.
+ * 
+ * @returns The rendered footer component.
+ */
 import { footerData } from '~/shared/data/global.data';
 
 const Footer = () => {
@@ -74,3 +79,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

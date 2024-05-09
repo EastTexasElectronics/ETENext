@@ -1,3 +1,15 @@
+/**
+ * Renders a call to action widget.
+ *
+ * @component
+ * @param {CallToActionProps} props - The props for the CallToAction component.
+ * @param {string} props.title - The title of the call to action.
+ * @param {string} props.subtitle - The subtitle of the call to action.
+ * @param {CallToActionType} props.callToAction - The call to action details.
+ * @param {string} props.id - The ID of the widget.
+ * @param {boolean} props.hasBackground - Indicates if the widget has a background.
+ * @returns {JSX.Element} The rendered CallToAction component.
+ */
 import { CallToActionProps, CallToActionType } from '~/shared/types';
 import CTA from '../common/CTA';
 import WidgetWrapper from '../common/WidgetWrapper';

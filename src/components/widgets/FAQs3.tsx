@@ -1,3 +1,15 @@
+/**
+ * Renders a widget that displays frequently asked questions in a collapsible format.
+ *
+ * @component
+ * @param {FAQsProps} props - The props for the FAQs3 component.
+ * @param {string} props.header - The header text for the FAQs widget.
+ * @param {Item[]} props.items - An array of items representing the frequently asked questions.
+ * @param {CallToActionType} props.callToAction - The call to action for the FAQs widget.
+ * @param {string} [props.id] - The optional ID for the FAQs widget.
+ * @param {boolean} [props.hasBackground=false] - Indicates whether the FAQs widget has a background.
+ * @returns {JSX.Element} The rendered FAQs3 component.
+ **/
 import Headline from '../common/Headline';
 import Collapse from '../common/Collapse';
 import { IconMinus, IconPlus } from '@tabler/icons-react';

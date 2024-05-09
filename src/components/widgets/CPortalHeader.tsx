@@ -141,14 +141,14 @@ const Header = () => {
               </div>
             )}
           </div>
-            <div className="ml-4 flex w-max flex-wrap justify-end">
-              <SignedOut>
-                <SignInButton />
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-            </div>
+          <div className="ml-4 flex w-max flex-wrap justify-end">
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
         </div>
       </div>
     </header>
