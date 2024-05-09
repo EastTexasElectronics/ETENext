@@ -3,9 +3,17 @@ const colors = require('tailwindcss/colors');
 const svgToDataUri = require('mini-svg-data-uri');
 
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
-
+const withMT = require("@material-tailwind/react/utils/withMT");
+ 
+module.exports = withMT({
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+});
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withMT ({
   content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx,md,mdx}'],
   theme: {
     container: {
@@ -132,7 +140,7 @@ module.exports = {
   ],
 
   darkMode: 'class',
-};
+});
 
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme('colors'));

@@ -4,7 +4,7 @@ import { Tabs } from '../ui/tabs';
 import ClockWidget from '~/components/widgets/ClockWidget';
 import  TimesheetTable  from '~/components/widgets/TimesheetTable';
 
-export function TabsDemo() {
+export function DashboardTabs() {
   const tabs = [
     {
       title: 'Punch Clock',
