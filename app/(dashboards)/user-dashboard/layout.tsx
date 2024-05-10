@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, ReactNode } from 'react';
-import { DashboardSidebar } from '../../../src/components/widgets/DashboardSideBar';
-import { DashboardHeader } from '../../../src/components/widgets/DashboardHeader';
+import { DashboardSidebar } from '~/components/widgets/DashboardSideBar';
+import DashboardHeader from '~/components/widgets/DashboardHeader';
 
 interface UserDashboardLayoutProps {
   children: ReactNode; // Specify that children can be any valid React node
@@ -10,6 +10,7 @@ interface UserDashboardLayoutProps {
 const UserDashboardLayout: React.FC<UserDashboardLayoutProps> = ({ children }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);

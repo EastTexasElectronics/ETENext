@@ -19,6 +19,9 @@ const URLs = {
   CONSULTATIONS: '/services/consultations',
   RECYCLING: '/services/e-waste-recycling',
   CPORTAL: '/user-dashboard',
+  PUNCH_CLOCK: '/user-dashboard/punch-clock',
+  TIMESHEETS: '/user-dashboard/timesheets',
+  SCHEDULE: '/user-dashboard/schedule',
 
   // Social Profiles
   FACEBOOK: 'https://www.facebook.com/',

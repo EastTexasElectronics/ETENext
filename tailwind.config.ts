@@ -3,17 +3,9 @@ const colors = require('tailwindcss/colors');
 const svgToDataUri = require('mini-svg-data-uri');
 
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
-const withMT = require("@material-tailwind/react/utils/withMT");
- 
-module.exports = withMT({
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-});
+
 /** @type {import('tailwindcss').Config} */
-module.exports = withMT ({
+module.exports = ({
   content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx,md,mdx}'],
   theme: {
     container: {
@@ -115,7 +107,7 @@ module.exports = withMT ({
     require('@tailwindcss/typography'),
     require('tailwindcss-animate'),
     'addVariablesForColors',
-    function ({ matchUtilities, theme }: any) {
+    function({ matchUtilities, theme }: any) {
       matchUtilities(
         {
           'bg-grid': (value: any) => ({

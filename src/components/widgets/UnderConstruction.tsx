@@ -31,7 +31,8 @@ export function UnderConstruction() {
             We are in the middle of separating our services and eCommerce websites. To visit our active site click the
             button below.
           </p>
-          <button className="rounded-full bg-black dark:bg-zinc-800 text-white flex items-center justify-center px-4 py-2 mt-4 text-xs font-bold space-x-2">
+          <button
+            className="rounded-full bg-black dark:bg-zinc-800 text-white flex items-center justify-center px-4 py-2 mt-4 text-xs font-bold space-x-2">
             <a href="https://www.easttexaselectronics.com" target="_blank" rel="noreferrer">
               Visit Active Site
             </a>
