@@ -2,6 +2,18 @@ import React, { ComponentType, ReactElement, ReactNode, MouseEventHandler, UseFo
 import { StaticImageData } from 'next/image';
 import { z } from 'zod';
 
+export type Timesheet = {
+  id: number;
+  clockIn: string;
+  clockOut: string | null;
+  duration: number;
+};
+
+interface TimesheetTableProps {
+  startDate: Date | null;
+  endDate: Date | null;
+}
+
 type CustomField = {
   title: string;
   value: string;
@@ -531,3 +543,5 @@ type CPortalHeaderProps = {
   showRssFeed?: boolean;
   position?: 'center' | 'right' | 'left';
 };
+
+
