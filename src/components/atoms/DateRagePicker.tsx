@@ -29,7 +29,9 @@ const DateRangePicker = () => {
           displayFormat={'MM/DD/YY'}
         />
       </div>
+      <div className="max-w-3xl">
       <TimesheetTable startDate={value.startDate} endDate={value.endDate} />
+      </div>
     </div>
   );
 };

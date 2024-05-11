@@ -2,7 +2,7 @@
 import React from 'react';
 
 import type { Metadata } from 'next';
-import DateRangePicker from '~/components/atoms/DateRagePicker';
+import MyTimesheets from '~/components/widgets/MyTimesheets';
 
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const Timesheets: React.FC = () => {
   return (
     <>
-      <DateRangePicker />
+      <MyTimesheets />
     </>
   );
 };
