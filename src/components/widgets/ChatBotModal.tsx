@@ -1,23 +1,20 @@
 'use client';
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { IconXboxX, IconMessage, IconSend, IconUserPlus } from '@tabler/icons-react';
 import Tooltip from '@mui/material/Tooltip';
+import { ChatMessage } from '~/shared/types';
 
 /**
  * A chatbot modal component that allows users to interact with an AI chatbot.
  * The chat interface initializes with an automatic greeting if the chat history is empty.
  * It features a modern and sleek design using Tailwind CSS for styling.
- * 
+ *
  * Features:
  * - Open/close functionality with a floating action button.
  * - Smooth scrolling for viewing the latest messages.
  * - Dynamic placeholder text for the input field.
  * - Responsive design for desktop and mobile views.
  */
-interface ChatMessage {
-  message: string;
-  sender: 'Me' | 'Techie Teddy';
-}
 
 const ChatBotModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +23,7 @@ const ChatBotModal = () => {
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const [placeholder, setPlaceholder] = useState('Ask me anything...');
+  const [placeholder] = useState('Ask me anything...');
 
   // Handles user input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -74,7 +71,7 @@ const ChatBotModal = () => {
   // Focuses the textarea and scrolls to the latest message when the chat history changes
   useEffect(() => {
     textareaRef.current?.focus();
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
   }, [chatHistory]);
 
   // Automatically sends a greeting when the chat modal is first opened and empty
@@ -88,24 +85,26 @@ const ChatBotModal = () => {
     <>
       {/* Open chat button */}
       {!isOpen && (
-        <button className="fixed bottom-4 right-4 z-50 p-4 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition duration-200 ease-in-out"
-                onClick={() => setIsOpen(true)}>
+        <button
+          className="fixed bottom-4 right-4 z-50 p-4 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition duration-200 ease-in-out"
+          onClick={() => setIsOpen(true)}>
           <IconMessage size={48} stroke={1.5} aria-label="Open chat" />
         </button>
       )}
 
       {/* Chat modal */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 md:inset-y-1/4 md:w-96 max-w-full p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl z-50 overflow-hidden flex flex-col"
-             role="dialog"
-             aria-labelledby="chat-title"
-             aria-live="polite">
+        <div
+          className="fixed bottom-4 right-4 md:inset-y-1/4 md:w-96 max-w-full p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl z-50 overflow-hidden flex flex-col"
+          role="dialog"
+          aria-labelledby="chat-title"
+          aria-live="polite">
           {/* Modal header */}
           <div className="flex justify-between items-center mb-4">
             <h2 id="chat-title" className="text-lg font-semibold text-gray-900 dark:text-white">
               Techie Teddy - Support Chat
             </h2>
-            <Tooltip title="Close Chat" placement='left'>
+            <Tooltip title="Close Chat" placement="left">
               <IconXboxX
                 size={24}
                 stroke={1.5}
@@ -141,13 +140,13 @@ const ChatBotModal = () => {
             />
             {/* Action buttons */}
             <div className="flex flex-col space-y-1">
-              <Tooltip title="Contact a Human" placement='top'>
+              <Tooltip title="Contact a Human" placement="top">
                 <button className="p-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"
                         aria-label="Open Contact Form">
                   <IconUserPlus size={30} />
                 </button>
               </Tooltip>
-              <Tooltip title="Send Message" placement='bottom'>
+              <Tooltip title="Send Message" placement="bottom">
                 <button type="submit"
                         className="p-2 bg-blue-500 text-white rounded disabled:opacity-50 hover:bg-blue-600 transition-colors"
                         disabled={loading}

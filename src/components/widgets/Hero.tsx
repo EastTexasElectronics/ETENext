@@ -15,7 +15,7 @@ import { HeroProps } from '~/shared/types';
 import CTA from '../common/CTA';
 import { HomeHero } from '~/components/widgets/HomeHero';
 
-const Hero = ({ title, subtitle, tagline, callToAction, callToAction2, image }: HeroProps) => {
+const Hero = ({ title, subtitle, tagline, callToAction, callToAction2 }: HeroProps) => {
   return (
     <section id="heroOne" className="relative overflow-hidden">
       <div className="absolute inset-0 z-0">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CompanyDetailsProps } from '~/shared/types';
-import { IconInfoCircle, IconEdit, IconDeviceFloppy } from '@tabler/icons-react';
+import { IconInfoCircle } from '@tabler/icons-react';
 
 // TODO make it obvious that you are in edit mode by changing the background color of the input fields
 // TODO Change edit/save button colors.  Save button should be green and edit button should be blue (as it is now)

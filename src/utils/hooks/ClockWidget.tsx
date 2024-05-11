@@ -1,13 +1,13 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 
 const ClockHook= () => {
-    const [isClockedIn, setClockedIn] = useState(false);
+    const [setClockedIn] = useState(false);
     const [timer, setTimer] = useState(0);
     const [intervalId, setIntervalId] = useState<number | null>(null);
-  
+
     const handleClockIn = () => {
       const id = window.setInterval(() => {
         setTimer((prevTimer) => prevTimer + 1);
@@ -15,7 +15,7 @@ const ClockHook= () => {
       setIntervalId(id);
       setClockedIn(true);
     };
-  
+
     const handleClockOut = () => {
       if (intervalId) {
         clearInterval(intervalId);
@@ -24,7 +24,7 @@ const ClockHook= () => {
       console.log(`Total time clocked: ${timer} seconds`);
       setTimer(0);
     };
-  
+
     useEffect(() => {
       return () => {
         if (intervalId) {

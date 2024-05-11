@@ -1,19 +1,6 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { IconXboxX, IconInfoCircle } from '@tabler/icons-react';
-
-/**
- * Props for the BookingModal component.
- */
-interface BookingModalProps {
-  /**
-   * Callback function to be called when the modal is closed.
-   */
-  onClose: () => void;
-  /**
-   * The content to be rendered inside the modal.
-   */
-  children: ReactNode;
-}
+import { BookingModalProps } from '~/shared/types'
 
 /**
  * A modal component used for booking.

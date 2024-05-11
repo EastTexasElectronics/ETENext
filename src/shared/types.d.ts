@@ -1,6 +1,61 @@
-import React, { ComponentType, ReactElement, ReactNode, SVGProps, MouseEventHandler, UseFormRegister } from 'react';
+import React, { ComponentType, ReactElement, ReactNode, MouseEventHandler, UseFormRegister } from 'react';
 import { StaticImageData } from 'next/image';
 import { z } from 'zod';
+
+type CustomField = {
+  title: string;
+  value: string;
+}
+
+type InputFieldProps = {
+  name: string;
+  title: string;
+  value: string;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleTitleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleDelete?: () => void;
+  isEditing: boolean;
+  titleRef?: React.RefObject<HTMLInputElement>;
+  copyToClipboard?: (value: string) => void; // Add this line to include copyToClipboard in the props
+}
+
+type CookieSettingsType = {
+  necessary: boolean;
+  analytics: boolean;
+  marketing: boolean;
+}
+
+type BookingModalProps = {
+  onClose: () => void;
+  children: ReactNode;
+}
+
+type ChatMessage = {
+  message: string;
+  sender: 'Me' | 'Techie Teddy';
+}
+
+type DashboardSidebarProps = {
+  isExpanded: boolean;
+  toggleSidebar: () => void;
+}
+
+type LoggerStep = {
+  stepNumber: number;
+  description: string;
+}
+
+/**
+ * Defines the data structure for instructions read from a JSON file.
+ */
+type InstructionsData = {
+  role: string;
+  objective: string;
+  steps: LoggerStep[];
+  integration: {
+    bookingLink: string;
+  };
+}
 
 type SVGReact = () => ReactElement;
 
@@ -52,21 +107,6 @@ type CTAProps = {
 };
 
 type DigitalAssetsProps = {
-  name: string;
-  website: string;
-  websiteDashboard: string;
-  domainDashboard: string;
-  businessNumber: string;
-  street: string;
-  city: string;
-  state: string;
-  zip: string;
-  mainContactName: string;
-  mainContactPhone: string;
-  mainContactEmail: string;
-  secondaryContactName: string;
-  secondaryContactPhone: string;
-  secondaryContactEmail: string;
   [key: string]: string; // Allows string indexing
 };
 

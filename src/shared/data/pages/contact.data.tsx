@@ -1,26 +1,25 @@
 import dynamicIcons from '~/components/atoms/Icons';
 import { ContactProps, FeaturesProps, ContactUsFormProps } from '~/shared/types';
-import { IconPhone, IconMail, IconGlobe } from '@tabler/icons-react';
 import URLs from '~/utils/constants/urls';
 import { Contact } from '~/components/SVG/contact';
 
-const FORM_INPUTS = [
-  { type: 'text', label: 'First name', name: 'name', autocomplete: 'on', placeholder: 'John' },
-  { type: 'text', label: 'Last name', name: 'lastName', autocomplete: 'on', placeholder: 'Doe' },
-  { type: 'email', label: 'Email address', name: 'email', autocomplete: 'on', placeholder: 'example@gmail.com' },
-  { type: 'text', label: 'Company name', name: 'companyName', autocomplete: 'on', placeholder: 'Acme Inc.' },
-  { type: 'text', label: 'Phone number', name: 'phone', autocomplete: 'on', placeholder: '(123) 456-7890' },
-];
+// const FORM_INPUTS = [
+//   { type: 'text', label: 'First name', name: 'name', autocomplete: 'on', placeholder: 'John' },
+//   { type: 'text', label: 'Last name', name: 'lastName', autocomplete: 'on', placeholder: 'Doe' },
+//   { type: 'email', label: 'Email address', name: 'email', autocomplete: 'on', placeholder: 'example@gmail.com' },
+//   { type: 'text', label: 'Company name', name: 'companyName', autocomplete: 'on', placeholder: 'Acme Inc.' },
+//   { type: 'text', label: 'Phone number', name: 'phone', autocomplete: 'on', placeholder: '(123) 456-7890' },
+// ];
 
-const RADIO_BUTTONS = {
-  generalContact: [
-    { label: 'General Inquiries' },
-    { label: 'Service Inquiries' },
-    { label: 'Product Inquiries' },
-    { label: 'Other' },
-  ],
-  preferredContact: [{ label: 'Phone Call' }, { label: 'Text Message' }, { label: 'Email' }],
-};
+// const RADIO_BUTTONS = {
+//   generalContact: [
+//     { label: 'General Inquiries' },
+//     { label: 'Service Inquiries' },
+//     { label: 'Product Inquiries' },
+//     { label: 'Other' },
+//   ],
+//   preferredContact: [{ label: 'Phone Call' }, { label: 'Text Message' }, { label: 'Email' }],
+// };
 
 // Contact data on Contact page
 // export const contact2Contact: ContactProps = {

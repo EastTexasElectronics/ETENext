@@ -3,12 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import CookieSettings from '../common/CookieSettings';
-
-interface CookieSettingsType {
-  necessary: boolean;
-  analytics: boolean;
-  marketing: boolean;
-}
+import { CookieSettingsType } from '~/shared/types'
 
 const CookieConsent: React.FC = () => {
   const [showBanner, setShowBanner] = useState<boolean>(false);

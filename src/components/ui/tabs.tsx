@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "../../utils/utils";
+import { cn } from '~/utils/utils';
 
 type Tab = {
   title: string;

@@ -4,59 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
-import winston from 'winston';
-
-/**
- * Configures the Winston logger with different transports based on the environment.
- * Logs are written to files in production and to the console during development.
- */
-const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.combine(
-    winston.format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss', // Ensures each log has a timestamp
-    }),
-    winston.format.errors({ stack: true }), // Includes stack trace in log entries
-    winston.format.splat(),
-    winston.format.json(), // Formats logs in JSON
-  ),
-  defaultMeta: { service: 'user-service' }, // Default metadata to include in logs
-  transports: [
-    // Logs all errors to `error.log`
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    // Logs all messages to `combined.log`
-    new winston.transports.File({ filename: 'combined.log' }),
-  ],
-});
-
-// In development, logs are also output to the console for easier debugging
-if (process.env.NODE_ENV !== 'production') {
-  logger.add(
-    new winston.transports.Console({
-      format: winston.format.simple(), // Simple format for console logs
-    }),
-  );
-}
-
-/**
- * Defines the structure for steps within the instructions.
- */
-interface Step {
-  stepNumber: number;
-  description: string;
-}
-
-/**
- * Defines the data structure for instructions read from a JSON file.
- */
-interface InstructionsData {
-  role: string;
-  objective: string;
-  steps: Step[];
-  integration: {
-    bookingLink: string;
-  };
-}
+import logger from '~/utils/logger';
+import { LoggerStep, InstructionsData } from '~/shared/types';
 
 /**
  * Processes POST requests to the chat API, handling user input and interacting with OpenAI's API.
@@ -88,7 +37,7 @@ export async function POST(req: NextRequest) {
     // Construct a formatted message from the instructions data
     const systemMessage =
       `Role: **${instructionsData.role}**\nObjective: **${instructionsData.objective}**\n\n` +
-      `**Interaction Steps:**\n${instructionsData.steps.map((step: Step) => `- ${step.description}`).join('\n')}\n\n` +
+      `**Interaction Steps:**\n${instructionsData.steps.map((step: LoggerStep) => `- ${step.description}`).join('\n')}\n\n` +
       `**Please use clear, concise language and include key details only. Our phone number is 9034711575 For more comprehensive guidance:**\n${instructionsData.integration.bookingLink}`;
 
     // Initialize the OpenAI API client with the provided API key

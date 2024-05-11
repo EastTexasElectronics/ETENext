@@ -1,27 +1,7 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { IconEdit, IconPlus, IconDeviceFloppy, IconXboxX } from '@tabler/icons-react';
-
-interface DigitalAssetsProps {
-  [key: string]: string;
-}
-
-interface CustomField {
-  title: string;
-  value: string;
-}
-
-interface InputFieldProps {
-  name: string;
-  title: string;
-  value: string;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleTitleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleDelete?: () => void;
-  isEditing: boolean;
-  titleRef?: React.RefObject<HTMLInputElement>;
-  copyToClipboard?: (value: string) => void; // Add this line to include copyToClipboard in the props
-}
+import { DigitalAssetsProps, CustomField, InputFieldProps } from '~/shared/types';
 
 const initialDetails: DigitalAssetsProps = {
   'Website:': 'https://www.acmecorp.com',

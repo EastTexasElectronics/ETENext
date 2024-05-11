@@ -2,13 +2,11 @@ import { Metadata } from 'next';
 import CallToAction from '~/components/widgets/CallToAction';
 import Content from '~/components/widgets/Content';
 import FAQs from '~/components/widgets/FAQs';
-import ServiceCards from '~/components/widgets/ServiceCards';
-import Features4 from '~/components/widgets/Features4';
+import ServiceCards from '~/components/widgets/ServiceCards';import Features4 from '~/components/widgets/Features4';
 import Hero from '~/components/widgets/Hero2';
 import {
   callToActionIT,
   contentITOne,
-  contentITTwo,
   faqsIT,
   features2IT,
   heroIT,

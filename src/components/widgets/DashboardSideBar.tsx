@@ -14,12 +14,7 @@ import {
   IconChevronDown,
 } from '@tabler/icons-react';
 import URLs from '~/utils/constants/urls';
-
-// This is the
-interface DashboardSidebarProps {
-  isExpanded: boolean;
-  toggleSidebar: () => void;
-}
+import { DashboardSidebarProps } from '~/shared/types'
 
 export const DashboardSidebar: React.FC<DashboardSidebarProps> = (x) => {
   const [showTimeMgmt, setShowTimeMgmt] = useState(false);

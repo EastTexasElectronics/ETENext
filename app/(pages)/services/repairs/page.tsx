@@ -2,8 +2,7 @@ import { Metadata } from 'next';
 import CallToAction from '~/components/widgets/CallToAction';
 import Content from '~/components/widgets/Content';
 import FAQs from '~/components/widgets/FAQs';
-import Features2 from '~/components/widgets/Features2';
-import Features4 from '~/components/widgets/Features4';
+import Features2 from '~/components/widgets/Features2';import Features4 from '~/components/widgets/Features4';
 import Hero from '~/components/widgets/Hero2';
 import {
   callToActionRepair,
