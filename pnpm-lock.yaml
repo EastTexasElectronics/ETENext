@@ -137,6 +137,9 @@ importers:
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
+      dayjs:
+        specifier: ^1.11.11
+        version: 1.11.11
       embla-carousel-react:
         specifier: ^8.0.4
         version: 8.0.4(react@18.3.1)
@@ -188,6 +191,9 @@ importers:
       react-resizable-panels:
         specifier: ^2.0.19
         version: 2.0.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-tailwindcss-datepicker:
+        specifier: ^1.6.6
+        version: 1.6.6(dayjs@1.11.11)(react@18.3.1)
       sharp:
         specifier: ^0.33.3
         version: 0.33.3
@@ -4177,6 +4183,12 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  react-tailwindcss-datepicker@1.6.6:
+    resolution: {integrity: sha512-kHSUonRO86PoYQQWPqpaSw2JeEn9OafdLsLBG85zO5Sfs23Ku8Ixt/YO+Is3TCBcFeOKnZgzhGLmP3NAXVlFkA==}
+    peerDependencies:
+      dayjs: ^1.11.6
+      react: ^17.0.2 || ^18.2.0
 
   react-transition-group@4.4.5:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
@@ -9230,6 +9242,11 @@ snapshots:
       tslib: 2.6.2
     optionalDependencies:
       '@types/react': 18.2.48
+
+  react-tailwindcss-datepicker@1.6.6(dayjs@1.11.11)(react@18.3.1):
+    dependencies:
+      dayjs: 1.11.11
+      react: 18.3.1
 
   react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

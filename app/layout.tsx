@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkProvider>
       <html
         lang="en"
-        className={`motion-safe:scroll-smooth 2xl:text-[24px] ${customFont.variable} font-sans`}
+        className={`motion-safe:scroll-smooth ${customFont.variable} font-sans`}
         suppressHydrationWarning
       >
       <head>

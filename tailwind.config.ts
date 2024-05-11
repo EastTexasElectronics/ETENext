@@ -6,7 +6,8 @@ const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenCo
 
 /** @type {import('tailwindcss').Config} */
 module.exports = ({
-  content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx,md,mdx}'],
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx,md,mdx}', "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",],
+
   theme: {
     container: {
       center: true,

@@ -1,6 +1,8 @@
+// app/(dashboards)/user-dashboard/timesheets/page.tsx
 import React from 'react';
-import TimesheetTable from '~/components/widgets/TimesheetTable';
+
 import type { Metadata } from 'next';
+import DateRangePicker from '~/components/atoms/DateRagePicker';
 
 
 export const metadata: Metadata = {
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
 const Timesheets: React.FC = () => {
   return (
     <>
-      <TimesheetTable />
+      <DateRangePicker />
     </>
   );
 };
