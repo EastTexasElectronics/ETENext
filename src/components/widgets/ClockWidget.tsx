@@ -1,3 +1,4 @@
+// src/components/widgets/ClockWidget.tsx
 'use client';
 import React, { useState, useEffect, useCallback, memo } from 'react';
 import { IconClockDollar, IconClockPause } from '@tabler/icons-react';

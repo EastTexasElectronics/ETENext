@@ -76,7 +76,7 @@ model VerificationToken {
 }
 
 model Contact {
-  id            String      @id @default(cuid())
+  id            String   @id @default(cuid())
   firstName     String
   lastName      String
   email         String
@@ -87,15 +87,18 @@ model Contact {
   contactMethod String
   createdAt     DateTime @default(now())
 }
+
+// This controlls clock in and out we need to add first name, last name and email here, they should not be required fields.
 model WorkSession {
-  id        Int       @id @default(autoincrement())
-  userId    String   
-  clockIn   DateTime
-  clockOut  DateTime?
-  isClockedIn Boolean @default(true)
-  duration  Int?
+  id          Int       @id @default(autoincrement())
+  userId      String
+  clockIn     DateTime
+  clockOut    DateTime?
+  isClockedIn Boolean   @default(true)
+  duration    Int?
+  firstName   String? // Added to store the user's first name
+  lastName    String? // Added to store the user's last name
+  email       String? // Added to store the user's email
+
   @@unique([userId, clockIn])
 }
-
-
-

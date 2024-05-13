@@ -1,36 +1,40 @@
 // pages/api/clockIn.ts
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '../../../src/utils/prisma';
-import { auth } from '@clerk/nextjs/server';
+import { auth, currentUser } from '@clerk/nextjs/server';
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   try {
-    const session = auth();
-    const { userId } = session;
-    let workSession = null; // Declare and assign a default value to 'workSession'
+    const { userId } = auth();
     if (!userId) {
-      console.log('Authorization failed, no user id.');
-      return new NextResponse(JSON.stringify(workSession), { status: 401 });
+      return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
     }
 
+    // Assuming that we need to typecast because the Clerk type definitions do not include firstName, lastName, email by default
+    const user = await currentUser();
+    if (!user) {
+      return new NextResponse(JSON.stringify({ error: 'User not found' }), { status: 404 });
+    }
+
+    // Safely access user details
+    const firstName = (user as any).firstName as string;
+    const lastName = (user as any).lastName as string;
+    const email = (user as any).email as string;
+
     const clockInTime = new Date();
-    console.log(`Attempting to clock in for userId: ${userId} at ${clockInTime}`);
-    workSession = await prisma.workSession.create({
-      // Assign a value to 'workSession'
+    const workSession = await prisma.workSession.create({
       data: {
         userId,
+        firstName,  // Storing first name
+        lastName,   // Storing last name
+        email,      // Storing email
         clockIn: clockInTime,
       },
     });
 
-    console.log(`Clock-in successful: ${JSON.stringify(workSession)}`);
     return new NextResponse(JSON.stringify(workSession), { status: 200 });
-  } catch (error: unknown) {
+  } catch (error) {
     console.error('Error during clock-in:', error);
-    if (error instanceof Error) {
-      return new NextResponse(JSON.stringify({ error: 'Error saving contact information' }), { status: 500 });
-    } else {
-      return new NextResponse(JSON.stringify({ error: 'Error saving contact information' }), { status: 500 });
-    }
+    return new NextResponse(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
   }
 }

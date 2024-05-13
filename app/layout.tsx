@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="tracking-tight antialiased text-gray-900 dark:text-secondary-300">
       {/*<ChatBotModal />*/}
       <ThemeProviders>
-        <UnderConstruction />
+        {/*<UnderConstruction />*/}
         <Suspense fallback={<Loading />}>
           <main>{children}</main>
         </Suspense>

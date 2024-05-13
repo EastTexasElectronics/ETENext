@@ -2,7 +2,7 @@
 import React from 'react';
 
 import type { Metadata } from 'next';
-import MyTimesheets from '~/components/widgets/MyTimesheets';
+import TimesheetTable from '~/components/widgets/TimesheetTable';
 
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const Timesheets: React.FC = () => {
   return (
     <>
-      <MyTimesheets />
+      <TimesheetTable />
     </>
   );
 };

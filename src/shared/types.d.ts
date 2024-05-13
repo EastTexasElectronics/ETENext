@@ -7,6 +7,8 @@ export type Timesheet = {
   clockIn: string;
   clockOut: string | null;
   duration: number;
+  firstName: string;  // Assuming these fields are part of your timesheet data
+  lastName: string;
 };
 
 interface TimesheetTableProps {

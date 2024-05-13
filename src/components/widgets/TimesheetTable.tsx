@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import axios from 'axios';
 import {
   ColumnDef,
@@ -10,39 +10,57 @@ import {
   getSortedRowModel,
   SortingState,
 } from '@tanstack/react-table';
-import { Button } from '~/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-} from '~/components/ui/dropdown-menu';
+import { cn } from '~/utils/utils';
+import Datepicker from 'react-tailwindcss-datepicker';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption, TableFooter } from '../ui/table';
-import { ChevronLeft, ChevronsLeft, ChevronRight, ChevronsRight, Info, Download, ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronsLeft,
+  ChevronRight,
+  ChevronsRight,
+  Info,
+  ChevronUp,
+  ChevronDown,
+  RefreshCcw,
+} from 'lucide-react';
 import Tooltip from '@mui/material/Tooltip';
 import { formatTime, formatDate, formatDuration, downloadFile } from '~/utils/TimesheetUtils';
-import { Timesheet, TimesheetTableProps } from '~/shared/types';
+import { Timesheet } from '~/shared/types';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from '~/components/ui/navigation-menu';
+import { useUser } from '@clerk/nextjs';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Input } from "~/components/ui/input"
+import { Label } from "~/components/ui/label"
 
-
-const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) => {
+const TimesheetTable: React.FC = () => {
   const [filteredTimesheets, setFilteredTimesheets] = useState<Timesheet[]>([]);
-  // Initialize sorting with a default column
-  const [sorting, setSorting] = useState<SortingState>([{ id: 'date', desc: false }]);  // Default sort by 'date' ascending
+  const [sorting, setSorting] = useState<SortingState>([{ id: 'date', desc: false }]);
+  const [dateRange, setDateRange] = useState({ startDate: null, endDate: null });
+  const [firstNameFilter, setFirstNameFilter] = useState('');
+  const [lastNameFilter, setLastNameFilter] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get('/api/timesheets');
-        filterTimesheets(response.data, startDate, endDate);
-      } catch (error) {
-        console.error('Failed to load timesheets:', error);
-      }
+      const response = await axios.get<Timesheet[]>('/api/timesheets');
+      filterTimesheets(response.data, dateRange.startDate, dateRange.endDate);
     };
     fetchData();
-  }, [startDate, endDate]);
+  }, [dateRange.startDate, dateRange.endDate, firstNameFilter, lastNameFilter]);
 
+  const handleValueChange = (newValue: any) => {
+    setDateRange(newValue);
+  };
 
   const downloadCSV = (includeHeaders: boolean) => {
     const headers = includeHeaders ? 'Date,Start Time,End Time,Total Hours\n' : '';
@@ -57,35 +75,56 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
   };
 
   const filterTimesheets = (timesheets: Timesheet[], startDate: Date | null, endDate: Date | null) => {
-    console.log('Filtering for dates:', startDate, endDate);
-
-    if (!startDate || !endDate) {
-      console.log('No valid dates provided, showing all timesheets.');
-      setFilteredTimesheets(timesheets);
-      return;
-    }
-
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    end.setHours(23, 59, 59, 999);
-
     const filteredData = timesheets.filter(timesheet => {
-      const clockInDate = new Date(timesheet.clockIn);
-      return clockInDate >= start && clockInDate <= end;
+      const startMatch = !startDate || new Date(timesheet.clockIn) >= startDate;
+      const endMatch = !endDate || new Date(timesheet.clockIn) <= endDate;
+      const firstNameMatch = timesheet.firstName ? timesheet.firstName.toLowerCase().includes(firstNameFilter.toLowerCase()) : false;
+      const lastNameMatch = timesheet.lastName ? timesheet.lastName.toLowerCase().includes(lastNameFilter.toLowerCase()) : false;
+      return startMatch && endMatch && (firstNameFilter ? firstNameMatch : true) && (lastNameFilter ? lastNameMatch : true);
     });
-
-    console.log('Filtered data:', filteredData);
     setFilteredTimesheets(filteredData);
   };
+
 
   const totalHoursSum = useMemo(() => {
     return filteredTimesheets.reduce((total, current) => total + (current.duration || 0), 0);
   }, [filteredTimesheets]);
-  // TODO The toggleSorting const gives the following ESLint Error
-  // TODO ESLint: The 'toggleSorting' function makes the dependencies of useMemo Hook (at line 133) change on every render. Move it inside the useMemo callback. Alternatively, wrap the definition of 'toggleSorting' in its own useCallback() Hook.(react-hooks/exhaustive-deps)
-  const toggleSorting = (columnId: string) => {
-    const isDesc = sorting.find(s => s.id === columnId)?.desc;
+
+  const toggleSorting = useCallback((columnId: string) => {
+    const existingSort = sorting.find(s => s.id === columnId);
+    const isDesc = existingSort ? existingSort.desc : false;
     setSorting([{ id: columnId, desc: !isDesc }]);
+  }, [sorting, setSorting]);
+
+  const handleSortSelection = (sortOption: string) => {
+    switch (sortOption) {
+      case 'dateDesc':
+        setSorting([{ id: 'date', desc: true }]);
+        break;
+      case 'dateAsc':
+        setSorting([{ id: 'date', desc: false }]);
+        break;
+      case 'hoursDesc':
+        setSorting([{ id: 'total_hours', desc: true }]);
+        break;
+      case 'hoursAsc':
+        setSorting([{ id: 'total_hours', desc: false }]);
+        break;
+      case 'firstNameAsc':
+        setSorting([{ id: 'firstName', desc: false }]);
+        break;
+      case 'firstNameDesc':
+        setSorting([{ id: 'firstName', desc: true }]);
+        break;
+      case 'lastNameAsc':
+        setSorting([{ id: 'lastName', desc: false }]);
+        break;
+      case 'lastNameDesc':
+        setSorting([{ id: 'lastName', desc: true }]);
+        break;
+      default:
+        setSorting([]);
+    }
   };
 
   const columns: ColumnDef<Timesheet>[] = useMemo(() => [
@@ -93,15 +132,54 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
       accessorKey: 'clockIn',
       header: () => {
         const sortStatus = sorting.find(s => s.id === 'date');
-        const direction = sortStatus?.desc ? <ChevronDown /> : <ChevronUp />;
+        const direction = sortStatus?.desc ?
+          <Tooltip title="Newest to Oldest" placement="bottom"><ChevronDown /></Tooltip> :
+          <Tooltip title="Oldest to Newest" placement="bottom"><ChevronUp /></Tooltip>;
         return (
-          <div onClick={() => setSorting([{ id: 'date', desc: !sortStatus?.desc }])} className="flex items-center cursor-pointer select-none">
+          <div onClick={() => setSorting([{ id: 'date', desc: !sortStatus?.desc }])}
+               className="flex items-center cursor-pointer select-none">
             Date {sortStatus && direction}
           </div>
         );
       },
       cell: (info) => formatDate(info.getValue() as string),
       id: 'date',
+      enableSorting: true,
+    },
+    {
+      accessorKey: 'firstName',
+      header: () => {
+        const sortStatus = sorting.find(s => s.id === 'first_name');
+        const direction = sortStatus?.desc ?
+          <Tooltip title="Descending" placement="bottom"><ChevronDown /></Tooltip> :
+          <Tooltip title="Ascending" placement="bottom"><ChevronUp /></Tooltip>;
+        return (
+          <div onClick={() => toggleSorting('first_name')}
+               className="flex items-center cursor-pointer select-none">
+            First Name {sortStatus && direction}
+          </div>
+        );
+      },
+      cell: (info) => info.getValue() || 'N/A',
+      id: 'first_name',
+      enableSorting: true,
+    },
+    {
+      accessorKey: 'lastName',
+      header: () => {
+        const sortStatus = sorting.find(s => s.id === 'last_name');
+        const direction = sortStatus?.desc ?
+          <Tooltip title="Descending" placement="bottom"><ChevronDown /></Tooltip> :
+          <Tooltip title="Ascending" placement="bottom"><ChevronUp /></Tooltip>;
+        return (
+          <div onClick={() => toggleSorting('last_name')}
+               className="flex items-center cursor-pointer select-none">
+            Last Name {sortStatus && direction}
+          </div>
+        );
+      },
+      cell: (info) => info.getValue() || 'N/A',
+      id: 'last_name',
       enableSorting: true,
     },
     {
@@ -120,8 +198,10 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
       accessorKey: 'duration',
       header: () => {
         const sortStatus = sorting.find(s => s.id === 'total_hours');
-        const direction = sortStatus?.desc ? <ChevronDown color="#fdf2f2" /> : <ChevronDown color="#fdf2f2" />;
-        console.log("Rendering Total Hours Sort Icon: ", sortStatus?.desc ? "Descending" : "Ascending");
+        const direction = sortStatus?.desc ?
+          <Tooltip title="Most to Least" placement="bottom"><ChevronDown /></Tooltip> :
+          <Tooltip title="Least to Most" placement="bottom"><ChevronUp /></Tooltip>;
+        console.log('Rendering Total Hours Sort Icon: ', sortStatus?.desc ? 'Descending' : 'Ascending');
         return (
           <div onClick={() => toggleSorting('total_hours')} className="flex items-center cursor-pointer select-none">
             Total Hours {sortStatus && direction}
@@ -132,9 +212,7 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
       id: 'total_hours',
       enableSorting: true,
     },
-  ], [sorting]);
-
-
+  ], [sorting, toggleSorting]);
 
   const table = useReactTable({
     columns,
@@ -148,32 +226,163 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
     },
   });
 
+  const { isLoaded, isSignedIn, user } = useUser(); // Accessing the user object
+  if (!isLoaded || !isSignedIn) {
+    return null;
+  }
+  function refreshPage(){
+    window.location.reload();
+  }
+  const ariaLabel = { 'aria-label': 'description' };
+
   return (
     <div>
       <div className="p-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline"
-                    className="bg-primary-500 dark:bg-secondary-800 text-black dark:text-white rounded hover:bg-blue-600">
-              <Download className="mr-2" size={16} /> Export Data
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            className="bg-white dark:bg-secondary-800 text-black dark:text-white shadow-md rounded p-1">
-            <DropdownMenuLabel className="text-gray-700 dark:text-white dark:font-extrabold">Export
-              Options</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onSelect={downloadJSON} className="hover:bg-blue-100 dark:hover:bg-slate-950">
-              JSON Format (For Databases)
-            </DropdownMenuItem>
-            <DropdownMenuItem onSelect={() => downloadCSV(false)} className="hover:bg-blue-100 dark:hover:bg-slate-950">
-              Plain CSV (Without Headers)
-            </DropdownMenuItem>
-            <DropdownMenuItem onSelect={() => downloadCSV(true)} className="hover:bg-blue-100 dark:hover:bg-slate-950">
-              CSV for Spreadsheet Programs
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger
+                className="text-black dark:text-white"
+                aria-label="Toggle navigation menu"
+                onPointerMove={(event) => event.preventDefault()}
+                onPointerLeave={(event) => event.preventDefault()}>Export</NavigationMenuTrigger>
+              <NavigationMenuContent
+                className="bg-white text-black dark:bg-slate-800 dark:text-white"
+                disableOutsidePointerEvents
+                onPointerEnter={(event) => event.preventDefault()}
+                onPointerLeave={(event) => event.preventDefault()}
+              >
+                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/sales"
+                      >
+                        <div className="mb-2 mt-4 text-lg font-medium">
+                          Export your timesheets
+                        </div>
+                        <p className="text-sm leading-tight text-muted-foreground">
+                          Don&apos;t see the format you need? Want to integrate with your accounting software? With our
+                          premium dashboard more integrations are available <a href="/sales">Contact Sales</a>
+
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
+                  <ListItem
+                    onClick={downloadJSON}
+                    title="Plain CSV"
+                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500">
+                    For text editors does not include headers.
+                  </ListItem>
+                  <ListItem
+                    onClick={() => downloadCSV(true)} title="CSV with Headers"
+                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500">
+                    CSV with headers are meant to work with spread sheet programs such as Excel.
+                  </ListItem>
+                  <ListItem
+                    onClick={() => downloadCSV(false)}
+                    title="JSON"
+                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500">
+                    Great for databases
+                  </ListItem>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger
+                className="text-black dark:text-white"
+                aria-label="Toggle navigation menu"
+                onPointerMove={(event) => event.preventDefault()}
+                onPointerLeave={(event) => event.preventDefault()}>
+                Sort By:
+              </NavigationMenuTrigger>
+              <NavigationMenuContent
+                className="bg-white text-black dark:bg-slate-800 dark:text-white"
+                disableOutsidePointerEvents
+                onPointerEnter={(event) => event.preventDefault()}
+                onPointerLeave={(event) => event.preventDefault()}
+              >
+                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <li className="row-span-3">
+                    <ListItem
+                      onClick={() => handleSortSelection('dateDesc')}
+                      title="Date: Newest to Oldest"
+                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                    />
+                    <ListItem
+                      onClick={() => handleSortSelection('dateAsc')}
+                      title="Date: Oldest to Newest"
+                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                    />
+                    <ListItem
+                      onClick={() => handleSortSelection('hoursDesc')}
+                      title="Total Hours: Most to Least"
+                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                    />
+                    <ListItem
+                      onClick={() => handleSortSelection('hoursAsc')}
+                      title="Total Hours: Least to Most"
+                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                    />
+                    <ListItem
+                      onClick={() => handleSortSelection('firstNameAsc')}
+                      title="First Name: A to Z"
+                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                    />
+                    <ListItem
+                      onClick={() => handleSortSelection('firstNameDesc')}
+                      title="First Name: Z to A"
+                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                    />
+                    <ListItem
+                      onClick={() => handleSortSelection('lastNameAsc')}
+                      title="Last Name: A to Z"
+                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                    />
+                    <ListItem
+                      onClick={() => handleSortSelection('lastNameDesc')}
+                      title="Last Name: Z to A"
+                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                    />
+                  </li>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <div className="w-64 p-4">
+              <Tooltip title="Select the dates you wish to be shown on the table.  By default all results are shown."
+                       placement="bottom">
+                <Datepicker
+                  showShortcuts={true}
+                  separator={'-'}
+                  popoverDirection="down"
+                  showFooter={true}
+                  value={dateRange}
+                  useRange={true}
+                  onChange={handleValueChange}
+                  placeholder={'Select Date Range'}
+                  displayFormat={'MM/DD/YY'}
+                />
+              </Tooltip>
+            </div>
+          </NavigationMenuList>
+          <Label htmlFor="email" className="mr-2">Filter By Name:</Label>
+          <Input
+            type="firstName"
+            id="firstName"
+            placeholder="First Name"
+            value={firstNameFilter}
+            onChange={e => setFirstNameFilter(e.target.value)} />
+          <Label htmlFor="email" className="mr-2 ml-2">Or</Label>
+          <Input
+            type="lastName" id="lastName"
+            placeholder="Last Name"
+            value={lastNameFilter}
+            onChange={e => setLastNameFilter(e.target.value)} />
+          {/* TODO I would like to amke th*/}
+          <RefreshCcw onClick={ refreshPage } />
+        </NavigationMenu>
       </div>
       <div className="rounded-md border text-xs text-slate-950 dark:text-white">
         <Table>
@@ -200,7 +409,8 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
               </TableRow>
             ))}
           </TableBody>
-          <TableFooter className="bg-slate-600 dark:bg-slate-900">
+          {/*TODO Move the Info Icon to the right side of the Total Hours: Current it is below it.*/}
+          <TableFooter className="bg-slate-600 dark:bg-slate-900 ">
             <TableRow>
               <TableCell colSpan={3}>Total Hours:
                 <Tooltip title="Displays your total hours for the date range selected" placement="right">
@@ -213,7 +423,6 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
         </Table>
         <div className="flex items-center justify-center space-x-4 p-2">
           <div className="flex items-center space-x-2">
-            {/* First Page Button */}
             <button
               onClick={() => table.firstPage()}
               disabled={!table.getCanPreviousPage()}
@@ -259,7 +468,7 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
                     table.setPageSize(Number(e.target.value));
                   }}
           >
-            {[7, 14, 21, 28, 35].map(pageSize => (
+            {[10, 20, 30, 40, 50].map(pageSize => (
               <option key={pageSize} value={pageSize}>
                 {pageSize}
               </option>
@@ -268,8 +477,61 @@ const TimesheetTable: React.FC<TimesheetTableProps> = ({ startDate, endDate }) =
           <span className="ml-2">Rows</span>
         </div>
       </div>
+      {/*TODO Update Accordion content*/}
+      <Accordion
+        defaultExpanded
+        className="bg-white border-black text-black dark:bg-slate-800 dark:border-white dark:text-white rounded-2xl">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon className="text-black dark:text-white" />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+        >
+          <Typography>
+            {user && (
+              <h1 className="text-sm font-bold ml-4 hidden sm:block">👋 Hi, {user.firstName} Upgrade to unlock more
+                features! </h1>
+            )}
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            With an organization membership you unlock this following for your timesheets
+            <ul>
+              <li>Manage all of your employees times sheets in one place.</li>
+            </ul>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </div>
   );
 };
 
 export default TimesheetTable;
+
+const ListItem = React.forwardRef<
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'>
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+            className,
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = 'ListItem';
+
+
