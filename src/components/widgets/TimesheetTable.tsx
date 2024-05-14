@@ -21,7 +21,26 @@ import {
   Info,
   ChevronUp,
   ChevronDown,
+  ArrowDownAZ,
+  ArrowUpZA,
+  ArrowDown01,
+  ArrowUp10,
   RefreshCcw,
+  Copy,
+  Cloud,
+  CreditCard,
+  Github,
+  Keyboard,
+  LifeBuoy,
+  LogOut,
+  Mail,
+  MessageSquare,
+  Plus,
+  PlusCircle,
+  Settings,
+  User,
+  UserPlus,
+  Users,
 } from 'lucide-react';
 import Tooltip from '@mui/material/Tooltip';
 import { formatTime, formatDate, formatDuration, downloadFile } from '~/utils/TimesheetUtils';
@@ -40,8 +59,26 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Input } from "~/components/ui/input"
-import { Label } from "~/components/ui/label"
+import { Input } from '~/components/ui/input';
+import { Label } from '~/components/ui/label';
+import { Button } from "~/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "~/components/ui/dropdown-menu"
+
+
+
 
 const TimesheetTable: React.FC = () => {
   const [filteredTimesheets, setFilteredTimesheets] = useState<Timesheet[]>([]);
@@ -230,29 +267,134 @@ const TimesheetTable: React.FC = () => {
   if (!isLoaded || !isSignedIn) {
     return null;
   }
-  function refreshPage(){
+
+  function refreshPage() {
     window.location.reload();
   }
+
   const ariaLabel = { 'aria-label': 'description' };
 
   return (
     <div>
-      <div className="p-2">
-        <NavigationMenu>
+      <div className="p-2 flex justify-center items-center w-full">
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">Open</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuItem>
+                <User className="mr-2 h-4 w-4" />
+                <span>Profile</span>
+                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <CreditCard className="mr-2 h-4 w-4" />
+                <span>Billing</span>
+                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Settings className="mr-2 h-4 w-4" />
+                <span>Settings</span>
+                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Keyboard className="mr-2 h-4 w-4" />
+                <span>Keyboard shortcuts</span>
+                <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuItem>
+                <Users className="mr-2 h-4 w-4" />
+                <span>Team</span>
+              </DropdownMenuItem>
+              <DropdownMenuSub>
+                <DropdownMenuSubTrigger>
+                  <UserPlus className="mr-2 h-4 w-4" />
+                  <span>Invite users</span>
+                </DropdownMenuSubTrigger>
+                <DropdownMenuPortal>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuItem>
+                      <Mail className="mr-2 h-4 w-4" />
+                      <span>Email</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <MessageSquare className="mr-2 h-4 w-4" />
+                      <span>Message</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                      <PlusCircle className="mr-2 h-4 w-4" />
+                      <span>More...</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuSubContent>
+                </DropdownMenuPortal>
+              </DropdownMenuSub>
+              <DropdownMenuItem>
+                <Plus className="mr-2 h-4 w-4" />
+                <span>New Team</span>
+                <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Github className="mr-2 h-4 w-4" />
+              <span>GitHub</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <LifeBuoy className="mr-2 h-4 w-4" />
+              <span>Support</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem disabled>
+              <Cloud className="mr-2 h-4 w-4" />
+              <span>API</span>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Log out</span>
+              <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <NavigationMenu className="max-w-screen-xl w-full">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger
                 className="text-black dark:text-white"
                 aria-label="Toggle navigation menu"
                 onPointerMove={(event) => event.preventDefault()}
-                onPointerLeave={(event) => event.preventDefault()}>Export</NavigationMenuTrigger>
+                onPointerLeave={(event) => event.preventDefault()}
+              >
+                Export
+              </NavigationMenuTrigger>
               <NavigationMenuContent
-                className="bg-white text-black dark:bg-slate-800 dark:text-white"
+                className="bg-white dark:bg-slate-800 text-black dark:text-white"
                 disableOutsidePointerEvents
                 onPointerEnter={(event) => event.preventDefault()}
                 onPointerLeave={(event) => event.preventDefault()}
               >
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <ul className="grid gap-3 p-6 w-full max-w-md md:max-w-lg lg:max-w-xl lg:grid-cols-[.75fr_1fr]">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
@@ -263,9 +405,8 @@ const TimesheetTable: React.FC = () => {
                           Export your timesheets
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          Don&apos;t see the format you need? Want to integrate with your accounting software? With our
+                          Don't see the format you need? Want to integrate with your accounting software? With our
                           premium dashboard more integrations are available <a href="/sales">Contact Sales</a>
-
                         </p>
                       </a>
                     </NavigationMenuLink>
@@ -273,18 +414,22 @@ const TimesheetTable: React.FC = () => {
                   <ListItem
                     onClick={downloadJSON}
                     title="Plain CSV"
-                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500">
+                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                  >
                     For text editors does not include headers.
                   </ListItem>
                   <ListItem
-                    onClick={() => downloadCSV(true)} title="CSV with Headers"
-                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500">
+                    onClick={() => downloadCSV(true)}
+                    title="CSV with Headers"
+                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                  >
                     CSV with headers are meant to work with spread sheet programs such as Excel.
                   </ListItem>
                   <ListItem
                     onClick={() => downloadCSV(false)}
                     title="JSON"
-                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500">
+                    className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                  >
                     Great for databases
                   </ListItem>
                 </ul>
@@ -295,95 +440,137 @@ const TimesheetTable: React.FC = () => {
                 className="text-black dark:text-white"
                 aria-label="Toggle navigation menu"
                 onPointerMove={(event) => event.preventDefault()}
-                onPointerLeave={(event) => event.preventDefault()}>
+                onPointerLeave={(event) => event.preventDefault()}
+              >
                 Sort By:
               </NavigationMenuTrigger>
               <NavigationMenuContent
-                className="bg-white text-black dark:bg-slate-800 dark:text-white"
+                className="bg-white dark:bg-slate-800 dark:text-white"
                 disableOutsidePointerEvents
                 onPointerEnter={(event) => event.preventDefault()}
                 onPointerLeave={(event) => event.preventDefault()}
               >
-                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                  <li className="row-span-3">
-                    <ListItem
-                      onClick={() => handleSortSelection('dateDesc')}
-                      title="Date: Newest to Oldest"
-                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
-                    />
-                    <ListItem
-                      onClick={() => handleSortSelection('dateAsc')}
-                      title="Date: Oldest to Newest"
-                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
-                    />
-                    <ListItem
-                      onClick={() => handleSortSelection('hoursDesc')}
-                      title="Total Hours: Most to Least"
-                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
-                    />
-                    <ListItem
-                      onClick={() => handleSortSelection('hoursAsc')}
-                      title="Total Hours: Least to Most"
-                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
-                    />
-                    <ListItem
-                      onClick={() => handleSortSelection('firstNameAsc')}
-                      title="First Name: A to Z"
-                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
-                    />
-                    <ListItem
-                      onClick={() => handleSortSelection('firstNameDesc')}
-                      title="First Name: Z to A"
-                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
-                    />
-                    <ListItem
-                      onClick={() => handleSortSelection('lastNameAsc')}
-                      title="Last Name: A to Z"
-                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
-                    />
-                    <ListItem
-                      onClick={() => handleSortSelection('lastNameDesc')}
-                      title="Last Name: Z to A"
-                      className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
-                    />
+                <ul className="w-64">
+                  <li className="flex flex-col space-y-2">
+                    {/* Each sort option is rendered with an icon and title */}
+                    <span className="flex items-center">
+                <ArrowUp10 size={20} className="text-black dark:text-white" />
+                <ListItem
+                  onClick={() => handleSortSelection('dateDesc')}
+                  title="Date: Newest to Oldest"
+                  className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                />
+              </span>
+                    <span className="flex items-center">
+                <ArrowDown01 size={20} className="text-black dark:text-white" />
+                <ListItem
+                  onClick={() => handleSortSelection('dateAsc')}
+                  title="Date: Oldest to Newest"
+                  className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                />
+              </span>
+                    <span className="flex items-center">
+                <ArrowUp10 size={20} className="text-black dark:text-white" />
+                <ListItem
+                  onClick={() => handleSortSelection('hoursDesc')}
+                  title="Total Hours: Most to Least"
+                  className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                />
+              </span>
+                    <span className="flex items-center">
+                <ArrowDown01 size={20} className="text-black dark:text-white" />
+                <ListItem
+                  onClick={() => handleSortSelection('hoursAsc')}
+                  title="Total Hours: Least to Most"
+                  className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                />
+              </span>
+                    <span className="flex items-center">
+                <ArrowDownAZ size={20} className="text-black dark:text-white" />
+                <ListItem
+                  onClick={() => handleSortSelection('firstNameAsc')}
+                  title="First Name: A to Z"
+                  className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                />
+              </span>
+                    <span className="flex items-center">
+                <ArrowUpZA size={20} className="text-black dark:text-white" />
+                <ListItem
+                  onClick={() => handleSortSelection('firstNameDesc')}
+                  title="First Name: Z to A"
+                  className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                />
+              </span>
+                    <span className="flex items-center">
+                <ArrowDownAZ size={20} className="text-black dark:text-white" />
+                <ListItem
+                  onClick={() => handleSortSelection('lastNameAsc')}
+                  title="Last Name: A to Z"
+                  className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                />
+              </span>
+                    <span className="flex items-center">
+                <ArrowUpZA size={20} className="text-black dark:text-white" />
+                <ListItem
+                  onClick={() => handleSortSelection('lastNameDesc')}
+                  title="Last Name: Z to A"
+                  className="text-lg font-medium cursor-pointer hover:bg-gray-400 dark:hover:bg-primary-500"
+                />
+              </span>
                   </li>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <div className="w-64 p-4">
-              <Tooltip title="Select the dates you wish to be shown on the table.  By default all results are shown."
+              <Tooltip title="Select the dates you wish to be shown on the table. By default all results are shown."
                        placement="bottom">
                 <Datepicker
                   showShortcuts={true}
-                  separator={'-'}
+                  inputClassName="w-full rounded-md focus:ring-0 font-normal bg-gray-100 dark:bg-slate-800 dark:placeholder:text-white-100"
+                  separator="-"
+                  primaryColor="indigo"
                   popoverDirection="down"
                   showFooter={true}
                   value={dateRange}
-                  useRange={true}
+                  useRange={false}
+                  startWeekOn="sun"
                   onChange={handleValueChange}
-                  placeholder={'Select Date Range'}
-                  displayFormat={'MM/DD/YY'}
+                  placeholder="Select Date Range"
+                  displayFormat="MM/DD/YY"
+                />
+              </Tooltip>
+            </div>
+            <div className="flex items-center my-4">
+              <Label htmlFor="firstName" className="mr-2">Filter By Name:</Label>
+              <Input
+                type="text"
+                className="bg-gray-300 text-black dark:bg-secondary-700 dark:text-white"
+                id="firstName"
+                placeholder="First Name"
+                value={firstNameFilter}
+                onChange={e => setFirstNameFilter(e.target.value)}
+              />
+              <Label htmlFor="lastName" className="mr-2 ml-2">Or</Label>
+              <Input
+                type="text"
+                id="lastName"
+                className="bg-gray-300 text-black dark:bg-secondary-700 dark:text-white"
+                placeholder="Last Name"
+                value={lastNameFilter}
+                onChange={e => setLastNameFilter(e.target.value)}
+              />
+              <Tooltip title="Refresh Table" placement="left">
+                <RefreshCcw
+                  onClick={refreshPage}
+                  className="ml-2"
+                  size={24}
                 />
               </Tooltip>
             </div>
           </NavigationMenuList>
-          <Label htmlFor="email" className="mr-2">Filter By Name:</Label>
-          <Input
-            type="firstName"
-            id="firstName"
-            placeholder="First Name"
-            value={firstNameFilter}
-            onChange={e => setFirstNameFilter(e.target.value)} />
-          <Label htmlFor="email" className="mr-2 ml-2">Or</Label>
-          <Input
-            type="lastName" id="lastName"
-            placeholder="Last Name"
-            value={lastNameFilter}
-            onChange={e => setLastNameFilter(e.target.value)} />
-          {/* TODO I would like to amke th*/}
-          <RefreshCcw onClick={ refreshPage } />
         </NavigationMenu>
       </div>
+
       <div className="rounded-md border text-xs text-slate-950 dark:text-white">
         <Table>
           <TableCaption>A list of your time sheets.</TableCaption>
@@ -410,13 +597,9 @@ const TimesheetTable: React.FC = () => {
             ))}
           </TableBody>
           {/*TODO Move the Info Icon to the right side of the Total Hours: Current it is below it.*/}
-          <TableFooter className="bg-slate-600 dark:bg-slate-900 ">
+          <TableFooter className="w-full bg-slate-600 dark:bg-slate-900 ">
             <TableRow>
-              <TableCell colSpan={3}>Total Hours:
-                <Tooltip title="Displays your total hours for the date range selected" placement="right">
-                  <Info size={15} className="ml-1 text-slate-950 dark:text-primary-400 align-middle" />
-                </Tooltip>
-              </TableCell>
+              <TableCell colSpan={5}>Total Hours:</TableCell>
               <TableCell>{formatDuration(totalHoursSum)}</TableCell>
             </TableRow>
           </TableFooter>
@@ -533,5 +716,3 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = 'ListItem';
-
-
